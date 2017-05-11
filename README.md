@@ -1,2 +1,0 @@
-# ProjectLightTheWay
-Veteran Resources
