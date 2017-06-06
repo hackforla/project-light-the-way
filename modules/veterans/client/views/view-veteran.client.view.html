@@ -1,0 +1,26 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.veteran.name"></h1>
+  </div>
+  <div class="pull-right"
+       ng-show="vm.veteran.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       ui-sref="veterans.edit({ veteranId: vm.veteran._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="vm.veteran.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.veteran.user"
+            ng-bind="vm.veteran.user.displayName"></span>
+      <span ng-if="!vm.veteran.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="vm.veteran.content"></p>
+</section>
