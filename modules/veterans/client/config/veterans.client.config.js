@@ -18,14 +18,21 @@
 
     // Add the dropdown list item
     menuService.addSubMenuItem('topbar', 'veterans', {
-      title: 'List Veterans',
+      title: 'Transitioning',
       state: 'veterans.list'
     });
 
     // Add the dropdown create item
     menuService.addSubMenuItem('topbar', 'veterans', {
-      title: 'Create Veteran',
+      title: 'Dire',
       state: 'veterans.create',
+      roles: ['user']
+    });
+
+    // Add the dropdown create item
+    menuService.addSubMenuItem('topbar', 'transitions', {
+      title: 'Test',
+      state: 'transitions.list',
       roles: ['user']
     });
   }

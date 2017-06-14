@@ -1,8 +1,8 @@
 <section>
   <div class="page-header">
-    <h1>Transitions</h1>
+    <h1>Available Resources</h1>
   </div>
-  <div class="list-group">
+  <!-- <div class="list-group">
     <a ng-repeat="transition in vm.transitions"
        ui-sref="transitions.view({ transitionId: transition._id })"
        class="list-group-item">
@@ -15,8 +15,33 @@
       </small>
       <h4 class="list-group-item-heading" ng-bind="transition.name"></h4>
     </a>
+  </div> -->
+  <div class="row">
+    <div class="col-md-3 txt-c">
+      Sidebar Options
+    </div>
+    <div class="list-group vet-resources col-md-9">
+      <div class="vet-resources-list">
+        <a ng-repeat="demo in vm.demos">
+          <div class="row">
+            <div class="col-md-1 txt-c">
+              <i class="fa fa-picture-o fa-3x" aria-hidden="true"></i>
+            </div>
+            <div class="col-md-11">
+              <h2 ng-bind="demo.name"></h2>
+              <p ng-bind="demo.desc"></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <a href="{{demo.link}}" ng-bind="{{demo.link}}"></a>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
-  <div class="alert alert-warning text-center" ng-if="vm.transitions.$resolved && !vm.transitions.length">
+  <!-- <div class="alert alert-warning text-center" ng-if="vm.transitions.$resolved && !vm.transitions.length">
     No Transitions yet, why don't you <a ui-sref="transitions.create">create one</a>?
-  </div>
+  </div> -->
 </section>

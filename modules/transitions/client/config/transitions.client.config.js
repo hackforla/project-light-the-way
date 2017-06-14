@@ -1,4 +1,4 @@
-(function () {
+(function() {
   'use strict';
 
   angular
@@ -10,7 +10,7 @@
   function menuConfig(menuService) {
     // Set top bar menu items
     menuService.addMenuItem('topbar', {
-      title: 'Transitions',
+      title: 'Transition',
       state: 'transitions',
       type: 'dropdown',
       roles: ['*']
@@ -18,7 +18,7 @@
 
     // Add the dropdown list item
     menuService.addSubMenuItem('topbar', 'transitions', {
-      title: 'List Transitions',
+      title: 'Go to page',
       state: 'transitions.list'
     });
 
