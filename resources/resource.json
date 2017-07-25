@@ -1,0 +1,17 @@
+{
+  "org-name":"Tech Hire",
+  "desc":"TechHire LA is an innovative job training program to prepare Angelenos for high-demand careers in technology with no degree required.",
+  "site":"ypiusa.org/techhire",
+  "address":"6464 sunset blvd.",
+  "city":"hollywood",
+  "state":"ca",
+  "zip":"90028",
+  "poc":{
+    "name":"David Canlas",
+    "email":"dcanlas@ypiusa.org",
+    "line":["213","673","5972"]
+  },
+  "email":"techhire@ypiusa.org",
+  "line":["213","688","2802"],
+  "tags":["scholarship"]
+}
