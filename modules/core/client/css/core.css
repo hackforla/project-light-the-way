@@ -1,3 +1,10 @@
+
+*{
+  font-family: "Montserrat", sans-serif, serif;
+}
+body{
+  font-size:16px;
+}
 .content {
   margin-top: 50px;
 }
@@ -37,4 +44,126 @@ a:hover .header-profile-image {
 }
 .txt-c{
   text-align: center;
+}
+.no-col-pad > [class^="col-"]{
+  padding:0;
+}
+
+.hasHeader{
+  margin-top:20px;
+}
+
+
+
+/* New Default Color Theme */
+
+.bg{
+  min-height: 500px;
+  width:100%;
+}
+.bg-grey{
+  background:#F1F1F3
+}
+
+/* Landing Page Components */
+
+.hero{
+  min-height: 30vh;
+  width:100%;
+  height:auto;
+}
+
+.hero-title{
+  text-align: center;
+  font-weight: 600;
+  font-size:2em;
+  margin-top:20vh;
+  color:#BDC3C7
+}
+
+
+/* Landing Page - Search Components */
+
+.search{
+  width: 600px;
+  height:auto;
+  margin:20px auto;
+  position: relative;
+}
+
+.search i{
+  position: absolute;
+  padding:12px;
+  color:#7F8C8D
+}
+.search input[type="text"]{
+  padding:8px;
+  padding-left:35px;
+  width:100%;
+  border-radius: 3px;
+  border:1px solid #7F8C8D;
+}
+.search input[type="text"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #BDC3C7;
+}
+.search input[type="text"]::-moz-placeholder { /* Firefox 19+ */
+  color: #BDC3C7;
+}
+.search input[type="text"]:-ms-input-placeholder { /* IE 10+ */
+  color: #BDC3C7;
+}
+.search input[type="text"]:-moz-placeholder { /* Firefox 18- */
+  color: #BDC3C7;
+}
+
+
+.search-buttons{
+  margin-top:20px;
+  text-align: center;
+  font-size:.8em;
+  font-weight: 400;
+}
+
+.btn-search{
+  border:none;
+  background:#7F8C8D;
+  color:#fff;
+  padding:8px 30px;
+}
+.btn-search:hover{
+  background:#BDC3C7;
+  color:#fff;
+}
+
+/* Landing Page - Topics Components */
+
+.topics{
+  width:1000px;
+  margin:10px auto;
+}
+.topic{
+  background:#fff;
+  border-radius: 10px;
+  height:260px;
+  width:240px;
+  position: relative;
+  float:left;
+  margin:5px;
+}
+.topic i{
+  padding:50% 0;
+  margin-left:50%;
+  transform: translate(-50%, 0);
+}
+.topic-name{
+  position: absolute;
+  width:100%;
+  bottom:10px;
+}
+
+/* Footer Components */
+
+.footer-simple{
+  padding:15px 0;
+  color:#7F8C8D
 }
