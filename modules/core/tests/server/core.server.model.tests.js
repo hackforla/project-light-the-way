@@ -6,18 +6,18 @@
 var should = require('should'),
   mongoose = require('mongoose'),
   User = mongoose.model('User'),
-  Transition = mongoose.model('Transition');
+  Core = mongoose.model('Core');
 
 /**
  * Globals
  */
 var user,
-  transition;
+  core;
 
 /**
  * Unit tests
  */
-describe('Transition Model Unit Tests:', function() {
+describe('Core Model Unit Tests:', function() {
   beforeEach(function(done) {
     user = new User({
       firstName: 'Full',
@@ -29,9 +29,9 @@ describe('Transition Model Unit Tests:', function() {
     });
 
     user.save(function() {
-      transition = new Transition({
-        name: 'Transition Name',
-        user: user
+      core = new Core({
+        // Add model fields
+        // ...
       });
 
       done();
@@ -40,28 +40,17 @@ describe('Transition Model Unit Tests:', function() {
 
   describe('Method Save', function() {
     it('should be able to save without problems', function(done) {
-      this.timeout(0);
-      return transition.save(function(err) {
+      return core.save(function(err) {
         should.not.exist(err);
-        done();
-      });
-    });
-
-    it('should be able to show an error when try to save without name', function(done) {
-      transition.name = '';
-
-      return transition.save(function(err) {
-        should.exist(err);
         done();
       });
     });
   });
 
   afterEach(function(done) {
-    Transition.remove().exec(function() {
-      User.remove().exec(function() {
-        done();
-      });
-    });
+    Core.remove().exec();
+    User.remove().exec();
+
+    done();
   });
 });
