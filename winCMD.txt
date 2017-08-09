@@ -1,0 +1,1 @@
+cd C:\dev\sites\projectlighttheway ; grunt ; start microsoft-edge:http://localhost:3000
