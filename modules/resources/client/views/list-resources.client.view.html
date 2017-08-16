@@ -2,36 +2,55 @@
   <div class="page-header">
     <h1>Resources</h1>
   </div>
+
+  <input class="input-simple" type="text" placeholder="Search Resources" ng-model="resourceSearch">
+
   <div class="list-group">
-    <a ng-repeat="resource in vm.resources"
-       ui-sref="resources.view({ resourceId: resource._id })"
-       class="list-group-item">
-       <table class="table table-hover" >
-          <thead>
-            <tr>
-              <th style="width:15%;">Left</th>
-              <th>Right</th>
-            </tr>
-          </thead>
-         <tbody>
-           <tr ng-repeat="(key, value) in resource">
-             <td ng-bind="key">
-               A:
-             </td>
-             <td ng-bind="value">
-               B
-             </td>
-           </tr>
-         </tbody>
-       </table>
-      <!-- <small class="list-group-item-text">
-        Posted on
-        <span ng-bind="resource.created | date:'mediumDate'"></span>
-        by
-        <span ng-if="resource.user" ng-bind="resource.user.displayName"></span>
-        <span ng-if="!resource.user">Deleted User</span>
-      </small> -->
-    </a>
+    <table class="table table-hover resources">
+      <thead>
+        <tr>
+          <th>Organization</th>
+          <th>Description</th>
+          <th>Website</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Zip</th>
+          <th>POC</th>
+          <th>POC Email</th>
+          <th>POC Phone</th>
+          <th>Email</th>
+          <th>Tags</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="resource in vm.resources | filter: resourceSearch" >
+          <td><a ui-sref="resources.view({ resourceId: resource._id })">{{resource['Organization Name']}}</a></td>
+          <td ng-bind="resource['Description']">{{key}}</td>
+          <td ng-bind="resource['Website']">Web</td>
+          <td ng-bind="resource['Address']">Address</td>
+          <td ng-bind="resource['City']">City</td>
+          <td ng-bind="resource['State']">State</td>
+          <td ng-bind="resource['Zip']">Zip</td>
+          <td ng-bind="resource['Point Of Contact']">POC</td>
+          <td ng-bind="resource['POC Email']">POC Email</td>
+          <td ng-bind="resource['POC Direct Line']">POC Phone</td>
+          <td ng-bind="resource['General Email']">Email</td>
+          <td ng-bind="resource['Tags']">Tags</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <div class="table">
+      <div ng-repeat="resource in vm.resources" ui-sref="resources.view({ resourceId: resource._id })">
+        <div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="alert alert-warning text-center" ng-if="vm.resources.$resolved && !vm.resources.length">
     No Resources yet, why don't you <a ui-sref="resources.create">create one</a>?
