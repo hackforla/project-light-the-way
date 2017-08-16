@@ -1,0 +1,39 @@
+<section>
+  <div class="page-header">
+    <h1>Resources</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="resource in vm.resources"
+       ui-sref="resources.view({ resourceId: resource._id })"
+       class="list-group-item">
+       <table class="table table-hover" >
+          <thead>
+            <tr>
+              <th style="width:15%;">Left</th>
+              <th>Right</th>
+            </tr>
+          </thead>
+         <tbody>
+           <tr ng-repeat="(key, value) in resource">
+             <td ng-bind="key">
+               A:
+             </td>
+             <td ng-bind="value">
+               B
+             </td>
+           </tr>
+         </tbody>
+       </table>
+      <!-- <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="resource.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="resource.user" ng-bind="resource.user.displayName"></span>
+        <span ng-if="!resource.user">Deleted User</span>
+      </small> -->
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.resources.$resolved && !vm.resources.length">
+    No Resources yet, why don't you <a ui-sref="resources.create">create one</a>?
+  </div>
+</section>
