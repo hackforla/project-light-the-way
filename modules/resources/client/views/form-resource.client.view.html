@@ -2,18 +2,91 @@
   <div class="page-header">
     <h1>{{vm.resource._id ? 'Edit Resource' : 'New Resource'}}</h1>
   </div>
-  <div class="col-md-12">
-    <form name="vm.form.resourceForm" class="form-horizontal" ng-submit="vm.save(vm.form.resourceForm.$valid)" novalidate>
+  <div class="col-md-4 col-md-offset-4">
+    <form name="vm.form.resourceForm" class="form-horizontal form-resources" ng-submit="vm.save(vm.form.resourceForm.$valid)" novalidate>
       <fieldset>
         <div class="form-group" show-errors>
-          <label class="control-label" for="name">Name</label>
-          <input name="name" type="text" ng-model="vm.resource.name" id="name" class="form-control" placeholder="Name" required>
-          <div ng-messages="vm.form.resourceForm.name.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Resource name is required.</p>
+          <label class="control-label req" for="name">Organization Name</label>
+          <input name="name" type="text" ng-model="vm.resource.org" id="name" class="form-control" placeholder="Organization Name" required>
+          <div ng-messages="vm.form.resourceForm.org.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Organization name is required.</p>
           </div>
         </div>
+        <div class="form-group" show-errors>
+          <label class="control-label req" for="name">Organization Description</label>
+          <span class="help-block" ng-bind="vm.resource.desc.length"></span>
+          <textarea name="name" class="form-control" rows="4" cols="80" ng-model="vm.resource.desc" id="desc" required>
+          </textarea>
+          <div ng-messages="vm.form.resourceForm.desc.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Organization description required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label req" for="name">Organization Website</label>
+          <span class="help-block">www.example.com</span>
+          <input name="name" type="text" ng-model="vm.resource.web" id="web" class="form-control" placeholder="Organization Website" required>
+          <div ng-messages="vm.form.resourceForm.web.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Website link required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Address</label>
+          <div class="row">
+            <div class="col-md-12">
+              <input name="name" type="text" ng-model="vm.resource.addr" id="street" class="form-control" placeholder="Street" required>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-md-5">
+              <input name="name" type="text" ng-model="vm.resource.city" id="city" class="form-control" placeholder="City" required>
+            </div>
+            <div class="col-md-4">
+              <input name="name" type="text" ng-model="vm.resource.state" id="state" class="form-control" placeholder="State" required>
+            </div>
+            <div class="col-md-3">
+              <input name="name" type="text" ng-model="vm.resource.zip" id="zip" maxlength="5" class="form-control" placeholder="Zipcode" required>
+            </div>
+          </div>
+          <div ng-messages="vm.form.resourceForm.web.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Website link required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label req" for="name">Point of Contact</label>
+          <div class="row">
+            <div class="col-md-12">
+              <input name="name" type="text" ng-model="vm.resource.poc_name" id="poc_name" class="form-control" placeholder="POC Name" required>
+            </div>
+            <div class="col-md-6">
+              <input name="name" type="email" ng-model="vm.resource.poc_email" id="poc_email" class="form-control" placeholder="POC Email" required>
+            </div>
+            <div class="col-md-6">
+              <input name="name" type="tel" ng-model="vm.resource.poc_line" id="poc_line" class="form-control" placeholder="POC Line" required>
+            </div>
+          </div>
+          <div ng-messages="vm.form.resourceForm.web.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Point of Contact info required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label req" for="name">Tags </label>
+          <span class="help-block">Use a comma to seperate each tag</span>
+          <textarea name="name" type="text" ng-model="vm.resource.tags" id="poc_name" class="form-control" placeholder="Tags, Go, Here" required>
+          </textarea>
+          <div ng-messages="vm.form.resourceForm.web.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Point of Contact info required.</p>
+          </div>
+        </div>
+
+
         <div class="form-group">
-          <button type="submit" class="btn btn-default">{{vm.resource._id ? 'Update' : 'Create'}}</button>
+          <a href="/resources" class="btn btn-link"><i class="fa fa-arrow-left" aria-hidden="true"></i> Resources Page</a>
+          <button type="submit" class="btn btn-default pull-right" ng-hide="vm.form.resourceForm.$pristine">{{vm.resource._id ? 'Update' : 'Create'}}</button>
         </div>
         <div ng-show="vm.error" class="text-danger">
           <strong ng-bind="vm.error"></strong>
