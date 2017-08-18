@@ -1,5 +1,9 @@
+section{
+  padding:0 10px;
+}
+
 .resources{
-  width:96%;
+  width: 100%;
   margin:0 auto;
 }
 
@@ -18,8 +22,8 @@
 
 .resources tbody{
   font-size:.9em;
+  font-weight: 300;
 }
-
 
 .input-simple{
   border:none;
@@ -28,4 +32,20 @@
   margin-bottom:20px;
   padding:6px;
   min-width: 500px;
+}
+
+
+/* Resource Form */
+
+.form-resources input{
+  margin-bottom:5px;
+}
+.form-resources .req::after{
+  content: " *";
+  color:red;
+}
+
+.form-resources .help-block {
+  color:#AAA;
+  font-size:.9em;
 }
