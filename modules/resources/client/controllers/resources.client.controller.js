@@ -40,7 +40,7 @@
       }
 
       function successCallback(res) {
-        $state.go('resources.view', {
+        $state.go('resources.edit', {
           resourceId: res._id
         });
       }
