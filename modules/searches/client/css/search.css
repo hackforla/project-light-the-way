@@ -1,0 +1,16 @@
+.output{
+  border:2px solid #eee;
+  padding:10px;
+}
+.label{
+  margin:5px 0;
+}
+
+.main-search{
+  margin-bottom:10px;
+  margin-top:30vh
+}
+
+.search-form fieldset{
+  margin:auto 0;
+}
