@@ -10,20 +10,18 @@ var mongoose = require('mongoose'),
  * Search Schema
  */
 var SearchSchema = new Schema({
-  name: {
+  query: {
     type: String,
     default: '',
-    required: 'Please fill Search name',
+    required: 'Add something to search',
     trim: true
   },
   created: {
     type: Date,
     default: Date.now
-  },
-  user: {
-    type: Schema.ObjectId,
-    ref: 'User'
   }
+}, {
+  versionKey: false
 });
 
 mongoose.model('Search', SearchSchema);
