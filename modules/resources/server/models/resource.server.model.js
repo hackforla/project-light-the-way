@@ -5,7 +5,6 @@
  */
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
-
 /**
  * Resource Schema
  */
@@ -85,5 +84,7 @@ var ResourceSchema = new Schema({
     ref: 'User'
   }
 });
-
+ResourceSchema.index({
+  '$**': 'text'
+});
 mongoose.model('Resource', ResourceSchema);
