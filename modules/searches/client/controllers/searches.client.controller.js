@@ -17,6 +17,7 @@
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
+    vm.resources = '';
 
     // Remove existing Search
     function remove() {
@@ -40,13 +41,15 @@
       }
 
       function successCallback(res) {
-        $state.go('searches.view', {
-          searchId: res._id
-        });
+        console.log(res);
+        vm.resources = res.results;
+
+        vm.search.query = res.query;
       }
 
       function errorCallback(res) {
-        vm.error = res.data.message;
+        console.log(res);
+        vm.error = res;
       }
     }
   }
