@@ -5,7 +5,9 @@
  */
 var path = require('path'),
   mongoose = require('mongoose'),
+  sanitize = require('mongo-sanitize'),
   Search = mongoose.model('Search'),
+  Resources = mongoose.model('Resource'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   _ = require('lodash');
 
@@ -13,8 +15,12 @@ var path = require('path'),
  * Create a Search
  */
 exports.create = function(req, res) {
+  var timeNow = new Date(Date.now());
   var search = new Search(req.body);
+  var query = sanitize(search.query);
   search.user = req.user;
+
+
 
   search.save(function(err) {
     if (err) {
@@ -22,7 +28,41 @@ exports.create = function(req, res) {
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.jsonp(search);
+
+      var data = {};
+      var sendResponse = function(err, searches){
+        if (err) {
+          return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+          });
+        } else {
+          var timeEnd = new Date(Date.now());
+          var tTotal = (timeEnd - timeNow)/1000;
+          res.jsonp({
+            results: searches,
+            query: query,
+            tTotalMS: tTotal + " seconds"
+          });
+        }
+      };
+      var queryDB = Resources
+        .find(
+          { $text: { $search: query } },
+          { score: { $meta: 'textScore' } }
+        )
+        // .explain(
+        //   'executionStats'
+        // )
+        .sort(
+          { score: { $meta:'textScore' } }
+        )
+        .select(
+          'org desc web _id'
+        )
+        .exec(sendResponse);
+
+
+
     }
   });
 };
@@ -103,7 +143,7 @@ exports.searchByID = function(req, res, next, id) {
     });
   }
 
-  Search.findById(id).populate('user', 'displayName').exec(function (err, search) {
+  Search.findById(id).populate('user', 'displayName').exec(function(err, search) {
     if (err) {
       return next(err);
     } else if (!search) {
