@@ -167,3 +167,21 @@ a:hover .header-profile-image {
   padding:15px 0;
   color:#7F8C8D
 }
+
+
+
+/* Bootstrap Class Helpers*/
+
+.row-no-margin{
+  margin:auto 0;
+}
+
+.section-pad-n-10,
+.section-pad-ns-10{
+  padding-top:10vh;
+}
+.pad-s-10,
+.section-pad-s-10,
+.section-pad-ns-10{
+  padding-bottom:10vh;
+}
