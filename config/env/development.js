@@ -6,8 +6,8 @@ module.exports = {
   db: {
     uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_47421_TCP_ADDR || 'localhost') + '/ltw',
     options: {
-      user: '',
-      pass: ''
+      user: process.env.M_USER || '',
+      pass: process.env.M_PASS || ''
     },
     // Enable mongoose debug mode
     debug: process.env.MONGODB_DEBUG || false
