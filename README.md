@@ -1,6 +1,7 @@
 # Project Light The Way
 
 *This project builds upon [MEAN.JS](http://meanjs.org/)*
+
 MEAN.JS is a full-stack JavaScript open-source solution, which provides a solid starting point for [MongoDB](http://www.mongodb.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/) based applications. The idea is to solve the common issues with connecting those frameworks, build a robust framework to support daily development needs, and help developers use better practices while working with popular JavaScript components.
 
 
@@ -18,27 +19,25 @@ MEAN.JS is a full-stack JavaScript open-source solution, which provides a solid 
 ### Required Install
 | Name | Required |
 | ---- | ----- |
-|[Node.js](http://mongodb.org/)| Yes |
-|[MongoDB](http://expressjs.com/)| Optional, can be used remotely. |
-|[Ruby](http://angularjs.org/)| Yes |
-|[Bower](http://nodejs.org/)| Yes |
+|[Node.js](http://nodejs.org/)| Yes |
+|[MongoDB](http://mongodb.org/)| Optional, can be used remotely. |
+|[Ruby](https://www.ruby-lang.org/en/)| Yes |
+|[Bower](https://bower.io/)| Yes |
 
-## Getting Project Running
+## Quick Install
+To install Node.js dependencies you're going to use npm again. In the application folder run this in the command-line:
 
 ```bash
-$ npm install -g bower
+$ npm install
 ```
 
-## Using Yo Generator to create...
-You first need to install yo
-```
-npm install -g yo
-```
-
-### ... CRUD Modules
+This command does a few things:
+* First it will install the dependencies needed for the application to run.
+* If you're running in a development environment, it will then also install development dependencies needed for testing and running your application.
+* Finally, when the install process is over, npm will initiate a bower install command to install all the front-end modules needed for the application
 
 
-* Grunt - You're going to use the [Grunt Task Runner](http://gruntjs.com/) to automate your development process. Make sure you've installed Node.js and npm first, then install grunt globally using npm:
+* Grunt - You're going to use the [Grunt Task Runner](http://gruntjs.com/) to automate your development process. Install grunt globally using npm:
 
 ```bash
 $ npm install -g grunt-cli
@@ -50,55 +49,42 @@ $ npm install -g grunt-cli
 $ gem install sass
 ```
 
-```bash
-$ npm install -g grunt-cli
-```
-
 * Gulp - (Optional) You may use Gulp for Live Reload, Linting, and SASS or LESS.
 
 ```bash
 $ npm install gulp -g
 ```
 
-## Downloading MEAN.JS
-There are several ways you can get the MEAN.JS boilerplate:
 
 ### Cloning The GitHub Repository
-The recommended way to get MEAN.js is to use git to directly clone the MEAN.JS repository:
 
 ```bash
-$ git clone https://github.com/meanjs/mean.git meanjs
+$ git clone https://github.com/light-the-way/website.git ltw
 ```
-
-This will clone the latest version of the MEAN.JS repository to a **meanjs** folder.
-
-### Downloading The Repository Zip File
-Another way to use the MEAN.JS boilerplate is to download a zip copy from the [master branch on GitHub](https://github.com/meanjs/mean/archive/master.zip). You can also do this using `wget` command:
-
-```bash
-$ wget https://github.com/meanjs/mean/archive/master.zip -O meanjs.zip; unzip meanjs.zip; rm meanjs.zip
-```
-
-Don't forget to rename **mean-master** after your project name.
 
 ### Yo Generator
-Another way would be to use the [Official Yo Generator](http://meanjs.org/generator.html), which generates a copy of the MEAN.JS 0.4.x boilerplate and supplies an application generator to ease your daily development cycles.
 
-## Quick Install
-Once you've downloaded the boilerplate and installed all the prerequisites, you're just a few steps away from starting to develop your MEAN application.
+Yo Generator provides an easy way to create CRUD Modules with a single command
 
-The first thing you should do is install the Node.js dependencies. The boilerplate comes pre-bundled with a package.json file that contains the list of modules you need to start your application. To learn more about the modules installed visit the NPM & Package.json section.
-
-To install Node.js dependencies you're going to use npm again. In the application folder run this in the command-line:
-
+Install Yo Generator
 ```bash
-$ npm install
+$ npm install -g yo
 ```
 
-This command does a few things:
-* First it will install the dependencies needed for the application to run.
-* If you're running in a development environment, it will then also install development dependencies needed for testing and running your application.
-* Finally, when the install process is over, npm will initiate a bower install command to install all the front-end modules needed for the application
+Followed by installing meanjs generator
+
+```bash
+$ npm install -g generator-meanjs
+```
+
+To create a crud module within the modules folder, run.
+
+```bash
+$ yo meanjs:crud-module <module-name>
+```
+
+Options will be displayed on what features you want included.
+
 
 ## Running Your Application
 After the install process is over, you'll be able to run your application using Grunt, just run grunt default task:
@@ -123,34 +109,6 @@ $ grunt prod
 
 * explore `config/env/production.js` for production environment configuration options
 
-### Running with User Seed
-To have default account(s) seeded at runtime:
-
-In Development:
-```bash
-MONGO_SEED=true grunt
-```
-It will try to seed the users 'user' and 'admin'. If one of the user already exists, it will display an error message on the console. Just grab the passwords from the console.
-
-In Production:
-```bash
-MONGO_SEED=true grunt prod
-```
-This will seed the admin user one time if the user does not already exist. You have to copy the password from the console and save it.
-
-### Running with TLS (SSL)
-Application will start by default with secure configuration (SSL mode) turned on and listen on port 8443.
-To run your application in a secure manner you'll need to use OpenSSL and generate a set of self-signed certificates. Unix-based users can use the following command:
-
-```bash
-$ sh ./scripts/generate-ssl-certs.sh
-```
-
-Windows users can follow instructions found [here](http://www.websense.com/support/article/kbarticle/How-to-use-OpenSSL-and-Microsoft-Certification-Authority).
-After you've generated the key and certificate, place them in the *config/sslcerts* folder.
-
-Finally, execute grunt's prod task `grunt prod`
-* enable/disable SSL mode in production environment change the `secure` option in `config/env/production.js`
 
 
 ## Testing Your Application
