@@ -1,6 +1,6 @@
 {
   "name": "project-light-the-way",
-  "description": "A website that provides a easier way to connect veterans to their benefits.",
+  "description": "A website that provides a easier way to connect veterans to their benefits and other resources.",
   "version": "0.0.1",
   "meanjs-version": "0.4.2",
   "private": false,
