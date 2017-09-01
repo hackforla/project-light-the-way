@@ -11,8 +11,8 @@
     "url": "https://github.com/light-the-way/website.git"
   },
   "engines": {
-    "node": ">=0.10.28",
-    "npm": ">=1.4.28"
+    "node": "6.11.2",
+    "npm": "3.10.10"
   },
   "scripts": {
     "start": "grunt",
