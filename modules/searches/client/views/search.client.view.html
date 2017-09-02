@@ -1,20 +1,48 @@
-<section>
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <form action="" name="vm.form.search">
-        <input class="form-control main-search" type="text" placeholder="Search..." ng-model="vm.query">
-        <button class="btn btn-default" type="submit">Submit</button>
+<section class="section-pad-n-10">
+  <div class="row pad-s-10">
+    <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-1">
+      <form name="vm.form.searchForm" class="form-horizontal search-form" ng-submit="vm.save(vm.form.searchForm.$valid)" novalidate>
+        <fieldset>
+          <div class="row row-no-margin">
+            <div class="col-sm-8">
+              <div class="form-group" show-errors>
+                <input name="query" type="text" ng-model="vm.search.query" id="query" class="form-control" placeholder="Search..." required>
+                <div ng-messages="vm.form.searchForm.query.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">Search is required.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3 col-sm-offset-1">
+              <div class="form-group">
+                <button type="submit" class="btn btn-default">Search</button>
+              </div>
+            </div>
+          </div>
+          <div ng-show="vm.error" class="text-danger">
+            <strong ng-bind="vm.error"></strong>
+          </div>
+        </fieldset>
       </form>
-      <div class="output">
-        {{vm.query}} <br>
-      </div>
-
-      <div ng-show="vm.msg || vm.error || vm.test">
-        MSG: <br>
-        <span ng-bind="vm.msg"></span>
-        <span ng-bind="vm.error"></span>
-        <span ng-bind="vm.test"></span>
-      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+      <table class="table table-hover resources">
+        <thead>
+          <tr>
+            <th>Organization</th>
+            <th>Description</th>
+            <th>Website</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="resource in vm.resources | filter: resourceSearch" >
+            <td><a ui-sref="resources.edit({ resourceId: resource._id })">{{resource['org']}}</a></td>
+            <td ng-bind="resource['desc']">{{key}}</td>
+            <td><a href="http://{{resource['web']}}" target="_blank">Link</a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>

@@ -72,3 +72,9 @@ mongod
 *.ntvs*
 *.njsproj
 *.sln
+
+
+# Dev Notes
+# =========
+dev.txt
+devcmd.txt
