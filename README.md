@@ -4,11 +4,26 @@
 
 MEAN.JS is a full-stack JavaScript open-source solution, which provides a solid starting point for [MongoDB](http://www.mongodb.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/) based applications. The idea is to solve the common issues with connecting those frameworks, build a robust framework to support daily development needs, and help developers use better practices while working with popular JavaScript components.
 
+
 #### !!!! Full comprehension of project, please read !!!
 1. [MEANJS 4.x DOC](http://meanjs.org/docs/0.4.x/)
 2. [YO Generator MEANJS](http://meanjs.org/generator.html)
 
-#### !!!! Summary contained below !!!
+
+## Contributor's Rules
+All contributors **MUST:** 
+
+  1. Be able to write in mark down (https://guides.github.com/features/mastering-markdown/)
+  2. Create new branches for every feature. Branch names are limited to 
+     lower case letters, with dashes to separate words.
+  3. Write commit messages in the present tense.
+  4. Create granular-sized commits.
+  5. Use ESLint in their IDE’s.
+  6. Use `git rm` to delete files/directories.
+  7. Use `git checkout -b branch-name` to create new branches (will also
+     switch to it).
+  8. Use `git push origin branch-name` to push branches to github.
+
 
 ## Technologies used
 
@@ -28,6 +43,7 @@ MEAN.JS is a full-stack JavaScript open-source solution, which provides a solid 
 |[MongoDB](http://mongodb.org/)| Optional, can be used remotely. |
 |[Ruby](https://www.ruby-lang.org/en/)| Yes |
 |[Bower](https://bower.io/)| Yes |
+
 
 ## Quick Install
 To install Node.js dependencies you're going to use npm again. In the application folder run this in the command-line:
