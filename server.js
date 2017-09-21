@@ -11,6 +11,10 @@ mongo.connect(url, function(err, db) {
     res.sendFile(__dirname + '/modules/core/client/views/home.client.view.html');  
   });
     
+  app.get('/angular.min.js', function (req, res) {
+    res.sendFile(__dirname + '/public/lib/angular/angular.min.js');  
+  });      
+    
   app.get('/about-us', function (req, res) {
     res.sendFile(__dirname + '/modules/home-page-about-us.js');
   });      
