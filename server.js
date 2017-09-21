@@ -12,6 +12,10 @@ mongo.connect(url, function(err, db) {
   });
     
   app.get('/about-us', function (req, res) {
+    res.sendFile(__dirname + '/modules/home-page-about-us.js');
+  });      
+    
+  app.get('/about-us/content', function (req, res) {
     //Retrieve about-us document from the db
     db.collection('general').find({ section: 'about-us' }).toArray(function (err, result) {
       if (err) throw err;
