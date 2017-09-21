@@ -1,3 +1,5 @@
+//Dumby API for testing about us section
+
 var mongo = require('mongodb').MongoClient;
 var app = require('express')();
 var url = 'mongodb://user1:password1@ds141524.mlab.com:41524/light-the-way';
@@ -29,6 +31,5 @@ mongo.connect(url, function(err, db) {
       res.end();
     })               
   });
-  app.listen(5000);  
-    
+  app.listen(5000);      
 });
