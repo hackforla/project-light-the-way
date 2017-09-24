@@ -81,6 +81,28 @@ a:hover .header-profile-image {
   color:#BDC3C7
 }
 
+.home-banner {
+  padding: 15% 0;
+}
+
+.home-title, .home-logo, .home-slogan {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.home-title, .home-slogan {
+  color: white;
+}
+
+.home-logo {
+  width: 20vh;
+}
+
+header {
+  background: url('../img/brand/veterans.jpg');
+  height: 100vh;
+}
 
 /* Landing Page - Search Components */
 

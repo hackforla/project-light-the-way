@@ -1,19 +1,10 @@
 <!-- Content For Landing Page -->
 <!-- No <head> needed this is a template. -->
 
-<div style="text-align:center">
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <div>If This Page is Blank no content was added to</div>
-  <br>
-  <i>/modules/core/client/views/home.client.view.html</i>
-  <nav>
-    <a href="/resources">Resources</a>
-  </nav>
-</div>
+<header ng-controller="HomeController">
+  <div class="home-banner">
+    <img class="home-logo" src="modules/core/client/img/brand/logo1.png">
+    <h1 class="home-title">{{ title }}</h1>
+    <h3 class="home-slogan">{{ slogan }}</h3>
+  </div>
+</header>
