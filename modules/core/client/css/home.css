@@ -158,8 +158,6 @@
 /* Over Lay */
 
 .overlay{
-  width:calc(100% + 20px);height:100%;
-  margin-left:-10px;
-  margin-right:-10px;
+  height:100%;
   background:rgba(0,0,0,.3);
 }
