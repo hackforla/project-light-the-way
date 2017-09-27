@@ -1,0 +1,165 @@
+/* Home Page Components */
+
+.hero{
+  height:60vh;
+  min-height: 30vh;
+  width: 100%;
+  height: auto;
+}
+
+.home-hero{
+  background: url('../img/brand/veterans.jpg');
+  background-size:cover;
+  background-position:center;
+}
+
+.hero-title {
+  text-align: center;
+  font-weight: 600;
+  font-size: 2em;
+  margin-top: 20vh;
+  color: #BDC3C7
+}
+
+.home-banner {
+  padding: 15% 0;
+}
+
+.home-title, .home-logo, .home-slogan {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.home-title, .home-slogan {
+  color: white;
+}
+
+.home-logo {
+  width: 8vh;
+}
+
+/* Home Page - Search Components */
+
+.search {
+  width: 600px;
+  height: auto;
+  margin: 20px auto;
+  position: relative;
+}
+
+.search i {
+  position: absolute;
+  padding: 12px;
+  color: #7F8C8D
+}
+
+.search input[type="text"] {
+  padding: 8px;
+  padding-left: 35px;
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #7F8C8D;
+}
+
+.search input[type="text"]::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #BDC3C7;
+}
+
+.search input[type="text"]::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #BDC3C7;
+}
+
+.search input[type="text"]:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #BDC3C7;
+}
+
+.search input[type="text"]:-moz-placeholder {
+  /* Firefox 18- */
+  color: #BDC3C7;
+}
+
+.search-buttons {
+  margin-top: 20px;
+  text-align: center;
+  font-size: .8em;
+  font-weight: 400;
+}
+
+.btn-search {
+  border: none;
+  background: #7F8C8D;
+  color: #fff;
+  padding: 8px 30px;
+}
+
+.btn-search:hover {
+  background: #BDC3C7;
+  color: #fff;
+}
+
+
+/* Home Page - Topics Components */
+
+.topics {
+  width: 1000px;
+  margin: 10px auto;
+}
+
+.topic {
+  background: #fff;
+  border-radius: 10px;
+  height: 260px;
+  width: 240px;
+  position: relative;
+  float: left;
+  margin: 5px;
+}
+
+.topic i {
+  padding: 50% 0;
+  margin-left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.topic-name {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+}
+
+
+/* Footer Components */
+
+.footer-simple {
+  padding: 15px 0;
+  color: #7F8C8D
+}
+
+
+/* Bootstrap Class Helpers*/
+
+.row-no-margin {
+  margin: auto 0;
+}
+
+.section-pad-n-10, .section-pad-ns-10 {
+  padding-top: 10vh;
+}
+
+.pad-s-10, .section-pad-s-10, .section-pad-ns-10 {
+  padding-bottom: 10vh;
+}
+
+
+/* Over Lay */
+
+.overlay{
+  width:calc(100% + 20px);height:100%;
+  margin-left:-10px;
+  margin-right:-10px;
+  background:rgba(0,0,0,.3);
+}

@@ -1,0 +1,3 @@
+.no-col-pad>[class^="col-"] {
+  padding: 0;
+}
