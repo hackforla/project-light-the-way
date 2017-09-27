@@ -4,7 +4,6 @@
   height:60vh;
   min-height: 30vh;
   width: 100%;
-  height: auto;
 }
 
 .home-hero{
@@ -160,5 +159,6 @@
 .overlay{
   width:100%;
   height:100%;
+  background:rgb(0,0,0);
   background:rgba(0,0,0,.3);
 }
