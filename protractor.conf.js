@@ -2,7 +2,9 @@
 
 // Protractor configuration
 var config = {
-  specs: ['modules/*/tests/e2e/*.js']
+  specs: ['modules/*/tests/e2e/*.js'],
+  chromeOnly: true,
+  directConnect: true
 };
 
 if (process.env.TRAVIS) {

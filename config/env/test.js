@@ -4,10 +4,10 @@ var defaultEnvConfig = require('./default');
 
 module.exports = {
   db: {
-    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean-test',
+    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/ltw',
     options: {
-      user: '',
-      pass: ''
+      user: process.env.M_USER || '',
+      pass: process.env.M_PASS || ''
     },
     // Enable mongoose debug mode
     debug: process.env.MONGODB_DEBUG || false
@@ -23,7 +23,7 @@ module.exports = {
         directoryPath: process.cwd(),
         fileName: 'access.log',
         rotatingLogs: { // for more info on rotating logs - https://github.com/holidayextras/file-stream-rotator#usage
-          active: false, // activate to use rotating logs 
+          active: false, // activate to use rotating logs
           fileName: 'access-%DATE%.log', // if rotating logs are active, this fileName setting will be used
           frequency: 'daily',
           verbose: false
@@ -33,7 +33,7 @@ module.exports = {
   },
   port: process.env.PORT || 3001,
   app: {
-    title: defaultEnvConfig.app.title + ' - Test Environment'
+    title: defaultEnvConfig.app.title + ' - Test'
   },
   facebook: {
     clientID: process.env.FACEBOOK_ID || 'APP_ID',
