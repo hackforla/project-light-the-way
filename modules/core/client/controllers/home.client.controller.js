@@ -1,8 +1,36 @@
-'use strict';
+(function() {
+  'use strict';
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication',
-  function ($scope, Authentication) {
+  angular
+    .module('core')
+    .controller('HomePageController', HomePageController);
+
+  HomePageController.$inject = ['Authentication', 'ContentService'];
+
+  function HomePageController(Authentication, content) {
+    var vm = this;
     // This provides Authentication context.
-    $scope.authentication = Authentication;
+    vm.authentication = Authentication;
+    vm.content = {};
+    vm.content.aboutus = content.getAboutUs();
   }
-]);
+
+}());
+
+
+
+// (function () {
+//   'use strict';
+//
+//   angular
+//     .module('resources')
+//     .controller('ResourcesListController', ResourcesListController);
+//
+//   ResourcesListController.$inject = ['ResourcesService'];
+//
+//   function ResourcesListController(ResourcesService) {
+//     var vm = this;
+//
+//     vm.resources = ResourcesService.query();
+//   }
+// }());
