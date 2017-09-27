@@ -23,7 +23,6 @@
           <th>POC</th>
           <th>POC Email</th>
           <th>POC Line</th>
-          <th>Email</th>
           <th>Tags</th>
         </tr>
       </thead>
@@ -34,13 +33,13 @@
           <td><a href="http://{{resource['web']}}" target="_blank">Link</a></td>
           <td>
             <b ng-bind="resource['addr']"></b>,<br>
+            <b ng-bind="resource['city']"></b>,<br>
             <b ng-bind="resource['state']"></b>
             <b ng-bind="resource['zip']"></b>
           </td>
           <td ng-bind="resource['poc_name']">Point of Contact</td>
           <td ng-bind="resource['poc_email']">POC Email</td>
           <td ng-bind="resource['poc_line']">POC Phone</td>
-          <td ng-bind="resource['email']">Email</td>
           <td ng-bind="resource['tags']">Tags</td>
         </tr>
       </tbody>
