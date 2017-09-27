@@ -41,7 +41,7 @@ exports.create = function(req, res) {
           res.jsonp({
             results: searches,
             query: query,
-            tTotalMS: tTotal + " seconds"
+            tTotalMS: tTotal + ' seconds'
           });
         }
       };
