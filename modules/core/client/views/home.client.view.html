@@ -1,10 +1,18 @@
+<!-- Content For Landing Page -->
+
+<!--  Welcome Section -->
+
+<section class="hero home-hero">
+  <div class="overlay">
+    <div class="home-banner">
+      <img class="home-logo" ng-src="{{vm.home.logo}}">
+      <h1 class="home-title" ng-bind="vm.home.title"></h1>
+      <h3 class="home-slogan" ng-bind="vm.home.slogan"></h3>
+    </div>
+  </div>
+</section>
+
 <section class="container">
-
-  <!-- Content For Landing Page -->
-
-  <!-- TODO: ng include header landing.header.client.view.html -->
-
-  <!--  Welcome Section -->
 
   <!--  Vet Section-->
 
@@ -19,5 +27,5 @@
   <!-- About Us Section -->
 
   <a href="#about-us">About Us</a>
-  <p id="about-us"> {{vm.content.aboutus}} </p>
+  <p id="about-us" ng-bind="vm.home.aboutus"></p>
 </section>

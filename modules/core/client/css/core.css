@@ -68,9 +68,16 @@ a:hover .header-profile-image {
 /* Landing Page Components */
 
 .hero{
+  height:60vh;
   min-height: 30vh;
   width:100%;
   height:auto;
+}
+
+.home-hero{
+  background: url('../img/brand/veterans.jpg');
+  background-size:cover;
+  background-position:center;
 }
 
 .hero-title{
@@ -81,6 +88,23 @@ a:hover .header-profile-image {
   color:#BDC3C7
 }
 
+.home-banner {
+  padding: 15% 0;
+}
+
+.home-title, .home-logo, .home-slogan {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.home-title, .home-slogan {
+  color: white;
+}
+
+.home-logo {
+  width: 8vh;
+}
 
 /* Landing Page - Search Components */
 
@@ -184,4 +208,14 @@ a:hover .header-profile-image {
 .section-pad-s-10,
 .section-pad-ns-10{
   padding-bottom:10vh;
+}
+
+
+/* Over Lay */
+
+.overlay{
+  width:calc(100% + 20px);height:100%;
+  margin-left:-10px;
+  margin-right:-10px;
+  background:rgba(0,0,0,.3);
 }
