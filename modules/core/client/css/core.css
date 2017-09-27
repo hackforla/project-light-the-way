@@ -68,9 +68,11 @@ a:hover .header-profile-image {
 /* Landing Page Components */
 
 .hero{
+  height:60vh;
   min-height: 30vh;
   width:100%;
   height:auto;
+  background: url('../img/brand/veterans.jpg');
 }
 
 .hero-title{
@@ -96,12 +98,7 @@ a:hover .header-profile-image {
 }
 
 .home-logo {
-  width: 20vh;
-}
-
-header {
-  background: url('../img/brand/veterans.jpg');
-  height: 100vh;
+  width: 8vh;
 }
 
 /* Landing Page - Search Components */
