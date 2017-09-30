@@ -5,13 +5,12 @@
 <div class="hero home-hero">
   <div class="overlay">
     <div class="home-banner">
-      <img class="home-logo" ng-src="{{vm.home.logo}}">
+      <img class="home-logo" ng-src="{{vm.home.logo}}" alt="Large background picture of soldiers raising the U.S flag.">
       <h1 class="home-title" ng-bind="vm.home.title"></h1>
       <h3 class="home-slogan" ng-bind="vm.home.slogan"></h3>
     </div>
   </div>
 </div>
-
 <section class="container">
 
   <!--  Vet Section-->
@@ -26,6 +25,10 @@
 
   <!-- About Us Section -->
 
-  <a href="#about-us">About Us</a>
+  <a href="#about-us">
+    <h2>
+      About Us
+    </h2>
+  </a>
   <p id="about-us" ng-bind="vm.home.aboutus"></p>
 </section>
