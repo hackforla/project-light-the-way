@@ -8,7 +8,7 @@ MEAN.JS is a full-stack JavaScript open-source solution, which provides a solid 
 #### !!!! Full comprehension of project, please read !!!
 1. [MEANJS 4.x DOC](http://meanjs.org/docs/0.4.x/)
 2. [YO Generator MEANJS](http://meanjs.org/generator.html)
-
+3. [LTW Wiki](https://github.com/light-the-way/website/wiki)
 
 ## Contributor's Rules
 All contributors **MUST:**
