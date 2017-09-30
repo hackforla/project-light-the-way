@@ -11,10 +11,10 @@ MEAN.JS is a full-stack JavaScript open-source solution, which provides a solid 
 
 
 ## Contributor's Rules
-All contributors **MUST:** 
+All contributors **MUST:**
 
   1. Be able to write in mark down (https://guides.github.com/features/mastering-markdown/)
-  2. Create new branches for every feature. Branch names are limited to 
+  2. Create new branches for every feature. Branch names are limited to
      lower case letters, with dashes to separate words.
   3. Write commit messages in the present tense.
   4. Create granular-sized commits.
@@ -31,10 +31,8 @@ All contributors **MUST:**
 ### MEAN
 | Name | Style Guides |
 | ---- | ----- |
-|[MongoDB](http://mongodb.org/)|  |
-|[Express](http://expressjs.com/)|  |
+|[HTML & CSS](https://developer.mozilla.org/en-US/docs/Web)| [Google](https://google.github.io/styleguide/htmlcssguide.html) |
 |[AngularJS](http://angularjs.org/)| [John Papa ](https://github.com/johnpapa/angular-styleguide/tree/master/a1) |
-|[Node.js](http://nodejs.org/)|  |
 
 ### Required Install
 | Name | Required |
@@ -44,6 +42,12 @@ All contributors **MUST:**
 |[Ruby](https://www.ruby-lang.org/en/)| Yes |
 |[Bower](https://bower.io/)| Yes |
 
+
+### Cloning The GitHub Repository
+
+```bash
+$ git clone https://github.com/light-the-way/website.git ltw
+```
 
 ## Quick Install
 To install Node.js dependencies you're going to use npm again. In the application folder run this in the command-line:
@@ -76,13 +80,6 @@ $ gem install sass
 $ npm install gulp -g
 ```
 
-
-### Cloning The GitHub Repository
-
-```bash
-$ git clone https://github.com/light-the-way/website.git ltw
-```
-
 ### Yo Generator
 
 Yo Generator provides an easy way to create CRUD Modules with a single command
@@ -110,7 +107,7 @@ Options will be displayed on what features you want included.
 ## Running Your Application
 After the install process is over, you'll be able to run your application using Grunt, just run grunt default task:
 
-```
+```bash
 $ grunt
 ```
 
