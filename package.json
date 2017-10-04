@@ -17,7 +17,9 @@
   "scripts": {
     "start": "grunt",
     "test": "grunt test",
-    "postinstall": "bower install --config.interactive=false"
+    "postinstall": "bower install --config.interactive=false",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "acl": "~0.4.4",
@@ -65,7 +67,8 @@
     "serve-favicon": "^2.3.0",
     "socket.io": "^2.0.3",
     "swig": "^1.4.2",
-    "validator": "^8.0.0"
+    "validator": "^8.0.0",
+    "snyk": "^1.41.1"
   },
   "devDependencies": {
     "coveralls": "^2.11.4",
@@ -121,5 +124,6 @@
     "should": "^11.2.1",
     "supertest": "^3.0.0",
     "yo": "^2.0.0"
-  }
+  },
+  "snyk": true
 }
