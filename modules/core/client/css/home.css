@@ -162,3 +162,15 @@
   background:rgb(0,0,0);
   background:rgba(0,0,0,.3);
 }
+
+/* Supporters Section */
+.supporterA:link {
+  text-decoration:none;
+  color:#219BEB;
+}
+.supporterA:hover {
+  text-decoration:none;
+}
+.supporterA:visited {
+  text-decoration:none;
+}
