@@ -164,13 +164,34 @@
 }
 
 /* Supporters Section */
-.supporterA:link {
+.supporter{
+  text-align:center;
+}
+.supporter .img{
+  width:100px;
+  height:100px;
+  margin:10px auto;
+}
+
+.supporter .img div{
+  width:100%;
+  height:100%;
+  background-position: center;
+  background-size:contain;
+}
+.supporter .link {
   text-decoration:none;
   color:#219BEB;
 }
-.supporterA:hover {
-  text-decoration:none;
+
+/* Supporters */
+.la-seal{
+  background:url(../img/supporters/sealLA.png);
 }
-.supporterA:visited {
-  text-decoration:none;
+
+.hfla-seal{
+  background:url(../img/supporters/logo-hfla.png);
+}
+.techhire-seal{
+  background:url(../img/supporters/techhire-seal.jpg);
 }
