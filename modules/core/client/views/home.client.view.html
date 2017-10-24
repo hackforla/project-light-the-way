@@ -12,6 +12,39 @@
   </div>
 </div>
 <div class="container">
+  <!-- Categories -->
+  <section>
+    <div class="row">
+      <div class="col-xs-4 col-offset-xs-4">
+        Categories:
+        <ul>
+          <li ng-repeat="c in vm.categories" ng-bind="c"></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!--  Recent -->
+  <section>
+    <div class="row">
+      <div class="col-xs-4 col-offset-xs-4">
+        Recent:
+        <ul>
+          <li ng-repeat="r in vm.recent" ng-bind="r.org"></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- Featured -->
+  <section>
+    <div class="row">
+      <div class="col-xs-4 col-offset-xs-4">
+        Featured:
+        <ul>
+          <li ng-repeat="f in vm.featured" ng-bind="f.org"></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
   <!--  Vet Section-->
 

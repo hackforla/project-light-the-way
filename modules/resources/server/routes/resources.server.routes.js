@@ -8,14 +8,25 @@ var resourcesPolicy = require('../policies/resources.server.policy'),
 
 module.exports = function(app) {
   // Resources Routes
-  app.route('/api/resources').all(resourcesPolicy.isAllowed)
+  app.route('/api/r')
     .get(resources.list)
     .post(resources.create);
 
-  app.route('/api/resources/:resourceId').all(resourcesPolicy.isAllowed)
-    .get(resources.read)
-    .put(resources.update)
-    .delete(resources.delete);
+  // new
+  app.route('/api/r/new')
+    .get(resources.new);
+  // feat
+  app.route('/api/r/feat')
+    .get(resources.feat);
+  // search
+  app.route('/api/r/search/:query')
+    .get(resources.search);
+  app.route('/api/r/search/:query/:page')
+    .get(resources.search);
+  // category
+  app.route('/api/r/category')
+    .get(resources.category);
+
 
   // Finish by binding the Resource middleware
   app.param('resourceId', resources.resourceByID);

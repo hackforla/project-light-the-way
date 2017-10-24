@@ -92,6 +92,49 @@ exports.list = function(req, res) {
   });
 };
 
+exports.new = function(req, res) {
+  Resource.find({ status:'public' }).select('-status -created').limit(5).sort('-created').exec(function(err, data) {
+    res.jsonp({ data: data });
+  });
+};
+exports.feat = function(req, res) {
+  Resource.find({ status:'public' }).select('-status -created').limit(2).sort('-created').exec(function(err, data) {
+    res.jsonp({ data: data });
+  });
+};
+
+exports.search = function(req, res) {
+  var query = unwind(req.params.query);
+  function unwind(s){
+    return s.split('+').join(' ');
+  }
+  Resource
+    .find(
+      { $text: { $search: query } },
+      { score: { $meta: 'textScore' } }
+    )
+    .limit(10)
+    .sort(
+      { score: { $meta:'textScore' } }
+    )
+    .select(
+      'org desc web _id'
+    )
+    .exec(function(err,data){
+      if(!data.length){
+        res.status(404).send({
+          msg: 'No results found'
+        });
+      }else{
+        res.jsonp({ data:data });
+      }
+    });
+};
+exports.category = function(req, res) {
+  // Resource.find().sort('-created').populate('user', 'displayName').exec(function(err, resources) {});
+  res.jsonp('All good');
+};
+
 /**
  * Resource middleware
  */

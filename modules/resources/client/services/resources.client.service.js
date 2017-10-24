@@ -9,12 +9,30 @@
   ResourcesService.$inject = ['$resource'];
 
   function ResourcesService($resource) {
-    return $resource('api/resources/:resourceId', {
-      resourceId: '@_id'
-    }, {
-      update: {
-        method: 'PUT'
-      }
-    });
+    var service = {};
+
+    service.getResource = getResource;
+    service.searchResource = searchResource;
+    service.getNew = getNew;
+    service.getFeatured = getFeatured;
+
+    return service;
+
+    function getResource(id){
+      return $resource('api/r/'+id);
+    }
+
+    function searchResource(query){
+      return $resource('api/r/search/'+query);
+    }
+
+    function getNew(){
+      return $resource('api/r/new');
+    }
+
+    function getFeatured(){
+      return $resource('api/r/feat');
+    }
+
   }
 }());
