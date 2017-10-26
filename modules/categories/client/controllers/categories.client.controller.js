@@ -6,13 +6,13 @@
     .module('categories')
     .controller('CategoriesController', CategoriesController);
 
-  CategoriesController.$inject = ['$scope', '$state', '$window', 'Authentication', 'categoryResolve'];
+  CategoriesController.$inject = ['$scope', '$state', '$window', 'Authentication'];
 
-  function CategoriesController ($scope, $state, $window, Authentication, category) {
+  function CategoriesController ($scope, $state, $window, Authentication) {
     var vm = this;
 
     vm.authentication = Authentication;
-    vm.category = category;
+    // vm.category = category;
     vm.error = null;
     vm.form = {};
     vm.remove = remove;
