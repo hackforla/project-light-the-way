@@ -9,71 +9,34 @@
 
   function routeConfig($stateProvider) {
     $stateProvider
-      .state('vets', {
+      .state('vet', {
         abstract: true,
-        url: '/vets',
+        url: '/',
         template: '<ui-view/>'
       })
-      .state('vets.list', {
-        url: '',
-        templateUrl: 'modules/vets/client/views/list-vets.client.view.html',
-        controller: 'VetsListController',
-        controllerAs: 'vm',
+      .state('vet.dire', {
+        url: 'dire',
+        templateUrl: 'modules/vets/client/views/dire.client.view.html',
+        controller: 'VetsListController as vm',
         data: {
-          pageTitle: 'Vets List'
+          pageTitle: 'Dire'
         }
       })
-      .state('vets.create', {
-        url: '/create',
-        templateUrl: 'modules/vets/client/views/form-vet.client.view.html',
-        controller: 'VetsController',
-        controllerAs: 'vm',
-        resolve: {
-          vetResolve: newVet
-        },
+      .state('vet.transition', {
+        url: 'transition',
+        templateUrl: 'modules/vets/client/views/transition.client.view.html',
+        controller: 'VetsController as vm',
         data: {
-          roles: ['user', 'admin'],
-          pageTitle: 'Vets Create'
+          pageTitle: 'Transitioning'
         }
       })
-      .state('vets.edit', {
-        url: '/:vetId/edit',
-        templateUrl: 'modules/vets/client/views/form-vet.client.view.html',
-        controller: 'VetsController',
-        controllerAs: 'vm',
-        resolve: {
-          vetResolve: getVet
-        },
+      .state('vet.vet', {
+        url: 'veteran',
+        templateUrl: 'modules/vets/client/views/veteran.client.view.html',
+        controller: 'VetsController as vm',
         data: {
-          roles: ['user', 'admin'],
-          pageTitle: 'Edit Vet {{ vetResolve.name }}'
-        }
-      })
-      .state('vets.view', {
-        url: '/:vetId',
-        templateUrl: 'modules/vets/client/views/view-vet.client.view.html',
-        controller: 'VetsController',
-        controllerAs: 'vm',
-        resolve: {
-          vetResolve: getVet
-        },
-        data: {
-          pageTitle: 'Vet {{ vetResolve.name }}'
+          pageTitle: 'Veteran'
         }
       });
-  }
-
-  getVet.$inject = ['$stateParams', 'VetsService'];
-
-  function getVet($stateParams, VetsService) {
-    return VetsService.get({
-      vetId: $stateParams.vetId
-    }).$promise;
-  }
-
-  newVet.$inject = ['VetsService'];
-
-  function newVet(VetsService) {
-    return new VetsService();
   }
 }());
