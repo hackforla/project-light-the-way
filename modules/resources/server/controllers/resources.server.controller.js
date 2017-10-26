@@ -15,15 +15,20 @@ var path = require('path'),
 exports.create = function(req, res) {
   var resource = new Resource(req.body);
   resource.user = req.user;
-
   resource.save(function(err) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.jsonp(resource);
+      res.jsonp({ _id:resource._id });
     }
+  });
+};
+
+exports.byID = function(req, res){
+  Resource.findById(req.params.id).exec(function(err, resource){
+    res.jsonp(resource);
   });
 };
 
@@ -146,7 +151,7 @@ exports.resourceByID = function(req, res, next, id) {
     });
   }
 
-  Resource.findById(id).populate('user', 'displayName').exec(function (err, resource) {
+  Resource.findById(id).exec(function (err, resource) {
     if (err) {
       return next(err);
     } else if (!resource) {
