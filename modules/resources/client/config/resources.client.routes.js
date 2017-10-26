@@ -11,11 +11,11 @@
     $stateProvider
       .state('resources', {
         abstract: true,
-        url: '/r',
+        url: '',
         template: '<ui-view/>'
       })
       .state('resources.list', {
-        url: '',
+        url: '/resources',
         templateUrl: 'modules/resources/client/views/list-resources.client.view.html',
         controller: 'ResourcesListController as vm',
         data: {
@@ -23,15 +23,23 @@
         }
       })
       .state('resources.search', {
-        url: '/search/:query',
+        url: '/resources/search',
+        templateUrl: 'modules/resources/client/views/search.client.view.html',
+        controller: 'ResourcesSearchController as vm',
+        data: {
+          pageTitle: 'Resources Search'
+        }
+      })
+      .state('resources.query', {
+        url: '/r/search/:query',
         templateUrl: 'modules/resources/client/views/search-resource.client.view.html',
         controller: 'ResourcesSearchController as vm',
         data: {
           pageTitle: 'Resources Search'
         }
       })
-      .state('resources.create', {
-        url: '/create',
+      .state('resources.form', {
+        url: '/r/form',
         templateUrl: 'modules/resources/client/views/form-resource.client.view.html',
         controller: 'ResourcesController as vm',
         data: {
@@ -39,21 +47,13 @@
           pageTitle: 'Resources Create'
         }
       })
-      .state('resources.edit', {
-        url: '/:resourceId/edit',
+      .state('resources.form.edit', {
+        url: '/:resourceId',
         templateUrl: 'modules/resources/client/views/form-resource.client.view.html',
         controller: 'ResourcesController as vm',
         data: {
           roles: ['user', 'admin'],
-          pageTitle: 'Edit Resource {{ resourceResolve.name }}'
-        }
-      })
-      .state('resources.view', {
-        url: '/:resourceId',
-        templateUrl: 'modules/resources/client/views/view-resource.client.view.html',
-        controller: 'ResourcesController as vm',
-        data: {
-          pageTitle: 'Resource {{ resourceResolve.name }}'
+          pageTitle: 'Resources Create'
         }
       });
   }
