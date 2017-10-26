@@ -11,55 +11,39 @@
     $stateProvider
       .state('categories', {
         abstract: true,
-        url: '/c',
+        url: '/categories',
         template: '<ui-view/>'
       })
       .state('categories.list', {
         url: '',
-        templateUrl: 'modules/categories/client/views/list-categories.client.view.html',
-        controller: 'CategoriesListController',
-        controllerAs: 'vm',
+        templateUrl: 'modules/categories/client/views/categories.client.view.html',
+        controller: 'CategoriesListController as vm',
         data: {
           roles: ['guest', 'user', 'admin'],
           pageTitle: 'Categories List'
         }
       })
-      .state('categories.create', {
-        url: '/create',
-        templateUrl: 'modules/categories/client/views/form-category.client.view.html',
-        controller: 'CategoriesController',
-        controllerAs: 'vm',
-        resolve: {
-          categoryResolve: newCategory
-        },
+      .state('c', {
+        abstract: true,
+        url: '/c',
+        template: '<ui-view/>'
+      })
+      .state('c.form', {
+        url: '/form',
+        templateUrl: 'modules/categories/client/views/form.client.view.html',
+        controller: 'CategoriesController as vm',
         data: {
-          roles: ['guest', 'user', 'admin'],
+          roles: ['user', 'admin'],
           pageTitle: 'Categories Create'
         }
       })
-      .state('categories.edit', {
-        url: '/:categoryId/edit',
-        templateUrl: 'modules/categories/client/views/form-category.client.view.html',
-        controller: 'CategoriesController',
-        controllerAs: 'vm',
-        resolve: {
-          categoryResolve: getCategory
-        },
+      .state('c.form.edit', {
+        url: '/:id',
+        templateUrl: 'modules/categories/client/views/form.client.view.html',
+        controller: 'CategoriesController as vm',
         data: {
-          roles: ['guest', 'user', 'admin'],
+          roles: ['user', 'admin'],
           pageTitle: 'Edit Category {{ categoryResolve.name }}'
-        }
-      })
-      .state('categories.view', {
-        url: '/:categoryId',
-        templateUrl: 'modules/categories/client/views/view-category.client.view.html',
-        controller: 'CategoriesController',
-        controllerAs: 'vm',
-        resolve: {
-          categoryResolve: getCategory
-        },
-        data: {
-          pageTitle: 'Category {{ categoryResolve.name }}'
         }
       });
   }
