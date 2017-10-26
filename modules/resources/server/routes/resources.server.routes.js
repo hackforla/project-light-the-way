@@ -12,6 +12,9 @@ module.exports = function(app) {
     .get(resources.list)
     .post(resources.create);
 
+  app.route('/api/r/:id')
+    .get(resources.byID);
+
   // new
   app.route('/api/r/new')
     .get(resources.new);
