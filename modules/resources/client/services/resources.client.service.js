@@ -9,12 +9,14 @@
   ResourcesService.$inject = ['$resource'];
 
   function ResourcesService($resource) {
-    var service = {};
 
-    service.getResource = getResource;
-    service.searchResource = searchResource;
-    service.getNew = getNew;
-    service.getFeatured = getFeatured;
+    var service = {
+      getResource:getResource,
+      searchResource:searchResource,
+      getNew:getNew,
+      getFeatured:getFeatured,
+      create:create
+    };
 
     return service;
 
@@ -32,6 +34,10 @@
 
     function getFeatured(){
       return $resource('api/r/feat');
+    }
+
+    function create(){
+      return $resource('api/r');
     }
 
   }
