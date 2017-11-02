@@ -77,3 +77,4 @@ mongod
 # =========
 dev.txt
 devcmd.txt
+*.psd
