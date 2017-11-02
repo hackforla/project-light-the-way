@@ -7,9 +7,11 @@
 
   CategoriesListController.$inject = ['CategoriesService'];
 
-  function CategoriesListController(CategoriesService) {
+  function CategoriesListController(categories) {
     var vm = this;
 
-    vm.categories = CategoriesService.query();
+    vm.categories = categories.getAll().get(function(d){
+      vm.categories = d.data;
+    });
   }
 }());
