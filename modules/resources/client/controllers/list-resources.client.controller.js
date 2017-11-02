@@ -7,9 +7,11 @@
 
   ResourcesListController.$inject = ['ResourcesService'];
 
-  function ResourcesListController(ResourcesService) {
+  function ResourcesListController(resources) {
     var vm = this;
 
-    vm.resources = ResourcesService.query();
+    resources.resource().get(function(d){
+      vm.resources = d.data;
+    });
   }
 }());
