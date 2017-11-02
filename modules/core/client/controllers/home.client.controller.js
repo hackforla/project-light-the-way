@@ -5,16 +5,16 @@
     .module('core')
     .controller('HomePageController', HomePageController);
 
-  HomePageController.$inject = ['Authentication', 'ContentService', 'CategoriesService', 'ResourcesService'];
+  HomePageController.$inject = ['CategoriesService', 'ResourcesService'];
 
-  function HomePageController(Authentication, content, categories, resources) {
+  function HomePageController(categories, resources) {
     var vm = this;
 
     vm.categories = [];
     vm.featured = [];
     vm.recent = [];
 
-    categories.getAll().get(function(d){
+    categories.categories().get(function(d){
       vm.categories = d.data;
     });
 
