@@ -1,7 +1,5 @@
 <section>
-  <div class="page-header">
-    <h1>Resources</h1>
-  </div>
+  <h1 class="title">Resources</h1>
 
   <div class="row">
     <div class="col-md-6">
@@ -16,20 +14,16 @@
     <table class="table table-hover resources">
       <thead>
         <tr>
-          <th>Organization</th>
-          <th>Description</th>
+          <th colspan="2">Organization</th>
           <th>Website</th>
           <th>Address</th>
-          <th>POC</th>
-          <th>POC Email</th>
-          <th>POC Line</th>
+          <th colspan="3">POC</th>
           <th>Tags</th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="resource in vm.resources | filter: resourceSearch" >
-          <td><a href="/r/form/{{resource._id}}">{{resource['org']}}</a></td>
-          <td ng-bind="resource['desc']">{{key}}</td>
+          <td colspan="2"><a href="/r/form/{{resource._id}}">{{resource['org']}}</a> <br><p ng-bind="resource['desc']"></p> </td>
           <td><a href="http://{{resource['web']}}" target="_blank">Link</a></td>
           <td>
             <b ng-bind="resource['addr']"></b>,<br>
@@ -37,9 +31,11 @@
             <b ng-bind="resource['state']"></b>
             <b ng-bind="resource['zip']"></b>
           </td>
-          <td ng-bind="resource['poc_name']">Point of Contact</td>
-          <td ng-bind="resource['poc_email']">POC Email</td>
-          <td ng-bind="resource['poc_line']">POC Phone</td>
+          <td>
+            <span ng-bind="resource['poc_name']"></span><br>
+            <span ng-bind="resource['poc_email']"></span><br>
+            <span  ng-bind="resource['poc_line']"></span>
+          </td>
           <td ng-bind="resource['tags']">Tags</td>
         </tr>
       </tbody>
