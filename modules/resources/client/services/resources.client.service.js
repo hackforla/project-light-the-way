@@ -15,7 +15,7 @@
       searchResource:searchResource,
       getNew:getNew,
       getFeatured:getFeatured,
-      resource:resource
+      resources:resources
     };
 
     return service;
@@ -29,14 +29,14 @@
     }
 
     function getNew(){
-      return $resource('api/r/new');
+      return $resource('api/resources/new');
     }
 
     function getFeatured(){
-      return $resource('api/r/feat');
+      return $resource('api/resources/feat');
     }
 
-    function resource(){
+    function resources(){
       return $resource('api/r');
     }
 
