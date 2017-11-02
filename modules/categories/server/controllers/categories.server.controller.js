@@ -65,17 +65,38 @@ exports.update = function(req, res) {
  * Delete an Category
  */
 exports.delete = function(req, res) {
-  var category = req.category;
 
-  category.remove(function(err) {
-    if (err) {
+  console.log(req);
+
+  function urldecode(s){
+    return s.split('+').join(' ');
+  }
+
+  Category.findOneAndRemove({name: urldecode(req.params.name)})
+  .exec(function(err, success){
+    if(err){
       return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
+        msg: error.getErrorMessage(err)
       });
-    } else {
-      res.jsonp(category);
+    }else{
+      res.jsonp({
+        removed: true
+      })
     }
-  });
+
+  })
+  ;
+  // var category = new Category({name: urldecode(req.params.name)});
+
+  // category.remove(function(err) {
+  //   if (err) {
+  //     return res.status(400).send({
+  //       message: errorHandler.getErrorMessage(err)
+  //     });
+  //   } else {
+  //     res.jsonp(category);
+  //   }
+  // });
 };
 
 /**
