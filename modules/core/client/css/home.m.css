@@ -1,0 +1,183 @@
+
+@media screen and (min-width: 880px){
+  .featured:nth-child(even){
+    margin-right:0;
+  }
+}
+
+@media screen and (max-width: 880px){
+  .featured{
+    margin:10px auto;
+    display:block;
+    float:none;
+  }
+  .hero{
+    min-height: 400px;
+  }
+}
+@media screen and (max-width: 880px) and (orientation: landscape){
+  .home-banner {
+    padding-top:80px;
+  }
+  .home-search{
+    margin-top:40px;
+  }
+}
+@media screen and (min-width:601px){
+  .resource-container a:nth-child(3n){
+    margin-right:0;
+  }
+  .resource-container a:nth-child(n + 3){
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 600px){
+
+  .resource{
+    width:calc(50% - 5px);
+    float:left;
+    margin-right:10px;
+  }
+
+  .resource .org{
+    font-size:.75em;
+  }
+
+  .resource .name{
+    font-size:.875em;
+  }
+
+
+
+  .resource:nth-child(even){
+    margin-right:0;
+  }
+
+  .home-banner {
+    padding-top:100px;
+  }
+  .home-hero{
+    margin-bottom:20px;
+  }
+  .home-nav{
+    font-size:1.25em;
+    height:40px;
+    line-height:40px;
+  }
+
+  .home-nav .title{
+    width:80%;
+  }
+
+  .home-nav .menu{
+    width:20%;
+  }
+
+  .home-title{
+    font-size:1.5em;
+  }
+
+  .home-slogan{
+    font-size:1em;
+    line-height:1.5em;
+  }
+
+  .home-search{
+    font-size:1em;
+    height:60px;
+    line-height:60px;
+    margin-top:60px;
+  }
+
+  .home-search span{
+    position:absolute;
+    top:50%;
+    transform: translate(0%, -50%);
+    right:0;
+    padding:0 20px;
+  }
+
+
+  .vet-type{
+    font-size:1em;
+    height:60px;
+    line-height:60px;
+    margin-bottom:10px;
+    width:100%;
+  }
+
+  a.category{
+    width: calc(50% - 5px);
+    font-size:.875em;
+    height:100px;
+    line-height: 100px;
+    float:left;
+    margin-right:10px;
+  }
+
+  a.category:nth-child(even){
+    margin-right:0;
+  }
+
+  section .title{
+    font-size:1.25em;
+    padding-bottom:10px;
+  }
+
+  section{
+    margin-bottom:0;
+  }
+
+  .resource-container a{
+    margin-bottom: 10px;
+  }
+
+  .supporter{
+    font-size:.875em;
+  }
+}
+
+@media screen and (max-width: 320px){
+
+    .resource{
+      width:100%;
+      margin-right:0;
+    }
+
+    .home-banner {
+      padding-top:100px;
+    }
+
+    .home-hero{
+      margin-bottom:0;
+      height:40vh;
+    }
+    .home-nav{
+      font-size:1em;
+    }
+
+
+    .home-title{
+      font-size:1.3em;
+    }
+
+    .home-slogan{
+      font-size:.875em;
+      line-height:1.3em;
+    }
+
+    .home-search{
+      margin-top:30px;
+    }
+
+    .supporter{
+      margin-top:0;
+    }
+
+    section .title{
+      font-size:1.25em;
+      padding-bottom:10px;
+    }
+
+
+}
