@@ -28,7 +28,7 @@
       </thead>
       <tbody>
         <tr ng-repeat="resource in vm.resources | filter: resourceSearch" >
-          <td><a ui-sref="resources.edit({ resourceId: resource._id })">{{resource['org']}}</a></td>
+          <td><a href="/r/form/{{resource._id}}">{{resource['org']}}</a></td>
           <td ng-bind="resource['desc']">{{key}}</td>
           <td><a href="http://{{resource['web']}}" target="_blank">Link</a></td>
           <td>
