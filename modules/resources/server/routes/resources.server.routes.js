@@ -16,10 +16,10 @@ module.exports = function(app) {
     .get(resources.byID);
 
   // new
-  app.route('/api/r/new')
+  app.route('/api/resources/new')
     .get(resources.new);
   // feat
-  app.route('/api/r/feat')
+  app.route('/api/resources/feat')
     .get(resources.feat);
   // search
   app.route('/api/r/search/:query')
