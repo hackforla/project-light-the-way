@@ -28,7 +28,6 @@ exports.create = function(req, res) {
 
 exports.byID = function(req, res){
   Resource.findById(req.params.id).exec(function(err, resource){
-    console.log('hello');
     res.jsonp({ data:resource });
   });
 };
@@ -86,7 +85,7 @@ exports.delete = function(req, res) {
  * List of Resources
  */
 exports.list = function(req, res) {
-  Resource.find().select('name -_id').sort('-created').exec(function(err, resources) {
+  Resource.find({ status:'public' }).select().sort('-created').exec(function(err, resources) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
