@@ -12,16 +12,20 @@
   background-position:center;
 }
 
-.hero-title {
-  text-align: center;
-  font-weight: 600;
-  font-size: 2em;
-  margin-top: 20vh;
-  color: #BDC3C7
+
+.home-title{
+  font-size:2.5em;
+}
+
+.home-slogan{
+  font-size:1.5em;
+  line-height:1.25;
+  font-weight:400;
+  text-transform: capitalize;
 }
 
 .home-banner {
-  padding: 15% 0;
+  padding-top:195px;
 }
 
 .home-title, .home-logo, .home-slogan {
@@ -36,6 +40,39 @@
 
 .home-logo {
   width: 8vh;
+}
+
+.home-search{
+  background:#fff;
+  max-width:1000px;
+  width:100%;
+  margin:0 auto;
+  height:80px;
+  position: relative;
+  border-radius:5px;
+  font-size:1.5em;
+  font-weight:500;
+  margin-top:90px;
+}
+.home-search input{
+  border:none;
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  width:100%;
+  height:40px;
+  line-height: 40px;
+  padding:0 20px;
+}
+.home-search input:focus{
+  outline:none;
+}
+.home-search span{
+  position:absolute;
+  right:0;
+  top:50%;
+  transform:translateY(-50%);
+  padding:0 20px;
 }
 
 /* Home Page - Search Components */
@@ -159,13 +196,18 @@
 .overlay{
   width:100%;
   height:100%;
-  background:rgb(0,0,0);
-  background:rgba(0,0,0,.3);
+  background:rgba(52, 73, 94,.6);
 }
 
 /* Supporters Section */
 .supporter{
   text-align:center;
+  margin-top:40px;
+}
+.supporter .link{
+  color:#34495E;
+  font-weight:600;
+  font-size:1.25em;
 }
 .supporter .img{
   width:100px;
@@ -179,9 +221,9 @@
   background-position: center;
   background-size:contain;
 }
-.supporter .link {
-  text-decoration:none;
-  color:#219BEB;
+
+.supporter > div{
+  margin:40px 0;
 }
 
 /* Supporters */
@@ -194,4 +236,201 @@
 }
 .techhire-seal{
   background:url(../img/supporters/techhire-seal.jpg);
+}
+
+/* Home Nav */
+.home-nav{
+  position:fixed;
+  top:0;
+  max-width:1000px;
+  width:100%;
+  left:50%;
+  transform:translateX(-50%);
+  color:#fff;
+  padding:10px 0;
+  font-size:1.5em;
+  font-weight:500;
+}
+
+.home-nav .title{
+  width:80%;
+  float:left;
+}
+.home-nav .menu{
+  width:20%;
+  float:left;
+  text-align: right
+}
+
+/* Home Footer */
+
+.home-footer{
+  max-width:1000px;
+  width:100%;
+  margin:10px auto;
+  margin-top:60px;
+  font-weight:500;
+  font-size:1.2em;
+  padding:10px 0;
+}
+.home-footer .right,
+.home-footer .left{
+  opacity:.5;
+
+}
+.home-footer .mid{
+  text-align: center;
+}
+.home-footer .right{
+  text-align:right;
+}
+
+
+/* Resource Style */
+
+.resource{
+  max-width:880px;
+  width:100%;
+}
+
+.recent,
+.category,
+.vet-type{
+  border-radius:3px;
+  text-transform: uppercase;
+  font-weight:600;
+  width:calc(33.33% - ( 20px / 3));
+  background:#34495E;
+  text-align:center;
+  height:80px;
+  line-height:80px;
+  color:#fff;
+  margin-right:10px;
+  display:inline-block;
+  position: relative;
+  text-decoration: none;
+}
+
+
+.recent,
+.feature{
+  background:#fff;
+  color:#34495E
+}
+
+.recent{
+  height:220px;
+  margin-bottom:10px;
+  line-height: normal;
+}
+.featured .type,
+.featured .org,
+.recent .org{
+  font-size:.875em;
+  opacity:.5;
+  text-align: left;
+  font-weight:500;
+}
+.recent .org{
+  position:absolute;
+  left:10px;
+  top:10px;
+}
+
+.recent .name{
+  position:absolute;
+  bottom:10px;
+  left:10px;
+  font-size:1.125em;
+  color:#34AEFF;
+}
+
+.featured{
+  padding:10px;
+  background:#fff;
+  min-height:230px;
+  height:auto;
+  max-width:430px;
+  width:100%;
+  margin:0 10px 10px 0;
+  display: inline-block;
+}
+.featured .rec,
+.featured .view,
+.featured .type,
+.featured .org{
+  width:50%;
+  display: inline-block;
+}
+
+.featured .org{
+
+}
+
+.featured .type{
+  text-align:right;
+}
+
+.featured .name{
+  color:#34AEFF;
+  font-size:1.125em;
+  font-weight:500;
+  margin-bottom:5px;
+}
+
+.featured .desc{
+  line-height: 1.5;
+  opacity: .8;
+  margin-bottom:10px;
+}
+
+.featured .rec{
+  font-weight:500;
+  width:80%;
+}
+
+.featured .view,
+.featured .name{
+    color:#34AEFF;
+}
+.featured .view{
+  width:20%;
+  text-align:right;
+}
+.featured .img{
+  height:120px;
+  margin-top:10px;
+  position:relative;
+}
+
+.featured .img img{
+  height:100%;
+  max-width:150px;
+  left:50%;
+  position:absolute;
+  transform: translateX(-50%);
+}
+
+.category{
+  height:160px;
+  line-height:160px;
+  margin-bottom:10px;
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+  font-size:1.25em;
+}
+
+.dire.vet-type {
+  background:#E74C3C
+}
+
+/* Text Helpers */
+
+.title .more{
+  position:absolute;
+  transform:translateX(20%);
+  top:25%;
+  font-size:.667em;
+  color:#34AEFF
 }
