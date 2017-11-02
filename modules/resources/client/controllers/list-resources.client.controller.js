@@ -10,7 +10,7 @@
   function ResourcesListController(resources) {
     var vm = this;
 
-    resources.resource().get(function(d){
+    resources.resources().get(function(d){
       vm.resources = d.data;
     });
   }
