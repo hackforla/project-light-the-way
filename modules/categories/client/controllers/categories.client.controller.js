@@ -6,48 +6,50 @@
     .module('categories')
     .controller('CategoriesController', CategoriesController);
 
-  CategoriesController.$inject = ['$scope', '$state', '$window', 'Authentication'];
+  CategoriesController.$inject = ['$scope', '$state', '$window', 'CategoriesService'];
 
-  function CategoriesController ($scope, $state, $window, Authentication) {
+  function CategoriesController ($scope, $state, $window, categories) {
     var vm = this;
-
-    vm.authentication = Authentication;
-    // vm.category = category;
     vm.error = null;
     vm.form = {};
     vm.remove = remove;
-    vm.save = save;
+    vm.fn = {};
+    vm.fn.save = save;
 
-    // Remove existing Category
-    function remove() {
-      if ($window.confirm('Are you sure you want to delete?')) {
-        vm.category.$remove($state.go('categories.list'));
+    categories.categories().get(function(d){
+      vm.categories = d.data;
+    });
+
+
+
+    function remove(n){
+      categories.category(n).remove(function(d){
+        if(d.removed){
+          vm.categories.splice(vm.categories.indexOf(n), 1);
+        }
+      })
+    }
+
+    function save(){
+      if(vm.form.name && (vm.categories.indexOf(vm.form.name) === -1)){
+        categories.categories().save(
+        {name: vm.form.name},
+        function(d){
+          add();
+        },
+        err
+      )
+
+        function add(){
+          vm.categories.push(vm.form.name);
+          vm.form.name = '';
+        }
       }
     }
 
-    // Save Category
-    function save(isValid) {
-      if (!isValid) {
-        $scope.$broadcast('show-errors-check-validity', 'vm.form.categoryForm');
-        return false;
-      }
 
-      // TODO: move create/update logic to service
-      if (vm.category._id) {
-        vm.category.$update(successCallback, errorCallback);
-      } else {
-        vm.category.$save(successCallback, errorCallback);
-      }
-
-      function successCallback(res) {
-        $state.go('categories.view', {
-          categoryId: res._id
-        });
-      }
-
-      function errorCallback(res) {
-        vm.error = res.data.message;
-      }
+    function err(d){
+      console.error(d);
     }
   }
 }());
