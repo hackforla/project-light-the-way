@@ -28,7 +28,8 @@ exports.create = function(req, res) {
 
 exports.byID = function(req, res){
   Resource.findById(req.params.id).exec(function(err, resource){
-    res.jsonp(resource);
+    console.log('hello');
+    res.jsonp({ data:resource });
   });
 };
 
@@ -69,8 +70,7 @@ exports.update = function(req, res) {
  * Delete an Resource
  */
 exports.delete = function(req, res) {
-  var resource = req.resource;
-
+  var resource = req.params.name;
   resource.remove(function(err) {
     if (err) {
       return res.status(400).send({
@@ -86,13 +86,13 @@ exports.delete = function(req, res) {
  * List of Resources
  */
 exports.list = function(req, res) {
-  Resource.find().sort('-created').populate('user', 'displayName').exec(function(err, resources) {
+  Resource.find().select('name -_id').sort('-created').exec(function(err, resources) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.jsonp(resources);
+      res.jsonp({ data: resources });
     }
   });
 };
