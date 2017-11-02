@@ -1,105 +1,73 @@
-<!-- Content For Landing Page -->
-
-<!--  Welcome Section -->
+<ng-include src="'/modules/core/client/views/home.header.client.view.html'"></ng-include>
 
 <div class="hero home-hero">
   <div class="overlay">
     <div class="home-banner">
-      <img class="home-logo" ng-src="{{vm.home.logo}}" alt="Large background picture of soldiers raising the U.S flag.">
-      <h1 class="home-title" ng-bind="vm.home.title"></h1>
-      <h3 class="home-slogan" ng-bind="vm.home.slogan"></h3>
+      <img class="home-logo" ng-src="/modules/core/client/img/brand/logo1.png" alt="Large background picture of soldiers raising the U.S flag.">
+      <h1 class="home-title">Welcome to Project Light The Way</h1>
+      <h3 class="home-slogan">Find the resources you need, and discover ones you did not know about</h3>
+    </div>
+
+    <div class="home-search">
+      <input type="text">
+      <span ui-keypress="{13:'vm.fn.search()'}">Search</span>
     </div>
   </div>
 </div>
-<div class="container">
-  <!-- Categories -->
-  <section>
-    <div class="row">
-      <div class="col-xs-4 col-offset-xs-4">
-        Categories:
-        <ul>
-          <li ng-repeat="c in vm.categories" ng-bind="c"></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  <!--  Recent -->
-  <section>
-    <div class="row">
-      <div class="col-xs-4 col-offset-xs-4">
-        Recent:
-        <ul>
-          <li ng-repeat="r in vm.recent" ng-bind="r.org"></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  <!-- Featured -->
-  <section>
-    <div class="row">
-      <div class="col-xs-4 col-offset-xs-4">
-        Featured:
-        <ul>
-          <li ng-repeat="f in vm.featured" ng-bind="f.org"></li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
-  <!--  Vet Section-->
+<section>
+  <div class="title">I am currently</div>
+  <div class="vet-type">
+    <a href="/transition">transitioning</a>
+    <a href="/veteran">a veteran</a>
+    <a href="/dire">in dire need</a>
+  </div>
+</section>
 
-  <!-- Transitioning -->
-
-  <!-- In LA -->
-
-  <!-- Dire -->
+<section>
+  <h2 class="title">Title</h2>
+  <div class="resource">
+    <a href=""></a>
+  </div>
+</section>
 
   <!-- Supporter Section -->
   <section>
-    <a href="#supporters" name="supporters">
-      <h2>
-        Supporters
-      </h2>
-      <div class="container">
-        <div class="row supporter">
-          <div class="col-sm-4">
-            <a href="https://techhire.org/" class="link" target="_blank">
-              <div class="img">
-                <div class="techhire-seal"></div>
-              </div>
-              Tech Hire
-            </a>
-          </div>
+    <h2 class="title">Supporters</h2>
 
-          <div class="col-sm-4">
-            <a href="https://www.lamayor.org/" class="link" target="_blank">
-              <div class="img">
-                <div class="la-seal"></div>
-              </div>
-              Los Angeles <br> Mayor's Office
-            </a>
-          </div>
+    <div class="supporters">
+      <a class="supporter"></a>
+    </div>
+    <div class="container">
+      <div class="row supporter">
+        <div class="col-sm-4">
+          <a href="https://techhire.org/" class="link" target="_blank">
+            <div class="img">
+              <div class="techhire-seal"></div>
+            </div>
+            Tech Hire
+          </a>
+        </div>
 
-          <div class="col-sm-4">
-            <a href="http://www.hackforla.org/" class="link" target="_blank">
-              <div class="img">
-                <div class="hfla-seal"></div>
-              </div>
-              Hack for LA
-            </a>
-          </div>
+        <div class="col-sm-4">
+          <a href="https://www.lamayor.org/" class="link" target="_blank">
+            <div class="img">
+              <div class="la-seal"></div>
+            </div>
+            Los Angeles <br> Mayor's Office
+          </a>
+        </div>
+
+        <div class="col-sm-4">
+          <a href="http://www.hackforla.org/" class="link" target="_blank">
+            <div class="img">
+              <div class="hfla-seal"></div>
+            </div>
+            Hack for LA
+          </a>
         </div>
       </div>
+    </div>
+    <a href="#supporters" name="supporters">
     </a>
   </section>
-
-  <!-- About Section -->
-  <section>
-    <a href="#about" name="about">
-      <h2>
-        About Us
-      </h2>
-    </a>
-    <p id="about-us" ng-bind="vm.home.aboutus"></p>
-  </section>
-</div>
