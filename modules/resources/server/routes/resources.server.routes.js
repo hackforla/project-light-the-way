@@ -26,9 +26,6 @@ module.exports = function(app) {
     .get(resources.search);
   app.route('/api/r/search/:query/:page')
     .get(resources.search);
-  // category
-  app.route('/api/r/category')
-    .get(resources.category);
 
 
   // Finish by binding the Resource middleware
