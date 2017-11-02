@@ -65,3 +65,8 @@ body {
 .bg-grey {
   background: #F1F1F3
 }
+
+section .title{
+  text-align:center;
+  color:#34495E;
+}
