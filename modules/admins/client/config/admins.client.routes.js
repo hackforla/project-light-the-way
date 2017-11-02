@@ -11,15 +11,14 @@
     $stateProvider
       .state('admins', {
         abstract: true,
-        url: '/admins',
+        url: '/admin',
         template: '<ui-view/>'
       })
       .state('admins.list', {
         url: '',
-        templateUrl: 'modules/admins/client/views/list-admins.client.view.html',
-        controller: 'AdminsListController',
-        controllerAs: 'vm',
+        templateUrl: 'modules/admins/client/views/admin.client.view.html',
         data: {
+          roles: ['admin'],
           pageTitle: 'Admins List'
         }
       })
