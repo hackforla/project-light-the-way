@@ -10,11 +10,16 @@
 
   function CategoriesService($resource) {
     var service = {};
-    service.getAll = getAll;
+    service.categories = categories;
+    service.category = category;
     return service;
 
-    function getAll(name){
+    function categories(name){
       return $resource('api/c');
+    }
+
+    function category(name){
+      return $resource('api/c/' + name);
     }
   }
 }());
