@@ -85,3 +85,12 @@ section .title{
   font-weight:700;
   position:relative;
 }
+
+/* Text Helpers */
+.title .more{
+  position:absolute;
+  transform:translateX(20%);
+  top:25%;
+  font-size:.667em;
+  color:#34AEFF
+}
