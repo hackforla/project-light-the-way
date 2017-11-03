@@ -29,15 +29,21 @@
   .hero{
     min-height: 400px;
   }
-
   .recent,
   .category,
   .vet-type{
     width:calc(50% - 10px);
   }
   .vet-type{
+    height:60px;
+    line-height:60px;
+  }
+  .vet-type{
     width:100%;
     margin-bottom:10px;
+  }
+  section{
+    padding:0 10px;
   }
 }
 @media screen and (max-width: 880px) and (orientation: landscape){
@@ -57,27 +63,13 @@
   }
 }
 @media screen and (max-width: 600px){
-
-
-  /*.resource .org{
-    font-size:.75em;
-  }
-
-  .resource .name{
-    font-size:.875em;
-  }
-
-
-
-  .resource:nth-child(even){
-    margin-right:0;
-  }*/
-
   .home-banner {
     padding-top:100px;
   }
   .home-hero{
-    margin-bottom:20px;
+    height:30vh;
+    min-height:380px;
+    margin-bottom:0;
   }
   .home-nav{
     font-size:1.25em;
@@ -137,25 +129,23 @@
 
   section .title{
     font-size:1.25em;
-    padding-bottom:10px;
+    padding-bottom:0;
+    margin:20px 0 10px 0;
   }
 
-  section{
-    margin-bottom:0;
-  }
-
-  .resource-container a{
-    margin-bottom: 10px;
-  }
 
   .supporter{
+    font-size:.875em;
+  }
+
+
+  .home-footer{
     font-size:.875em;
   }
 }
 
 @media screen and (max-width: 320px){
-
-    .resource{
+    .recent{
       width:100%;
       margin-right:0;
     }
@@ -165,8 +155,7 @@
     }
 
     .home-hero{
-      margin-bottom:0;
-      height:40vh;
+      min-height:340px;
     }
     .home-nav{
       font-size:1em;
@@ -189,11 +178,4 @@
     .supporter{
       margin-top:0;
     }
-
-    section .title{
-      font-size:1.25em;
-      padding-bottom:10px;
-    }
-
-
 }

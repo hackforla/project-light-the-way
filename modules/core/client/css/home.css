@@ -202,7 +202,6 @@
 /* Supporters Section */
 .supporter{
   text-align:center;
-  margin-top:40px;
 }
 .supporter .link{
   color:#34495E;
@@ -212,7 +211,7 @@
 .supporter .img{
   width:100px;
   height:100px;
-  margin:10px auto;
+  margin:5px auto;
 }
 
 .supporter .img div{
@@ -223,7 +222,8 @@
 }
 
 .supporter > div{
-  margin:40px 0;
+  margin:10px 0;
+  margin-bottom:40px;
 }
 
 /* Supporters */
@@ -362,9 +362,8 @@
   width:50%;
   display: inline-block;
 }
-
-.featured .org{
-
+.featured .view{
+  font-weight:500
 }
 
 .featured .type{
@@ -380,7 +379,7 @@
 
 .featured .desc{
   line-height: 1.5;
-  opacity: .8;
+  opacity: .7;
   margin-bottom:10px;
 }
 
@@ -423,14 +422,4 @@
 
 .dire.vet-type {
   background:#E74C3C
-}
-
-/* Text Helpers */
-
-.title .more{
-  position:absolute;
-  transform:translateX(20%);
-  top:25%;
-  font-size:.667em;
-  color:#34AEFF
 }
