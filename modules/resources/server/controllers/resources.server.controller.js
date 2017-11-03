@@ -97,7 +97,7 @@ exports.list = function(req, res) {
 };
 
 exports.new = function(req, res) {
-  Resource.find({ status:'public' }).select('-status -created').limit(5).sort('-created').exec(function(err, data) {
+  Resource.find({ status:'public' }).select('-status -created').limit(6).sort('-created').exec(function(err, data) {
     res.jsonp({ data: data });
   });
 };
