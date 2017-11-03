@@ -27,23 +27,23 @@
         if(d.removed){
           vm.categories.splice(vm.categories.indexOf(n), 1);
         }
-      })
+      });
     }
 
     function save(){
       if(vm.form.name && (vm.categories.indexOf(vm.form.name) === -1)){
         categories.categories().save(
-        {name: vm.form.name},
-        function(d){
-          add();
-        },
-        err
-      )
+          { name: vm.form.name },
+          function(d){
+            add();
+          },
+          err
+        );
 
-        function add(){
-          vm.categories.push(vm.form.name);
-          vm.form.name = '';
-        }
+      }
+      function add(){
+        vm.categories.push(vm.form.name);
+        vm.form.name = '';
       }
     }
 
