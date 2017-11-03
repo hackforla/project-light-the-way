@@ -7,8 +7,8 @@
       <h1 class="home-title">Ahead of you, to guide you</h1>
       <div class="home-slogan">los angeles' best veteranresources<br>prevetted by vets for vets </div>
       <div class="home-search">
-        <input type="text" placeholder="Search...">
-        <span ui-keypress="{13:'vm.fn.search()'}">Search</span>
+        <input type="text" placeholder="Search..." ng-model="vm.form.search" ui-keypress="{13:'vm.fn.search()'}">
+        <span ng-click="vm.fn.search()">Search</span>
       </div>
     </div>
   </div>
@@ -23,7 +23,7 @@
 
 <section>
   <h2 class="title">Categories <span class="more">View More</span></h2>
-  <div class="resource" ng-init="limit=5">
+  <div class="resource clearfix" ng-init="limit=5">
     <a class="category" style="background-image:url('/modules/categories/client/img/{{c|url}}.jpg')" href="/r/search/{{c | url}}" ng-repeat="c in vm.categories | limitTo: limit" ng-bind="c"></a><a class="category" href="" ng-click="limit=9" ng-show="limit===5">Show More</a>
   </div>
 </section>
@@ -39,12 +39,19 @@
 
 <section>
   <h2 class="title">Featured <span class="more">View More</span></h2>
-  <div class="resource">
+  <div class="resource clearfix">
     <a href="" class="featured" ng-repeat="r in vm.featured">
       <div class="org" ng-bind="r.org"></div><div class="type">Type</div>
       <div class="name">Resource Name</div>
-      <div class="desc">This will be a short description about this resources and it's context. This will be a short description about this resources and it's context.</div>
-      <div class="rec">Recommended by <span>##</span> Veterans</div><div class="view">View</div>
+      <div class="desc">
+        This will be a short description about this resources and it's context. This will be a short description about this resources and it's context.
+      </div>
+      <div class="rec">
+        <span>##</span>
+        Veterans Recommended
+      </div><div class="view">
+        View
+      </div>
       <div class="img">
         <img src="/modules/core/client/img/supporters/logo-hfla.png" alt="">
       </div>
@@ -86,7 +93,7 @@
 
 
   <footer class="home-footer row">
-    <a class="col-xs-4 left" href="/admin">admin</a>
-    <div class="col-xs-4 mid">Light The Way</div>
-    <div class="col-xs-4 right">sitemap</div>
+    <a class="col-xs-3 left" href="/admin">admin</a>
+    <div class="col-xs-6 mid txt-c">Light The Way</div>
+    <div class="col-xs-3 right">sitemap</div>
   </footer>
