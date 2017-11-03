@@ -1,11 +1,10 @@
-/* Home Page Components */
+
 
 .hero{
-  height:60vh;
+  height: 60vh;
   min-height: 30vh;
   width: 100%;
 }
-
 .home-hero{
   background: url('../img/brand/veterans.jpg');
   background-size:cover;
@@ -28,13 +27,16 @@
   padding-top:195px;
 }
 
-.home-title, .home-logo, .home-slogan {
+.home-title,
+.home-logo,
+.home-slogan {
   display: block;
   margin: 0 auto;
   text-align: center;
 }
 
-.home-title, .home-slogan {
+.home-title,
+.home-slogan {
   color: white;
 }
 
@@ -65,7 +67,7 @@
   padding:0 20px;
 }
 .home-search input:focus{
-  outline:none;
+  outline:0;
 }
 .home-search span{
   position:absolute;
@@ -90,33 +92,6 @@
   color: #7F8C8D
 }
 
-.search input[type="text"] {
-  padding: 8px;
-  padding-left: 35px;
-  width: 100%;
-  border-radius: 3px;
-  border: 1px solid #7F8C8D;
-}
-
-.search input[type="text"]::-webkit-input-placeholder {
-  /* Chrome/Opera/Safari */
-  color: #BDC3C7;
-}
-
-.search input[type="text"]::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #BDC3C7;
-}
-
-.search input[type="text"]:-ms-input-placeholder {
-  /* IE 10+ */
-  color: #BDC3C7;
-}
-
-.search input[type="text"]:-moz-placeholder {
-  /* Firefox 18- */
-  color: #BDC3C7;
-}
 
 .search-buttons {
   margin-top: 20px;
@@ -226,6 +201,7 @@
   margin-bottom:40px;
 }
 
+
 /* Supporters */
 .la-seal{
   background:url(../img/supporters/sealLA.png);
@@ -285,7 +261,6 @@
   text-align:right;
 }
 
-
 /* Resource Style */
 
 .resource{
@@ -299,7 +274,7 @@
   border-radius:3px;
   text-transform: uppercase;
   font-weight:600;
-  width:calc(33.33% - ( 20px / 3));
+  width:calc( 33.33% - 6.667px );
   background:#34495E;
   text-align:center;
   height:80px;
