@@ -30,6 +30,53 @@
   min-width: 500px;
 }
 
+/* Resource */
+
+.resource{
+  background:#fff;
+  padding:10px;
+}
+
+.poc,
+.resource .org{
+  font-weight:500;
+}
+
+.resource .web{
+  color: #34AEFF;
+  font-size:.75em;
+}
+.resource .addr,
+.resource .desc,
+.resource .name,
+.resource .email,
+.resource .line{
+  font-size:.875em;
+}
+.resource .line,
+.resource .desc{
+  margin:10px 0;
+}
+.resource .title{
+  margin-top:0;
+}
+.resource .id{
+  margin-top:20px;
+  font-size:.75em;
+  opacity: .5;
+  font-weight:600;
+}
+.resource .desc{
+  line-height: 1.5;
+}
+
+.resource .rec{
+
+}
+
+.resource .id{
+  text-align: center;
+}
 
 /* Resource Form */
 
