@@ -14,6 +14,15 @@
         url: '',
         template: '<ui-view/>'
       })
+      .state('resources.view', {
+        url: '/resource/:resourceId',
+        templateUrl: 'modules/resources/client/views/view-resource.client.view.html',
+        controller: 'ResourceReadController as vm',
+        data: {
+          // resolve here
+          pageTitle: 'Resource'
+        }
+      })
       .state('resources.list', {
         url: '/resources',
         templateUrl: 'modules/resources/client/views/list-resources.client.view.html',
