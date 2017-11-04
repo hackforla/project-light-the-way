@@ -1,8 +1,8 @@
 
 
 .hero{
-  height: 60vh;
-  min-height: 30vh;
+  height: 70vh;
+  min-height: 400px;
   width: 100%;
 }
 .home-hero{
@@ -143,14 +143,6 @@
 }
 
 
-/* Footer Components */
-
-.footer-simple {
-  padding: 15px 0;
-  color: #7F8C8D
-}
-
-
 /* Bootstrap Class Helpers*/
 
 .row-no-margin {
@@ -223,9 +215,11 @@
   left:50%;
   transform:translateX(-50%);
   color:#fff;
-  padding:10px 0;
   font-size:1.5em;
   font-weight:500;
+  z-index:1000;
+  height:50px;
+  line-height: 50px;
 }
 
 .home-nav .title{
@@ -246,7 +240,7 @@
   margin:10px auto;
   margin-top:60px;
   font-weight:500;
-  font-size:1.2em;
+  font-size:1.1em;
   padding:10px 0;
 }
 .home-footer .right,
@@ -285,6 +279,10 @@
   position: relative;
   text-decoration: none;
 }
+.vet-type:hover,
+.category:hover{
+  color:#fff;
+}
 
 
 .recent,
@@ -310,6 +308,7 @@
   position:absolute;
   left:10px;
   top:10px;
+  text-transform: capitalize;
 }
 
 .recent .name{
@@ -318,6 +317,8 @@
   left:10px;
   font-size:1.125em;
   color:#34AEFF;
+  text-transform: capitalize;
+  font-weight:500;
 }
 
 .featured{
@@ -395,6 +396,21 @@
   font-size:1.25em;
 }
 
+
+
 .dire.vet-type {
   background:#E74C3C
+}
+
+
+
+.nav-bg{
+  background:#f3f3f5;
+  color:#34495E;
+  font-size:1.25em;
+}
+
+.home-nav-hide{
+  position: absolute;
+  top:-50px;
 }
