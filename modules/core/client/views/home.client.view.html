@@ -22,7 +22,7 @@
 </section>
 
 <section>
-  <h2 class="title">Categories <span class="more">View More</span></h2>
+  <a href="/categories"><h2 class="title">Categories <span class="more">View More</span></h2></a>
   <div class="resource clearfix" ng-init="limit=5">
     <a class="category" style="background-image:url('/modules/categories/client/img/{{c|url}}.jpg')" href="/r/search/{{c | url}}" ng-repeat="c in vm.categories | limitTo: limit" ng-bind="c"></a><a class="category" href="" ng-click="limit=9" ng-show="limit===5">Show More</a>
   </div>
@@ -30,7 +30,7 @@
 <section>
   <h2 class="title">Recent <span class="more">View More</span></h2>
   <div class="resource">
-    <a href="" class="recent" ng-repeat="r in vm.recent">
+    <a href="/resource/5995dd5c734d1d42e42ae71b" class="recent" ng-repeat="r in vm.recent">
       <div class="org" ng-bind="r.org"></div>
       <div class="name">Resource Name</div>
     </a>
@@ -40,7 +40,7 @@
 <section>
   <h2 class="title">Featured <span class="more">View More</span></h2>
   <div class="resource clearfix">
-    <a href="" class="featured" ng-repeat="r in vm.featured">
+    <a href="#" class="featured" ng-repeat="r in vm.featured">
       <div class="org" ng-bind="r.org"></div><div class="type">Type</div>
       <div class="name">Resource Name</div>
       <div class="desc">
