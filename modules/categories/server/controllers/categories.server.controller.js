@@ -72,19 +72,19 @@ exports.delete = function(req, res) {
     return s.split('+').join(' ');
   }
 
-  Category.findOneAndRemove({name: urldecode(req.params.name)})
-  .exec(function(err, success){
-    if(err){
-      return res.status(400).send({
-        msg: error.getErrorMessage(err)
-      });
-    }else{
-      res.jsonp({
-        removed: true
-      })
-    }
+  Category.findOneAndRemove({ name: urldecode(req.params.name) })
+    .exec(function(err, success){
+      if(err){
+        return res.status(400).send({
+          msg: errorHandler.getErrorMessage(err)
+        });
+      }else{
+        res.jsonp({
+          removed: true
+        });
+      }
 
-  })
+    })
   ;
   // var category = new Category({name: urldecode(req.params.name)});
 
