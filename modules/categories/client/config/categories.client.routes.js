@@ -19,7 +19,6 @@
         templateUrl: 'modules/categories/client/views/categories.client.view.html',
         controller: 'CategoriesListController as vm',
         data: {
-          roles: ['guest', 'user', 'admin'],
           pageTitle: 'Categories List'
         }
       })
@@ -33,7 +32,7 @@
         templateUrl: 'modules/categories/client/views/form.client.view.html',
         controller: 'CategoriesController as vm',
         data: {
-          roles: ['user', 'admin'],
+          roles: ['admin'],
           pageTitle: 'Categories Create'
         }
       })
@@ -42,7 +41,7 @@
         templateUrl: 'modules/categories/client/views/form.client.view.html',
         controller: 'CategoriesController as vm',
         data: {
-          roles: ['user', 'admin'],
+          roles: ['admin'],
           pageTitle: 'Edit Category {{ categoryResolve.name }}'
         }
       });
