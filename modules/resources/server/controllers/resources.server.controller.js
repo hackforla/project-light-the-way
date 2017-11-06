@@ -49,21 +49,39 @@ exports.read = function(req, res) {
 /**
  * Update a Resource
  */
-exports.update = function(req, res) {
-  var resource = req.resource;
+// exports.update = function(req, res) {
+// var oldresource = new Resource(req.body);
+// Resource.findById(req.body._id, function(err, resource){
+//   if (err) {
+//     return res.status(400).send({
+//       message: errorHandler.getErrorMessage(err)
+//     });
+//   }
+//   resource.set(oldresource);
+//   resource.save(function(err){
+//     if (err) {
+//       return res.status(400).send({
+//         message: errorHandler.getErrorMessage(err)
+//       });
+//     } else {
+//       res.jsonp(resource);
+//     }
+//   });
+// });
 
-  resource = _.extend(resource, req.body);
 
-  resource.save(function(err) {
-    if (err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      res.jsonp(resource);
-    }
-  });
-};
+
+//   Resource.update(
+//     { _id: req.body._id },
+//     { $push: {
+//       resource: req.body
+//     }
+//     }
+//   ).exec(function(err, data){
+//     console.log(err || data);
+//     res.jsonp({ msg:'ok' });
+//   });
+// };
 
 /**
  * Delete an Resource
