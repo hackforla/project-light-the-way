@@ -17,7 +17,6 @@
       .state('vet.dire', {
         url: 'dire',
         templateUrl: 'modules/vets/client/views/dire.client.view.html',
-        controller: 'VetsListController as vm',
         data: {
           pageTitle: 'Dire'
         }
@@ -25,15 +24,23 @@
       .state('vet.transition', {
         url: 'transition',
         templateUrl: 'modules/vets/client/views/transition.client.view.html',
-        controller: 'VetsController as vm',
+        controller: 'VetsTransitionController as vm',
         data: {
           pageTitle: 'Transitioning'
+        }
+      })
+      .state('vet.transition.results', {
+        url: '/results',
+        templateUrl: 'modules/vets/client/views/transition.results.client.view.html',
+        controller: 'VetsTransitionController as vm',
+        data: {
+          pageTitle: 'Checklist Results'
         }
       })
       .state('vet.vet', {
         url: 'veteran',
         templateUrl: 'modules/vets/client/views/veteran.client.view.html',
-        controller: 'VetsController as vm',
+        // controller: 'VetsController as vm',
         data: {
           pageTitle: 'Veteran'
         }
