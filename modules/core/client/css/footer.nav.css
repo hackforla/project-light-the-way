@@ -1,0 +1,46 @@
+.has-footer{
+  margin-bottom: 80px;
+}
+
+.footer-nav{
+  background:#f3f3f5;
+  position: fixed;
+  width:100%;
+  height:auto;
+  padding:5px 0;
+  bottom:0;
+  text-align: center;
+}
+
+.footer-nav a{
+  display: inline-block;
+  width:100px;
+  height:50px;
+  text-decoration: none;
+}
+
+.footer-nav i{
+  font-size:1.5em;
+}
+
+.footer-nav .name{
+  text-transform: uppercase;
+  font-size:.75em;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 500px){
+  .footer-nav{
+    height:auto;
+  }
+  .footer-nav a{
+    width:90px;
+    height:auto;
+  }
+  .footer-nav i{
+    font-size:1.5em;
+  }
+  .footer-nav .name{
+    font-size:.75em;
+  }
+}
