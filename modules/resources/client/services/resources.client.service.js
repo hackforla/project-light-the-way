@@ -21,7 +21,13 @@
     return service;
 
     function getResource(id){
-      return $resource('api/r/'+id);
+      return $resource('api/r/'+id,
+        {},
+        {
+          update: {
+            method: 'PUT'
+          }
+        });
     }
 
     function searchResource(query){
