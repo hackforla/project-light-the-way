@@ -1,6 +1,45 @@
 <section>
-Transition Page
-<a href="/dire">Dire</a>
-<a href="/transition">Transition</a>
-<a href="/veteran">Veteran</a>
+
+  <h1 class="title">Transition</h1>
+  <h2 class="txt-c">CHECKLIST<br><small>We'll generate a checklist to follow</small></h2>
+
+  <div class="input-group">
+    <input class="form-control" type="text" placeholder="Enter city, zipcode or press 'use my location'">
+    <span class="input-group-addon"><i class="fa fa-map-marker " aria-hidden="true"></i></span>
+  </div>
+  <button class="btn btn-link" ng-click="vm.fn.locate()">Use My Location <i class="fa fa-map-marker " aria-hidden="true"></i></button>
+  <ul class="checklist transition-checklist">
+    <li>Select All</li>
+    <li ng-repeat="c in vm.categories" ng-bind="c"></li>
+  </ul>
+
+  <a ui-sref="vet.transition.results">
+    <button class="btn btn-primary">Search Resources</button>
+  </a>
+
+  <ui-view></ui-view>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <a href="/dire">Dire</a>
+  <a href="/transition">Transition</a>
+  <a href="/veteran">Veteran</a>
 </section>

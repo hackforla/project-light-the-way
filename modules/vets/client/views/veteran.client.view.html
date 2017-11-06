@@ -1,6 +1,13 @@
-<section>
-Veteran Page
-<a href="/dire">Dire</a>
-<a href="/transition">Transition</a>
-<a href="/veteran">Veteran</a>
+<section class="has-footer">
+  <h1 class="title">Resource Filters</h1>
+  <div class="form-group">
+    <label for="first">First year of service</label>
+    <input class="form-control" type="date">
+    <div class="form-group">
+    </div>
+    <label for="last">Last year of service</label>
+    <input class="form-control" type="date">
+  </div>
+  <a href="/resources" class="btn btn-primary pull-right">Continue</a>
 </section>
+<ng-include src="'/modules/core/client/views/footer.nav.view.html'"></ng-include>
