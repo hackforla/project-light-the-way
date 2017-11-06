@@ -6,9 +6,9 @@
     .module('resources')
     .controller('ResourcesController', ResourcesController);
 
-  ResourcesController.$inject = ['$location', '$state', '$window', 'ResourcesService'];
+  ResourcesController.$inject = ['$location', '$state', '$window', 'ResourcesService', 'CategoriesService'];
 
-  function ResourcesController ($location, $state, $window, resource) {
+  function ResourcesController ($location, $state, $window, resource, categories) {
     var vm = this;
     vm.error = null;
     vm.form = {};
@@ -16,6 +16,14 @@
     vm.save = save;
     var d = 'delete';
     var id = $state.params.resourceId;
+
+    categories.categories().get(function(d){
+      vm.categories = d.data;
+    },
+    function(d){
+      console.error(d);
+    }
+    );
     if(id){
       get();
     }
@@ -26,16 +34,34 @@
 
     function save(valid){
       if(valid){
-        resource.create().save(vm.resource, updateurl, err);
+        if(vm.resource._id){
+          // update
+          console.log('update');
+
+          // resource.getResource(vm.resource._id).update(vm.resource, function(d){
+          //   console.log(d);
+          //   console.log('success update');
+          // },
+          // function(){
+          //   console.log(d);
+          //   console.log('failed');
+          // }
+          // );
+        }else{
+          // create
+          console.log('creating');
+          resource.create().save(vm.resource, updateurl, err);
+        }
       }
-      function updateurl(d){
-        $location.path('/r/form/'+d._id);
-        vm.resource._id = d._id;
-      }
+
+    }
+
+    function updateurl(d){
+      $location.path('/r/form/'+d._id);
+      vm.resource._id = d._id;
     }
 
     function success(d){
-      console.log(d);
       vm.resource = d.data;
     }
 
