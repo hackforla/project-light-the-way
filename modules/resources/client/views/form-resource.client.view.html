@@ -1,8 +1,7 @@
 <section>
-  <div class="page-header">
-    <h1>Resource {{vm.resource._id}}</h1>
-    <a ng-click="vm.form.reset()">Create new resource</a>
-  </div>
+  <h1 class="title">{{vm.resource._id || 'Create Resource'}}</h1>
+  <a href="#" class="btn btn-link btn-block" ng-click="vm.form.reset()">Create a new resource</a>
+  <hr>
   <div class="col-md-4 col-md-offset-4">
     <form name="vm.form.resourceForm" class="form-horizontal form-resources" novalidate="false">
       <fieldset>
@@ -13,9 +12,20 @@
             <p class="help-block error-text" ng-message="required">Organization name is required.</p>
           </div>
         </div>
+
         <div class="form-group" show-errors="false">
-          <label class="control-label req" for="name">Organization Description</label>
-          <textarea name="name" class="form-control" rows="4" cols="80" ng-model="vm.resource.desc" id="desc" required="false"></textarea>
+          <label class="control-label req" for="catg">Organization Category</label>
+          <select id="catg" class="form-control" name="catg" ng-model="vm.resource.catg">
+            <option value="{{c}}" ng-selected="c === vm.resource.catg" ng-repeat="c in vm.categories">{{c}}</option>
+          </select>
+          <div ng-messages="vm.form.resourceForm.catg.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Organization catg is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors="false">
+          <label class="control-label req" for="desc">Organization Description</label>
+          <textarea name="desc" class="form-control" rows="4" cols="80" ng-model="vm.resource.desc" id="desc" required="false"></textarea>
           <span ng-bind="vm.resource.desc.length || 0"></span>
           <div ng-messages="vm.form.resourceForm.desc.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Organization description required.</p>
@@ -23,9 +33,9 @@
         </div>
 
         <div class="form-group" show-errors="false">
-          <label class="control-label req" for="name">Organization Website</label>
+          <label class="control-label req" for="web">Organization Website</label>
           <span class="help-block">www.example.com</span>
-          <input name="name" type="text" ng-model="vm.resource.web" id="web" class="form-control" placeholder="Organization Website" required="false">
+          <input name="web" type="text" ng-model="vm.resource.web" id="web" class="form-control" placeholder="Organization Website" required="false">
           <div ng-messages="vm.form.resourceForm.web.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Website link required.</p>
           </div>
@@ -59,13 +69,13 @@
           <label class="control-label req" for="name">Point of Contact</label>
           <div class="row">
             <div class="col-md-12">
-              <input name="name" type="text" ng-model="vm.resource.poc_name" id="poc_name" class="form-control" placeholder="POC Name" required="false">
+              <input name="name" type="text" ng-model="vm.resource.poc_name" id="poc-name" class="form-control" placeholder="POC Name" required="false">
             </div>
             <div class="col-md-6">
-              <input name="name" type="email" ng-model="vm.resource.poc_email" id="poc_email" class="form-control" placeholder="POC Email" required="false">
+              <input name="name" type="email" ng-model="vm.resource.poc_email" id="poc-email" class="form-control" placeholder="POC Email" required="false">
             </div>
             <div class="col-md-6">
-              <input name="name" type="tel" ng-model="vm.resource.poc_line" id="poc_line" class="form-control" placeholder="POC Line" required="false">
+              <input name="name" type="tel" ng-model="vm.resource.poc_line" id="poc-line" class="form-control" placeholder="POC Line" required="false">
             </div>
           </div>
           <div ng-messages="vm.form.resourceForm.web.$error" role="alert">
