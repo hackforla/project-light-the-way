@@ -1,9 +1,9 @@
-.resources{
+/*.resources{
   width: 100%;
   margin:0 auto;
-}
+}*/
 
-.resources thead th:nth-child(1){width: 12%;}
+/*.resources thead th:nth-child(1){width: 12%;}
 .resources thead th:nth-child(2){width: auto;}
 .resources thead th:nth-child(3){width: auto;}
 .resources thead th:nth-child(4){width: auto;}
@@ -14,12 +14,12 @@
 .resources thead th:nth-child(9){width: auto;}
 .resources thead th:nth-child(10){width: 8%;}
 .resources thead th:nth-child(11){width: auto;}
-.resources thead th:nth-child(12){width: 6%;}
+.resources thead th:nth-child(12){width: 6%;}*/
 
-.resources tbody{
+/*.resources tbody{
   font-size:.9em;
   font-weight: 300;
-}
+}*/
 
 .input-simple{
   border:none;
