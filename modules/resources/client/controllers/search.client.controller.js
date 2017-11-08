@@ -17,8 +17,12 @@
     vm.resources = '';
     vm.error = '';
 
+    vm.type = 'header-nav-results';
+
     vm.fn = {};
     vm.fn.get = get;
+
+    vm.query = $state.params.query;
 
     function filterQuery(){
       return vm.search.query.split(' ').join('+');
