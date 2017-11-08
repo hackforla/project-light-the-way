@@ -23,6 +23,12 @@
   text-decoration: none;
 }
 
+.category{
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .vet-type:hover,
 .category:hover{
   color:#fff;
