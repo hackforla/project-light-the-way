@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Checklists</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="checklist in vm.checklists"
+       ui-sref="checklists.view({ checklistId: checklist._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="checklist.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="checklist.user" ng-bind="checklist.user.displayName"></span>
+        <span ng-if="!checklist.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="checklist.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.checklists.$resolved && !vm.checklists.length">
+    No Checklists yet, why don't you <a ui-sref="checklists.create">create one</a>?
+  </div>
+</section>
