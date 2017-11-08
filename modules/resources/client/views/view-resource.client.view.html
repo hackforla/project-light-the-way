@@ -1,11 +1,6 @@
-<!-- This is left commented out intentionally -->
-<a href="/resources" class="btn btn-link">Resources</a>
-<br>
-<!-- {{
-  vm.resource
-}} -->
 
-<section>
+
+<section class="has-header has-footer">
   <div class="resource">
     <div class="id" ng-bind="vm.resource._id"></div>
     <h1 class="title" >Resource Name</h1>
@@ -25,19 +20,4 @@
     <div class="line" ng-bind="vm.resource.poc_line"></div>
   </div>
 </section>
-<!-- <section>
-  <div class="page-header">
-    <h1 ng-bind="vm.resource.name" style="text-align:center"></h1>
-  </div>
-  <div class="pull-right"
-       ng-show="vm.resource.isCurrentUserOwner">
-    <a class="btn btn-primary"
-       ui-sref="resources.edit({ resourceId: vm.resource._id })">
-      <i class="glyphicon glyphicon-edit"></i>
-    </a>
-    <a class="btn btn-primary" ng-click="vm.remove()">
-      <i class="glyphicon glyphicon-trash"></i>
-    </a>
-  </div>
-  <div class="lead" ng-bind="vm.resource.content"></div>
-</section> -->
+<ng-include src="'/modules/core/client/views/footer.nav.view.html'"></ng-include>
