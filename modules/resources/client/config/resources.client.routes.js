@@ -19,7 +19,6 @@
         templateUrl: 'modules/resources/client/views/view-resource.client.view.html',
         controller: 'ResourceReadController as vm',
         data: {
-          // resolve here
           pageTitle: 'Resource'
         }
       })
@@ -34,7 +33,6 @@
       .state('resources.search', {
         url: '/resources/search',
         templateUrl: 'modules/resources/client/views/search.client.view.html',
-        controller: 'ResourcesSearchController as vm',
         data: {
           pageTitle: 'Resources Search'
         }
