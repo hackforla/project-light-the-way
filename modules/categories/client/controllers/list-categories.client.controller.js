@@ -10,7 +10,7 @@
   function CategoriesListController(categories) {
     var vm = this;
 
-    vm.categories = categories.getAll().get(function(d){
+    vm.categories = categories.categories().get(function(d){
       vm.categories = d.data;
     });
   }

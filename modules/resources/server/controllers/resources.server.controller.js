@@ -102,8 +102,12 @@ exports.delete = function(req, res) {
 /**
  * List of Resources
  */
+
+// add status public when
+// { status:'public' }
+// .list .new .feat
 exports.list = function(req, res) {
-  Resource.find({ status:'public' }).select().sort('-created').exec(function(err, resources) {
+  Resource.find({}).select().sort('-created').exec(function(err, resources) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
@@ -115,12 +119,12 @@ exports.list = function(req, res) {
 };
 
 exports.new = function(req, res) {
-  Resource.find({ status:'public' }).select('-status -created').limit(6).sort('-created').exec(function(err, data) {
+  Resource.find({}).select('-status -created').limit(6).sort('-created').exec(function(err, data) {
     res.jsonp({ data: data });
   });
 };
 exports.feat = function(req, res) {
-  Resource.find({ status:'public' }).select('-status -created').limit(2).sort('-created').exec(function(err, data) {
+  Resource.find({}).select('-status -created').limit(2).sort('-created').exec(function(err, data) {
     res.jsonp({ data: data });
   });
 };
