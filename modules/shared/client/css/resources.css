@@ -206,6 +206,9 @@
     width:100%;
     margin-bottom:10px;
   }
+  .recent:nth-child(even){
+    margin-right:0;
+  }
 }
 
 @media screen and (max-width: 600px){
