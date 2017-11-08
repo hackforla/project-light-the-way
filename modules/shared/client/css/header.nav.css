@@ -1,0 +1,58 @@
+.page-header{
+  height:auto;
+  width:100%;
+  height:50px;
+}
+
+
+
+.page-header .left,
+.page-header .right{
+  width:calc(30% - 10px);
+  position: relative;
+  float:left;
+  height:50px;
+  box-sizing: border-box;
+}
+.page-header .left{
+  margin-left:10px;
+  width:50%;
+}
+.page-header .right{
+  width:calc(70% - 10px);
+  margin-right:10px;
+  float:right;
+}
+
+.ltw{
+  font-weight:600;
+  font-size:1.5em;
+  line-height: 50px;
+}
+.page-header{
+  margin:10px 0;
+  height:auto;
+  width:100%;
+  max-width: 1000px;
+  margin:0 auto;
+  padding-bottom:0;
+}
+
+
+@media screen and (max-width:600px){
+  .page-header .right{
+    width:calc(100%);
+  }
+  .page-header{
+    top:0;
+    position: absolute;
+    z-index:1000;
+    margin:0;
+    font-size:.75em;
+    background:#fff;
+  }
+
+}
+.has-header{
+  margin-top:60px;
+}

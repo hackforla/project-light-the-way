@@ -76,7 +76,7 @@ section{
   margin:0 auto;
   clear: both;
 }
-
+section .subtitle,
 section .title{
   text-align:center;
   color:#34495E;
@@ -84,13 +84,23 @@ section .title{
   font-size:1.5em;
   font-weight:700;
   position:relative;
+  text-transform: capitalize;
+}
+section .subtitle{
+  margin:20px 0 10px 0;
+  font-size:1.25em;
 }
 
 /* Text Helpers */
+.subtitle .more,
 .title .more{
   position:absolute;
   transform:translateX(20%);
   top:25%;
   font-size:.667em;
   color:#34AEFF
+}
+
+.txt-l{
+  text-align: left !important;
 }
