@@ -21,7 +21,7 @@
       vm.categories = d.data;
     },
     function(d){
-      console.error(d);
+      // console.error(d);
     }
     );
     if(id){
@@ -36,7 +36,6 @@
       if(valid){
         if(vm.resource._id){
           // update
-          console.log('update');
 
           // resource.getResource(vm.resource._id).update(vm.resource, function(d){
           //   console.log(d);
@@ -49,7 +48,7 @@
           // );
         }else{
           // create
-          console.log('creating');
+          // console.log('creating');
           resource.create().save(vm.resource, updateurl, err);
         }
       }
