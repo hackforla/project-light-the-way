@@ -1,0 +1,43 @@
+.single{
+  background:#fff;
+  display: block;
+  position: relative;
+  width:100%;
+  max-width: 387px;
+  height:150px;
+  font-weight: 500;
+  margin:0 auto;
+  margin-bottom:10px;
+  border-radius: 5px;
+}
+
+.single .name{
+  position: absolute;
+  bottom: 10px;
+  left:10px;
+  font-size:.875em;
+  padding-right: 5px;
+}
+
+.nspl{
+  background:#3660E3;
+  color:#fff;
+}
+
+.nspl i{
+  color:#86EB93
+}
+
+.nspl:hover{
+  color:#fff;
+}
+
+.nspl .msg{
+  font-size: 1.75em;
+  text-align: center;
+  top:50%;
+  left:50%;
+  width:100%;
+  transform: translate(-50%, -70%);
+  position: absolute;
+}

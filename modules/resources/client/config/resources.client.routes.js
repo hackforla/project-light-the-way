@@ -11,69 +11,57 @@
     $stateProvider
       .state('resources', {
         abstract: true,
-        url: '/resources',
+        url: '',
         template: '<ui-view/>'
       })
+      .state('resources.view', {
+        url: '/resource/:resourceId',
+        templateUrl: 'modules/resources/client/views/view-resource.client.view.html',
+        controller: 'ResourceReadController as vm',
+        data: {
+          pageTitle: 'Resource'
+        }
+      })
       .state('resources.list', {
-        url: '',
+        url: '/resources',
         templateUrl: 'modules/resources/client/views/list-resources.client.view.html',
-        controller: 'ResourcesListController',
-        controllerAs: 'vm',
+        controller: 'ResourcesListController as vm',
         data: {
           pageTitle: 'Resources List'
         }
       })
-      .state('resources.create', {
-        url: '/create',
+      .state('resources.search', {
+        url: '/resources/search',
+        templateUrl: 'modules/resources/client/views/search.client.view.html',
+        data: {
+          pageTitle: 'Resources Search'
+        }
+      })
+      .state('resources.query', {
+        url: '/r/search/:query',
+        templateUrl: 'modules/resources/client/views/search-resource.client.view.html',
+        controller: 'ResourcesSearchController as vm',
+        data: {
+          pageTitle: 'Resources Search'
+        }
+      })
+      .state('resources.form', {
+        url: '/r/form',
         templateUrl: 'modules/resources/client/views/form-resource.client.view.html',
-        controller: 'ResourcesController',
-        controllerAs: 'vm',
-        resolve: {
-          resourceResolve: newResource
-        },
+        controller: 'ResourcesController as vm',
         data: {
           roles: ['user', 'admin'],
           pageTitle: 'Resources Create'
         }
       })
-      .state('resources.edit', {
-        url: '/:resourceId/edit',
+      .state('resources.form.edit', {
+        url: '/:resourceId',
         templateUrl: 'modules/resources/client/views/form-resource.client.view.html',
-        controller: 'ResourcesController',
-        controllerAs: 'vm',
-        resolve: {
-          resourceResolve: getResource
-        },
+        controller: 'ResourcesController as vm',
         data: {
           roles: ['user', 'admin'],
-          pageTitle: 'Edit Resource {{ resourceResolve.name }}'
-        }
-      })
-      .state('resources.view', {
-        url: '/:resourceId',
-        templateUrl: 'modules/resources/client/views/view-resource.client.view.html',
-        controller: 'ResourcesController',
-        controllerAs: 'vm',
-        resolve: {
-          resourceResolve: getResource
-        },
-        data: {
-          pageTitle: 'Resource {{ resourceResolve.name }}'
+          pageTitle: 'Resources Create'
         }
       });
-  }
-
-  getResource.$inject = ['$stateParams', 'ResourcesService'];
-
-  function getResource($stateParams, ResourcesService) {
-    return ResourcesService.get({
-      resourceId: $stateParams.resourceId
-    }).$promise;
-  }
-
-  newResource.$inject = ['ResourcesService'];
-
-  function newResource(ResourcesService) {
-    return new ResourcesService();
   }
 }());

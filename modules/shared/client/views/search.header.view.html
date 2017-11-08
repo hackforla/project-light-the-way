@@ -1,0 +1,4 @@
+<div class="search {{vm.type}}" ng-controller="SearchController as s">
+  <input type="text" ng-model="s.query" placeholder="Search..." ui-keypress="{13:'s.fn.search()'}">
+  <span ng-click="s.fn.search()">Search</span>
+</div>

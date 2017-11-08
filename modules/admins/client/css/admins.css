@@ -1,0 +1,17 @@
+.links{
+  text-align:center;
+  font-weight:500;
+  text-transform: uppercase;
+  line-height: 2;
+  font-size:1.5em;
+}
+
+.links a{
+  display: block;
+}
+
+.links .extra{
+  position:absolute;
+  opacity:.5;
+  transform: translate(-110%, 0);
+}

@@ -1,0 +1,7 @@
+<section class="has-footer">
+  <h1 class="title">Categories</h1>
+  <div class="resources">
+    <a href="/r/search/{{c | url}}" class="category" ng-repeat="c in vm.categories" ng-bind="c">Name</a>
+  </div>
+</section>
+<ng-include src="'/modules/core/client/views/footer.nav.view.html'"></ng-include>

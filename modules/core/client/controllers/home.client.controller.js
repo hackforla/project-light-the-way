@@ -5,20 +5,36 @@
     .module('core')
     .controller('HomePageController', HomePageController);
 
-  HomePageController.$inject = ['Authentication', 'ContentService'];
+  HomePageController.$inject = ['$filter', '$location', '$window', 'CategoriesService', 'ResourcesService'];
 
-  function HomePageController(Authentication, content) {
+  function HomePageController($filter, $location, $window, categories, resources) {
     var vm = this;
+    vm.categories = [];
+    vm.featured = [];
+    vm.recent = [];
+    vm.form = {};
 
-    // This provides Authentication context.
-    vm.authentication = Authentication;
+    vm.fn = {};
+    vm.fn.search = search;
 
-    // For home view
-    vm.home = {};
-    vm.home.aboutus = content.getAboutUs();
-    vm.home.title = 'Welcome to Project Light The Way';
-    vm.home.slogan = 'Find the resources you need, and discover ones you did not know about';
-    vm.home.logo = '/modules/core/client/img/brand/logo1.png';
+    categories.categories().get(function(d){
+      vm.categories = d.data;
+    });
+
+    resources.getNew().get(function(d){
+      vm.recent = d.data;
+    });
+
+    resources.getFeatured().get(function(d){
+      vm.featured = d.data;
+    });
+
+    function search(){
+      if(vm.form.search){
+        $location.path('/r/search/' + $filter('url')(vm.form.search));
+      }
+    }
+
   }
 
 }());

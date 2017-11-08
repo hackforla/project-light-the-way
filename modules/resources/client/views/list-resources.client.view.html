@@ -1,48 +1,17 @@
-<section>
-  <div class="page-header">
-    <h1>Resources</h1>
-  </div>
-
-  <div class="row">
-    <div class="col-md-6">
-      <input class="input-simple" type="text" placeholder="Search Resources" ng-model="resourceSearch">
+<ng-include src="'/modules/core/client/views/header.nav.view.html'"></ng-include>
+<section class="has-footer">
+  <h1 class="title">Resources</h1>
+  <div ng-repeat="c in vm.resources" class="resources">
+    <a href="/r/search/{{c.name | url}}"><h2 class="subtitle txt-l">{{c.name}} <span class="more">View More</span></h2></a>
+    <div class="resource-list">
+      <a href="/resource/{{r._id}}" class="recent recent-list" ng-repeat="r in c.resources">
+        <div class="org" ng-bind="'org'"></div>
+        <div class="name">Resource Name</div>
+      </a>
+      <a href="/r/search/{{c.name | url}}" class="recent recent-list list-more">
+        <div class="name">More...</div>
+      </a>
     </div>
-    <div class="col-md-2 col-md-offset-4">
-      <a class="btn btn-primary pull-right" ui-sref="resources.create">Add a resource</a>
-    </div>
-  </div>
-
-  <div class="list-group">
-    <table class="table table-hover resources">
-      <thead>
-        <tr>
-          <th>Organization</th>
-          <th>Description</th>
-          <th>Website</th>
-          <th>Address</th>
-          <th>POC</th>
-          <th>POC Email</th>
-          <th>POC Line</th>
-          <th>Tags</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="resource in vm.resources | filter: resourceSearch" >
-          <td><a ui-sref="resources.edit({ resourceId: resource._id })">{{resource['org']}}</a></td>
-          <td ng-bind="resource['desc']">{{key}}</td>
-          <td><a href="http://{{resource['web']}}" target="_blank">Link</a></td>
-          <td>
-            <b ng-bind="resource['addr']"></b>,<br>
-            <b ng-bind="resource['city']"></b>,<br>
-            <b ng-bind="resource['state']"></b>
-            <b ng-bind="resource['zip']"></b>
-          </td>
-          <td ng-bind="resource['poc_name']">Point of Contact</td>
-          <td ng-bind="resource['poc_email']">POC Email</td>
-          <td ng-bind="resource['poc_line']">POC Phone</td>
-          <td ng-bind="resource['tags']">Tags</td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 </section>
+<ng-include src="'/modules/core/client/views/footer.nav.view.html'"></ng-include>

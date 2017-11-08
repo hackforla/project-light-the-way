@@ -1,72 +1,105 @@
-<!-- Content For Landing Page -->
-
-<!--  Welcome Section -->
-
-<div class="hero home-hero">
+<ng-include src="'/modules/core/client/views/home.header.client.view.html'"></ng-include>
+<div class="home hero home-hero nomenu">
   <div class="overlay">
     <div class="home-banner">
-      <img class="home-logo" ng-src="{{vm.home.logo}}" alt="Large background picture of soldiers raising the U.S flag.">
-      <h1 class="home-title" ng-bind="vm.home.title"></h1>
-      <h3 class="home-slogan" ng-bind="vm.home.slogan"></h3>
+      <img class="home-logo" ng-src="/modules/core/client/img/brand/logo1.png" alt="Large background picture of soldiers raising the U.S flag.">
+      <h1 class="home-title">Ahead of you, to guide you</h1>
+      <div class="home-slogan">los angeles' best veteranresources<br>prevetted by vets for vets </div>
+      <div class="btn btn-block btn-checklist">Create my checklist</div>
+      <!-- V2 -->
+      <!-- <div class="clearfix" ng-include src="'/modules/shared/client/views/search.client.view.html'" ng-init="vm.type='hero'"></div> -->
     </div>
   </div>
 </div>
-<div class="container">
+<section>
+  <div class="title search-title">Or search...</div>
+  <div ng-include src="'/modules/shared/client/views/search.client.view.html'" ng-init="vm.type='hero'"></div>
+</section>
+<!-- V2 -->
+<!-- <section>
+  <div class="title">I AM CURRENTLY</div>
+  <div class="resources">
+    <a href="/transition" class="vet-type">transitioning</a><a href="/veteran" class="vet-type">a veteran</a><a href="/dire" class="vet-type dire">in dire need</a>
+  </div>
+</section> -->
 
-  <!--  Vet Section-->
+<section>
+  <a href="/categories"><h2 class="title">Categories <span class="more">View More</span></h2></a>
+  <div class="resources clearfix" ng-init="limit=5">
+    <a class="category" style="background-image:url('/modules/categories/client/img/{{c|url}}.jpg')" href="/r/search/{{c | url}}" ng-repeat="c in vm.categories | limitTo: limit" ng-bind="c"></a><a class="category" href="" ng-click="limit=9" ng-show="limit===5">Show More</a>
+  </div>
+</section>
 
-  <!-- Transitioning -->
+<section>
+  <a href="/r/search/new">
+    <h2 class="title">Recent <span class="more">View More</span></h2>
+  </a>
+  <div class="resources">
+    <a href="/resource/{{r._id}}" class="recent" ng-repeat="r in vm.recent">
+      <div class="org" ng-bind="r.org"></div>
+      <div class="name">Resource Name</div>
+    </a>
+  </div>
+</section>
 
-  <!-- In LA -->
-
-  <!-- Dire -->
-
-  <!-- Supporter Section -->
-  <section>
-    <a href="#supporters" name="supporters">
-      <h2>
-        Supporters
-      </h2>
-      <div class="container">
-        <div class="row supporter">
-          <div class="col-sm-4">
-            <a href="https://techhire.org/" class="link" target="_blank">
-              <div class="img">
-                <div class="techhire-seal"></div>
-              </div>
-              Tech Hire
-            </a>
-          </div>
-
-          <div class="col-sm-4">
-            <a href="https://www.lamayor.org/" class="link" target="_blank">
-              <div class="img">
-                <div class="la-seal"></div>
-              </div>
-              Los Angeles <br> Mayor's Office
-            </a>
-          </div>
-
-          <div class="col-sm-4">
-            <a href="http://www.hackforla.org/" class="link" target="_blank">
-              <div class="img">
-                <div class="hfla-seal"></div>
-              </div>
-              Hack for LA
-            </a>
-          </div>
-        </div>
+<section>
+  <a href="/r/search/featured">
+    <h2 class="title">Featured <span class="more">View More</span></h2>
+  </a>
+  <div class="resources clearfix">
+    <a href="/resource/{{r._id}}" class="featured" ng-repeat="r in vm.featured">
+      <div class="org" ng-bind="r.org"></div><div class="type">Type</div>
+      <div class="name">Resource Name</div>
+      <div class="desc">
+        This will be a short description about this resources and it's context. This will be a short description about this resources and it's context.
+      </div>
+      <div class="rec">
+        <i class="fa fa-thumbs-o-up " aria-hidden="true"></i> <span>21</span> Vets
+      </div><div class="view">
+        View
+      </div>
+      <div class="img">
+        <img src="/modules/core/client/img/supporters/logo-hfla.png" alt="">
       </div>
     </a>
-  </section>
+  </div>
+</section>
 
-  <!-- About Section -->
-  <section>
-    <a href="#about" name="about">
-      <h2>
-        About Us
-      </h2>
-    </a>
-    <p id="about-us" ng-bind="vm.home.aboutus"></p>
-  </section>
-</div>
+<section>
+  <h2 class="title">Supporters</h2>
+  <div class="supporter clearfix">
+    <div class="col-sm-4">
+      <a href="https://techhire.org/" class="link" target="_blank">
+        <div class="img">
+          <div class="techhire-seal"></div>
+        </div>
+        Tech Hire
+      </a>
+    </div>
+
+    <div class="col-sm-4">
+      <a href="https://www.lamayor.org/" class="link" target="_blank">
+        <div class="img">
+          <div class="la-seal"></div>
+        </div>
+        Los Angeles <br> Mayor's Office
+      </a>
+    </div>
+
+    <div class="col-sm-4">
+      <a href="http://www.hackforla.org/" class="link" target="_blank">
+        <div class="img">
+          <div class="hfla-seal"></div>
+        </div>
+        Hack for LA
+      </a>
+    </div>
+  </div>
+</section>
+
+
+  <footer class="home-footer row">
+    <a class="col-xs-3 left" href="/admin">admin</a>
+    <div class="col-xs-6 mid txt-c">Light The Way</div>
+    <div class="col-xs-3 right">sitemap</div>
+  </footer>

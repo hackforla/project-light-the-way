@@ -1,0 +1,28 @@
+<section>
+  <h1 class="title">Category Form</h1>
+  <div class="col-md-4 col-md-offset-4">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="c in vm.categories | orderBy: c">
+          <td ng-bind="c"></td>
+          <td><i class="fa fa-times " aria-hidden="true" ng-click="vm.remove(c)"></i></td>
+        </tr>
+      </tbody>
+      <tfoot>
+
+      <tr>
+        <td><input type="text" class="btn-group" ng-model="vm.form.name" ui-keypress="{13:'vm.fn.save()'}"></td>
+        <td><button ng-click="vm.fn.save()">Create</button></td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+
+
+</section>

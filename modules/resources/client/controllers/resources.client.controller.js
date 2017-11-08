@@ -6,49 +6,72 @@
     .module('resources')
     .controller('ResourcesController', ResourcesController);
 
-  ResourcesController.$inject = ['$scope', '$state', '$window', 'Authentication', 'resourceResolve'];
+  ResourcesController.$inject = ['$location', '$state', '$window', 'ResourcesService', 'CategoriesService'];
 
-  function ResourcesController ($scope, $state, $window, Authentication, resource) {
+  function ResourcesController ($location, $state, $window, resource, categories) {
     var vm = this;
-
-    vm.authentication = Authentication;
-    vm.resource = resource;
     vm.error = null;
     vm.form = {};
-    vm.remove = remove;
+    vm.form.reset = reset;
     vm.save = save;
+    var d = 'delete';
+    var id = $state.params.resourceId;
 
-    // Remove existing Resource
-    function remove() {
-      if ($window.confirm('Are you sure you want to delete?')) {
-        vm.resource.$remove($state.go('resources.list'));
-      }
+    categories.categories().get(function(d){
+      vm.categories = d.data;
+    },
+    function(d){
+      // console.error(d);
+    }
+    );
+    if(id){
+      get();
     }
 
-    // Save Resource
-    function save(isValid) {
-      console.log(isValid);
-      if (!isValid) {
-        $scope.$broadcast('show-errors-check-validity', 'vm.form.resourceForm');
-        return false;
-      }
-
-      // TODO: move create/update logic to service
-      if (vm.resource._id) {
-        vm.resource.$update(successCallback, errorCallback);
-      } else {
-        vm.resource.$save(successCallback, errorCallback);
-      }
-
-      function successCallback(res) {
-        $state.go('resources.edit', {
-          resourceId: res._id
-        });
-      }
-
-      function errorCallback(res) {
-        vm.error = res.data.message;
-      }
+    function get(){
+      resource.getResource(id).get(success, err);
     }
+
+    function save(valid){
+      if(valid){
+        if(vm.resource._id){
+          // update
+
+          // resource.getResource(vm.resource._id).update(vm.resource, function(d){
+          //   console.log(d);
+          //   console.log('success update');
+          // },
+          // function(){
+          //   console.log(d);
+          //   console.log('failed');
+          // }
+          // );
+        }else{
+          // create
+          // console.log('creating');
+          resource.create().save(vm.resource, updateurl, err);
+        }
+      }
+
+    }
+
+    function updateurl(d){
+      $location.path('/r/form/'+d._id);
+      vm.resource._id = d._id;
+    }
+
+    function success(d){
+      vm.resource = d.data;
+    }
+
+    function err(e){
+      vm.error = e;
+    }
+
+    function reset(){
+      vm.resource ={};
+      $location.path('/r/form');
+    }
+
   }
 }());

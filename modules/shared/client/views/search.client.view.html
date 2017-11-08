@@ -1,0 +1,6 @@
+<div class="{{vm.type!='hero'? '': 'search-container'}}" ng-controller="SearchController as s">
+  <div class="search {{vm.type}}">
+    <input type="text" ng-model="vm.query" placeholder="Search..." ui-keypress="{13:'s.fn.search(vm.query)'}">
+    <span ng-click="s.fn.search(vm.query)"></span>
+  </div>
+</div>
