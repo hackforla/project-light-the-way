@@ -66,8 +66,6 @@ exports.update = function(req, res) {
  */
 exports.delete = function(req, res) {
 
-  console.log(req);
-
   function urldecode(s){
     return s.split('+').join(' ');
   }
