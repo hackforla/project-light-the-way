@@ -10,10 +10,10 @@ var mongoose = require('mongoose'),
  * Checklist Schema
  */
 var ChecklistSchema = new Schema({
-  name: {
-    type: String,
-    default: '',
-    required: 'Please fill Checklist name',
+  items: {
+    type: Array,
+    default: [],
+    required: 'Please add resources to checklist',
     trim: true
   },
   created: {

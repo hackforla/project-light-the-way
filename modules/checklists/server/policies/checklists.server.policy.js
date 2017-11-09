@@ -17,6 +17,9 @@ exports.invokeRolesPolicies = function () {
     allows: [{
       resources: '/api/checklists',
       permissions: '*'
+    },{
+      resources: '/api/checklists/mail',
+      permissions: '*'
     }, {
       resources: '/api/checklists/:checklistId',
       permissions: '*'
@@ -25,7 +28,10 @@ exports.invokeRolesPolicies = function () {
     roles: ['user'],
     allows: [{
       resources: '/api/checklists',
-      permissions: ['get', 'post']
+      permissions: ['get']
+    },{
+      resources: '/api/checklists/mail',
+      permissions: ['get']
     }, {
       resources: '/api/checklists/:checklistId',
       permissions: ['get']
@@ -34,6 +40,9 @@ exports.invokeRolesPolicies = function () {
     roles: ['guest'],
     allows: [{
       resources: '/api/checklists',
+      permissions: ['get']
+    },{
+      resources: '/api/checklists/mail',
       permissions: ['get']
     }, {
       resources: '/api/checklists/:checklistId',

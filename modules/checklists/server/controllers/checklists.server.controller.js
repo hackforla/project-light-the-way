@@ -7,7 +7,10 @@ var path = require('path'),
   mongoose = require('mongoose'),
   Checklist = mongoose.model('Checklist'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
-  _ = require('lodash');
+  _ = require('lodash'),
+  api_key = 'key_here',
+  domain = 'domain_here',
+  mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
 
 /**
  * Create a Checklist
@@ -24,6 +27,30 @@ exports.create = function(req, res) {
     } else {
       res.jsonp(checklist);
     }
+  });
+};
+
+exports.online = function(req, res){
+  // service to alert if email service is down
+  res.jsonp({ status:'200' });
+};
+
+exports.sendMail = function(req, res){
+  var email = 'jag@helloimjag.com';// || req.body.email;
+
+  var data = {
+    from: 'Excited User <me@samples.mailgun.org>',
+    to: email,
+    subject: 'Hello',
+    text: 'This was sent from the server'
+  };
+
+  mailgun.messages().send(data, function (err, body) {
+    if(err){
+      res.jsonp({ msg:'something went wrong' });
+    }
+    res.jsonp({ msg:'send mail', body: body });
+    // console.log(body);
   });
 };
 

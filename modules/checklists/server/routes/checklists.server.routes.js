@@ -12,6 +12,10 @@ module.exports = function(app) {
     .get(checklists.list)
     .post(checklists.create);
 
+  app.route('/api/checklists/mail').all(checklistsPolicy.isAllowed)
+    .get(checklists.online)
+    .post(checklists.sendMail);
+
   app.route('/api/checklists/:checklistId').all(checklistsPolicy.isAllowed)
     .get(checklists.read)
     .put(checklists.update)

@@ -20,6 +20,7 @@
         controller: 'ChecklistsListController',
         controllerAs: 'vm',
         data: {
+          roles: ['admin'],
           pageTitle: 'Checklists List'
         }
       })
