@@ -9,12 +9,18 @@
   ChecklistsService.$inject = ['$resource'];
 
   function ChecklistsService($resource) {
-    return $resource('api/checklists/:checklistId', {
-      checklistId: '@_id'
-    }, {
-      update: {
-        method: 'PUT'
-      }
-    });
+    var service = {};
+    service.status = status;
+    service.sendMail = sendMail;
+
+    return service;
+
+    function status(){
+      return $resource('/api/checklists/mail');
+    }
+
+    function sendMail(){
+      return $resource('/api/checklists/mail');
+    }
   }
 }());

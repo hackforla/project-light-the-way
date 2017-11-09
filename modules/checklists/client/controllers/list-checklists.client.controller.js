@@ -5,11 +5,34 @@
     .module('checklists')
     .controller('ChecklistsListController', ChecklistsListController);
 
-  ChecklistsListController.$inject = ['ChecklistsService'];
+  ChecklistsListController.$inject = ['ChecklistStorageService'];
 
-  function ChecklistsListController(ChecklistsService) {
+  function ChecklistsListController(checklistStorage) {
     var vm = this;
 
-    vm.checklists = ChecklistsService.query();
+    vm._id = '';
+    vm.email = 'email@email.com';
+
+    vm.fn = {};
+    vm.fn.add = add;
+
+    vm.fn.remove = remove;
+
+    vm.checklist = checklistStorage.get();
+
+
+    function add(){
+      if(vm._id){
+        checklistStorage.add(vm._id);
+        vm.checklist = checklistStorage.get();
+        vm._id = '';
+      }
+    }
+
+    function remove(_id){
+      checklistStorage.del(_id);
+      vm.checklist = checklistStorage.get();
+    }
+
   }
 }());
