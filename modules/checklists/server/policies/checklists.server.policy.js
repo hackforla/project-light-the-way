@@ -21,7 +21,7 @@ exports.invokeRolesPolicies = function () {
       resources: '/api/checklists/mail',
       permissions: '*'
     }, {
-      resources: '/api/checklists/:checklistId',
+      resources: '/api/checklist/:checklistId',
       permissions: '*'
     }]
   }, {
@@ -33,7 +33,7 @@ exports.invokeRolesPolicies = function () {
       resources: '/api/checklists/mail',
       permissions: ['get']
     }, {
-      resources: '/api/checklists/:checklistId',
+      resources: '/api/checklist/:checklistId',
       permissions: ['get']
     }]
   }, {
@@ -45,7 +45,7 @@ exports.invokeRolesPolicies = function () {
       resources: '/api/checklists/mail',
       permissions: ['get']
     }, {
-      resources: '/api/checklists/:checklistId',
+      resources: '/api/checklist/:checklistId',
       permissions: ['get']
     }]
   }]);

@@ -1,0 +1,11 @@
+<section>
+  <h1 class="title">Checklist {{vm.list._id}}</h1>
+  <div class="resources">
+    <a href="/resource/{{r._id}}" class="featured result" ng-repeat="r in vm.list.items">
+      <div class="org" ng-bind="r.org">TechHire</div><div class="type" ng-bind="r.type || 'type'">Los Angeles</div>
+      <div class="name" ng-bind="r.name || 'Resource Name'">Resource Name</div>
+      <div class="desc" ng-bind="r.desc">This will be a short description about this resources and it's context. This will be a short description about this resources and it's context.</div>
+      <div class="rec"><i class="fa fa-thumbs-o-up " aria-hidden="true"></i> <span>21</span> Vets</div><div class="view">View Resource</div>
+    </a>
+  </div>
+</section>

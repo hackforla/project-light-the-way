@@ -11,7 +11,10 @@ var mongoose = require('mongoose'),
  */
 var ChecklistSchema = new Schema({
   items: {
-    type: Array,
+    type: [{
+      type:Schema.ObjectId,
+      ref:'Resource'
+    }],
     default: [],
     required: 'Please add resources to checklist',
     trim: true

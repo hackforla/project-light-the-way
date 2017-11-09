@@ -14,9 +14,9 @@ module.exports = function(app) {
 
   app.route('/api/checklists/mail').all(checklistsPolicy.isAllowed)
     .get(checklists.online)
-    .post(checklists.sendMail);
+    .post(checklists.sendChecklist);
 
-  app.route('/api/checklists/:checklistId').all(checklistsPolicy.isAllowed)
+  app.route('/api/checklist/:checklistId').all(checklistsPolicy.isAllowed)
     .get(checklists.read)
     .put(checklists.update)
     .delete(checklists.delete);

@@ -11,7 +11,8 @@
   function ChecklistsService($resource) {
     var service = {};
     service.status = status;
-    service.sendMail = sendMail;
+    service.sendChecklist = sendChecklist;
+    service.list = list;
 
     return service;
 
@@ -19,8 +20,13 @@
       return $resource('/api/checklists/mail');
     }
 
-    function sendMail(){
+    function sendChecklist(){
       return $resource('/api/checklists/mail');
     }
+
+    function list(id){
+      return $resource('/api/checklist/'+id);
+    }
+
   }
 }());

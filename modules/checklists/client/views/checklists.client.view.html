@@ -1,0 +1,14 @@
+<section>
+  <h1>Checklist</h1>
+  <li ng-repeat="c in vm.checklist" ng-bind="c" ng-click="vm.fn.remove(c)"></li>
+
+
+  <input class="form-control" type="email" ng-model="vm.email">
+  <button class="btn btn-default" ng-click="vm.fn.add()">Add</button>
+
+  <br>
+
+  <button class="btn btn-primary" ng-click="vm.fn.emailList()">Email Checklist</button>
+</section>
+<ui-view></ui-view>
+<ng-include src="'/modules/core/client/views/footer.nav.view.html'"></ng-include>

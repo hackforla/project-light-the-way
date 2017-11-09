@@ -5,11 +5,12 @@
  */
 var path = require('path'),
   mongoose = require('mongoose'),
+  sanitize = require('mongo-sanitize'),
   Checklist = mongoose.model('Checklist'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   _ = require('lodash'),
-  api_key = 'key_here',
-  domain = 'domain_here',
+  api_key = 'key-207d27c682fe9cee2664b99342ea85ee',
+  domain = 'sandbox1948954470fd432fa3fd8a5036602f10.mailgun.org',
   mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
 
 /**
@@ -35,23 +36,61 @@ exports.online = function(req, res){
   res.jsonp({ status:'200' });
 };
 
-exports.sendMail = function(req, res){
-  var email = 'jag@helloimjag.com';// || req.body.email;
+exports.sendChecklist = function(req, res){
+  var body = sanitize(req.body);
 
-  var data = {
-    from: 'Excited User <me@samples.mailgun.org>',
-    to: email,
-    subject: 'Hello',
-    text: 'This was sent from the server'
-  };
+  var list = body.checklist.split(',');
+  var arr = [];
 
-  mailgun.messages().send(data, function (err, body) {
-    if(err){
-      res.jsonp({ msg:'something went wrong' });
+  list.forEach(function(item){
+    if(mongoose.Types.ObjectId.isValid(item)){
+      arr.push(mongoose.Types.ObjectId(item));
     }
-    res.jsonp({ msg:'send mail', body: body });
-    // console.log(body);
   });
+  if(list){createList(list);
+  }else{
+    return res.status(400).send({
+      message: 'Checklist IDs Invalid.'
+    });
+  }
+
+  function createList(list){
+
+    var checklist = new Checklist({ items:list });
+    checklist.save(function(err, list) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        console.log(list);
+        console.log(list._id);
+        sendChecklist(list._id);
+      }
+    });
+  }
+
+  function sendChecklist(id){
+    var email = 'jag@helloimjag.com';// || req.body.email;
+    var data = {
+      // from: 'Light The Way <checklist@ltw.helloimjag.com>',
+      from: 'Light The Way <me@samples.mailgun.org>',
+      to: email,
+      subject: 'Your Resource Checklist',
+      html: 'Hello,<br>' +
+      'This is the link for your resource checklist:<br>' +
+      '<a href="http://www.helloimjag.com">View Resource Checklist</a> <br><br><br>' +
+      'If you can\'t view the link copy from here:'+
+      'http://www.helloimjag.com/id'+id
+    };
+    mailgun.messages().send(data, function (err, body) {
+      if(err){
+        res.jsonp({ msg:'something went wrong' });
+      }
+      res.jsonp({ msg:'Checklist Sent' });
+    });
+  }
+
 };
 
 /**
@@ -123,14 +162,14 @@ exports.list = function(req, res) {
  * Checklist middleware
  */
 exports.checklistByID = function(req, res, next, id) {
-
+  id = req.params.checklistId;
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).send({
       message: 'Checklist is invalid'
     });
   }
 
-  Checklist.findById(id).populate('user', 'displayName').exec(function (err, checklist) {
+  Checklist.findById(id).populate('items').exec(function (err, checklist) {
     if (err) {
       return next(err);
     } else if (!checklist) {

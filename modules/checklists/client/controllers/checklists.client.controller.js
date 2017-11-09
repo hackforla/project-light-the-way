@@ -1,30 +1,46 @@
 (function () {
   'use strict';
 
-  // Checklists controller
   angular
     .module('checklists')
     .controller('ChecklistsController', ChecklistsController);
 
-  ChecklistsController.$inject = ['ChecklistsService'];
+  ChecklistsController.$inject = ['ChecklistStorageService', 'ChecklistsService'];
 
-  function ChecklistsController (checklist) {
+  function ChecklistsController(checklistStorage, checklist) {
     var vm = this;
+
+    vm._id = '';
+    vm.email = 'email@email.com'; // this will be replaced by server's email set variables for testing
+
     vm.fn = {};
-    vm.checklist = {};
-    vm.checklist.email = 'email';
-    checklist.status().get(function(d){
-      console.log(d);
-    });
+    vm.fn.add = add;
+    vm.fn.remove = remove;
+    vm.fn.emailList = emailList;
+    vm.checklist = checklistStorage.get();
 
-    
+    function add(){
+      if(vm._id){
+        checklistStorage.add(vm._id);
+        vm.checklist = checklistStorage.get();
+        vm._id = '';
+      }
+    }
 
+    function remove(_id){
+      checklistStorage.del(_id);
+      vm.checklist = checklistStorage.get();
+    }
 
-    // checklist.mail().post(vm.checklist, function(err, d){
-    //   if (err) {console.log(err);}
-    //   console.log(d);
-    // });
+    function emailList(){
+      var body = vm.checklist.join(',');
 
+      body = '5a02a13d8bf90ddc382ae7b1,5a02a13d8bf90ddc382ae7b1,5a02a13d8bf90ddc382ae7b1,5a02a13d8bf90ddc382ae7b1';
+      checklist.sendChecklist().save({ checklist: body }, function(err, d){
+        if (err) {console.log(err);}
+        console.log(d);
+      });
+    }
 
   }
 }());

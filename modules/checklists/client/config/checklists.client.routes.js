@@ -9,72 +9,27 @@
 
   function routeConfig($stateProvider) {
     $stateProvider
-      .state('checklists', {
+      .state('checklist', {
         abstract: true,
-        url: '/checklists',
+        url: '/checklist',
         template: '<ui-view/>'
       })
-      .state('checklists.list', {
+      .state('checklist.list', {
         url: '',
-        templateUrl: 'modules/checklists/client/views/list-checklists.client.view.html',
-        controller: 'ChecklistsListController',
-        controllerAs: 'vm',
+        templateUrl: 'modules/checklists/client/views/checklists.client.view.html',
+        controller: 'ChecklistsController as vm',
         data: {
-          roles: ['admin'],
           pageTitle: 'Checklists List'
         }
       })
-      .state('checklists.create', {
-        url: '/create',
-        templateUrl: 'modules/checklists/client/views/form-checklist.client.view.html',
-        controller: 'ChecklistsController',
-        controllerAs: 'vm',
-        resolve: {
-          checklistResolve: newChecklist
-        },
-        data: {
-          roles: ['user', 'admin'],
-          pageTitle: 'Checklists Create'
-        }
-      })
-      .state('checklists.edit', {
-        url: '/:checklistId/edit',
-        templateUrl: 'modules/checklists/client/views/form-checklist.client.view.html',
-        controller: 'ChecklistsController',
-        controllerAs: 'vm',
-        resolve: {
-          checklistResolve: getChecklist
-        },
-        data: {
-          roles: ['user', 'admin'],
-          pageTitle: 'Edit Checklist {{ checklistResolve.name }}'
-        }
-      })
-      .state('checklists.view', {
+      .state('checklist.list.view', {
         url: '/:checklistId',
-        templateUrl: 'modules/checklists/client/views/view-checklist.client.view.html',
-        controller: 'ChecklistsController',
-        controllerAs: 'vm',
-        resolve: {
-          checklistResolve: getChecklist
-        },
+        templateUrl: 'modules/checklists/client/views/checklist.client.view.html',
+        controller: 'ChecklistController as vm',
         data: {
-          pageTitle: 'Checklist {{ checklistResolve.name }}'
+          pageTitle: 'Checklists List'
         }
       });
   }
 
-  getChecklist.$inject = ['$stateParams', 'ChecklistsService'];
-
-  function getChecklist($stateParams, ChecklistsService) {
-    return ChecklistsService.get({
-      checklistId: $stateParams.checklistId
-    }).$promise;
-  }
-
-  newChecklist.$inject = ['ChecklistsService'];
-
-  function newChecklist(ChecklistsService) {
-    return new ChecklistsService();
-  }
 }());
