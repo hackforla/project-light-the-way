@@ -101,7 +101,7 @@ exports.delete = function(req, res) {
  * List of Categories
  */
 exports.list = function(req, res) {
-  Category.find().sort('name').select('name -_id').exec(function(err, categories) {
+  Category.find({ status:'public' }).sort('name').select('name -_id').exec(function(err, categories) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)

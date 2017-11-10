@@ -103,11 +103,8 @@ exports.delete = function(req, res) {
  * List of Resources
  */
 
-// add status public when
-// { status:'public' }
-// .list .new .feat
 exports.list = function(req, res) {
-  Resource.find({}).select().sort('-created').exec(function(err, resources) {
+  Resource.find({ status:'public' }).select().sort('-created').exec(function(err, resources) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
@@ -119,14 +116,39 @@ exports.list = function(req, res) {
 };
 
 exports.new = function(req, res) {
-  Resource.find({}).select('-status -created').limit(6).sort('-created').exec(function(err, data) {
+  Resource.find({ status:'public' }).select('-status -created').limit(6).sort('-created').exec(function(err, data) {
     res.jsonp({ data: data });
   });
 };
 exports.feat = function(req, res) {
-  Resource.find({}).select('-status -created').limit(2).sort('-created').exec(function(err, data) {
+  Resource.find({ status:'public' }).select('-status -created').limit(2).sort('-created').exec(function(err, data) {
     res.jsonp({ data: data });
   });
+};
+
+exports.categories = function(req, res){
+  var arr = [];
+  function Status(item){
+    return { catg:item, status:'public' };
+  }
+
+  if(req.body.categories){
+    req.body.categories.forEach(function(c){
+      arr.push(new Status(c));
+    });
+
+    Resource.find({ $or: arr }).exec(function(err, docs){
+      if(err){ res.status(404).send({ message: 'No resources found' });}
+      // console.log(docs);
+      console.log(req.body.categories[0] + ': ' + docs.length);
+    });
+
+  }else{
+    res.status(404).send({
+      message: 'List required'
+    });
+  }
+  res.jsonp({ msg:'ok' });
 };
 
 exports.search = function(req, res) {
