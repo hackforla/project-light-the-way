@@ -15,7 +15,8 @@
       searchResource:searchResource,
       getNew:getNew,
       getFeatured:getFeatured,
-      resources:resources
+      resources:resources,
+      byCategories:byCategories
     };
 
     return service;
@@ -44,6 +45,10 @@
 
     function resources(){
       return $resource('api/r');
+    }
+
+    function byCategories(){
+      return $resource('api/resources/categories');
     }
 
   }
