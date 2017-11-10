@@ -22,8 +22,16 @@
           pageTitle: 'Checklists List'
         }
       })
-      .state('checklist.list.view', {
-        url: '/:checklistId',
+      .state('checklist.list.results', {
+        url: '/results',
+        templateUrl: 'modules/checklists/client/views/results.client.view.html',
+        controller: 'ChecklistResultController as vm',
+        data: {
+          pageTitle: 'Checklist Results'
+        }
+      })
+      .state('checklist.view', {
+        url: '/list-:checklistId',
         templateUrl: 'modules/checklists/client/views/checklist.client.view.html',
         controller: 'ChecklistController as vm',
         data: {
