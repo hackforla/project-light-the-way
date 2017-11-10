@@ -6,14 +6,12 @@
     .module('checklists')
     .controller('ChecklistController', ChecklistController);
 
-  ChecklistController.$inject = ['$state','ChecklistsService'];
+  ChecklistController.$inject = ['$state', 'ChecklistsService'];
 
   function ChecklistController ($state, checklist) {
     var vm = this;
-    vm.fn = {};
-    vm.list = {};
 
-    vm.test = 'Hello';
+    vm.list = {};
 
     checklist.list($state.params.checklistId).get(function(d){
       vm.list = d;
