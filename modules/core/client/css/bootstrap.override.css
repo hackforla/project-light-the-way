@@ -1,3 +1,12 @@
 .no-col-pad>[class^="col-"] {
   padding: 0;
 }
+
+
+.btn-blue{
+  background:#34AEFF;
+  border:none;
+  color:#fff;
+  font-weight:500;
+  margin:5px 0;
+}
