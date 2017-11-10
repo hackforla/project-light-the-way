@@ -5,41 +5,42 @@
     .module('checklists')
     .controller('ChecklistsController', ChecklistsController);
 
-  ChecklistsController.$inject = ['ChecklistStorageService', 'ChecklistsService'];
+  ChecklistsController.$inject = ['ChecklistStorageService', 'ChecklistsService', 'LocateService', 'CategoriesService', 'ResourcesService'];
 
-  function ChecklistsController(checklistStorage, checklist) {
+  function ChecklistsController(checklistStorage, checklist, location, categories, resources) {
     var vm = this;
 
     vm._id = '';
     vm.email = 'email@email.com'; // this will be replaced by server's email set variables for testing
-
     vm.fn = {};
-    vm.fn.add = add;
-    vm.fn.remove = remove;
-    vm.fn.emailList = emailList;
+    vm.fn.locate = location.locate;
+    vm.fn.results = results;
+    vm.fn.list = list;
+
+    vm.list = {};
+    vm.checked = [];
+
+    vm.test = 'Hello';
+    categories.categories().get(function(d){
+      vm.categories = d.data;
+    });
     vm.checklist = checklistStorage.get();
 
-    function add(){
-      if(vm._id){
-        checklistStorage.add(vm._id);
-        vm.checklist = checklistStorage.get();
-        vm._id = '';
+    function list(item){
+      var index = vm.checked.indexOf(item);
+      if(index === -1){
+        vm.checked.push(item);
+      }else{
+        vm.checked.splice(index, 1);
       }
     }
 
-    function remove(_id){
-      checklistStorage.del(_id);
-      vm.checklist = checklistStorage.get();
-    }
-
-    function emailList(){
-      var body = vm.checklist.join(',');
-
-      body = '5a02a13d8bf90ddc382ae7b1,5a02a13d8bf90ddc382ae7b1,5a02a13d8bf90ddc382ae7b1,5a02a13d8bf90ddc382ae7b1';
-      checklist.sendChecklist().save({ checklist: body }, function(err, d){
-        if (err) {console.log(err);}
-        console.log(d);
-      });
+    function results(){
+      if(vm.checked.length){
+        resources.byCategories().save({ categories: vm.checked }, function(d){
+          console.log(d);
+        });
+      }
     }
 
   }
