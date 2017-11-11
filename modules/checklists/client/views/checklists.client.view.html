@@ -10,7 +10,7 @@
       </div>
       <div class="checkbox" ng-repeat="c in vm.categories">
         <label>
-          <input type="checkbox" name="{{c | url}}" ng-click="vm.fn.list(c)" ng-checked="vm.checked.indexOf(c) != -1"> {{c}}
+          <input type="checkbox" name="{{c | url}}" ng-click="vm.fn.list(c)" ng-checked="vm.checked.indexOf(c) != -1 || vm.selectAll"> {{c}}
         </label>
       </div>
     </div>

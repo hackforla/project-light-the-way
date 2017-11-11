@@ -12,7 +12,6 @@
 
     vm.modal = false;
     vm._id = '';
-    vm.email = 'email@email.com'; // this will be replaced by server's email set variables for testing
     vm.fn = {};
     vm.fn.locate = location.locate;
     vm.fn.results = results;
@@ -22,7 +21,10 @@
     vm.fn.modal = modal;
 
     vm.fn.update = update;
+    vm.fn.selectAll = selectAll;
 
+    vm.selectAll = false;
+    vm.checkedOld = '';
     function update(){
       vm.checklist = checklistStorage.get();
     }
@@ -85,6 +87,16 @@
         $location.path('/checklist/list-'+d._id);
 
       });
+    }
+
+    function selectAll(){
+      if(!vm.selectAll){
+        vm.checkedOld = vm.checked;
+        vm.checked = 'training,legal,housing,mental health,healthcare,finance,employment,education'.split(',');
+      }else{
+        vm.checked = vm.checkedOld;
+      }
+      vm.selectAll = !vm.selectAll;
     }
 
     vm.addItem = function() {
