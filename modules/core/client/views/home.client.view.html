@@ -44,11 +44,11 @@
 </section>
 
 <section>
-  <a href="/r/search/featured">
+  <a href="/checklist/list-5a06f0c43cf2baf29cbbad80">
     <h2 class="title">Featured <span class="more">View More</span></h2>
   </a>
   <div class="resources clearfix">
-    <a href="/checklist/resource-5a06f0c43cf2baf29cbbad80" class="featured" ng-repeat="r in vm.featured">
+    <a href="/checklist/resource-{{r._id}}" class="featured" ng-repeat="r in vm.featured">
       <div class="org" ng-bind="r.org"></div><div class="type">CA</div>
       <div class="name" ng-bind="r.org">Resource Name</div>
       <div class="desc" ng-bind="r.desc">
@@ -59,9 +59,9 @@
       </div><div class="view">
         View
       </div>
-      <div class="img">
+      <!-- <div class="img">
         <img src="/modules/core/client/img/supporters/logo-hfla.png" alt="">
-      </div>
+      </div> -->
     </a>
   </div>
 </section>

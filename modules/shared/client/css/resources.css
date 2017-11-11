@@ -101,7 +101,7 @@
 .featured{
   padding:10px;
   background:#fff;
-  min-height:230px;
+  min-height:auto;
   height:auto;
   max-width:430px;
   width:100%;
