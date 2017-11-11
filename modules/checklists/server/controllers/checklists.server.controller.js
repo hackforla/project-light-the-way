@@ -9,8 +9,8 @@ var path = require('path'),
   Checklist = mongoose.model('Checklist'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   _ = require('lodash'),
-  api_key = 'key-207d27c682fe9cee2664b99342ea85ee',
-  domain = 'ltw.helloimjag.com',
+  api_key = process.env.MAIL_KEY || '<KEY>',
+  domain = process.env.MAIL_DOMAIN || '<DOMAIN>',
   mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
 
 /**
