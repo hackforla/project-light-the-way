@@ -73,6 +73,7 @@
   },
   "devDependencies": {
     "coveralls": "^3.0.0",
+    "dotenv": "^4.0.0",
     "grunt-concurrent": "^2.0.0",
     "grunt-contrib-copy": "~1.0.0",
     "grunt-contrib-csslint": "~2.0.0",
