@@ -21,6 +21,7 @@
     update();
 
     function add(id){
+      console.log('add');
       if(id){
         if(vm.checklist.indexOf(id) !== -1){
           remove(id);

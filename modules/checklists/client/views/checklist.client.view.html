@@ -16,14 +16,14 @@
     <div ng-hide="vm.sent">
       <div class="title">Send to email</div>
       <div class="form-group">
-        <input class="form-control" type="email" ng-model="vm.email" placeholder="email@email.com">
+        <input class="form-control" type="email" ng-model="vm.email" placeholder="email@email.com" required="true">
       </div>
       <button class="btn btn-blue btn-block" ng-click="vm.fn.email()">Email Checklist</button>
     </div>
     <div ng-show="vm.sent">
       <div class="btn btn-blue btn-block">
         <small>Email Sent To</small>
-        <div>jag@helloimjag.com</div>
+        <div ng-bind="vm.email"></div>
       </div>
       <div class="btn btn-link btn-block" ng-click="vm.sent=false">Change Email</div>
     </div>

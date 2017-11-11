@@ -2,7 +2,7 @@
 
 module.exports = {
   app: {
-    title: 'LTW',
+    title: 'Light The Way',
     description: 'A website that provides a easier way to connect veterans to their benefits and other resources.',
     keywords: 'Veteran, Vets, Military, Service, Benefits, Resources, Help, Support',
     googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID'

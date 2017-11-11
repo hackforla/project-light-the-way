@@ -88,15 +88,15 @@ exports.send = function(req, res){
 
   function sendChecklist(id, email){
     var data = {
-      // from: 'Light The Way <checklist@ltw.helloimjag.com>',
-      from: 'Light The Way <me@samples.mailgun.org>',
+      from: 'Light The Way <checklist@ltw.helloimjag.com>',
+      // from: 'Light The Way <me@samples.mailgun.org>', //sandbox only only 1 email sent to
       to: email,
       subject: 'Your Resource Checklist',
       html: 'Hello,<br>' +
       'This is the link for your resource checklist:<br>' +
-      '<a href="http://www.helloimjag.com">View Resource Checklist</a> <br><br><br>' +
+      '<a href="https://lighttheway.herokuapp.com/checklist/list-'+id+'">View Resource Checklist</a> <br><br><br>' +
       'If you can\'t view the link copy from here:<br>'+
-      'http://www.helloimjag.com/id'+id
+      'https://lighttheway.herokuapp.com/checklist/list-'+id
     };
     mailgun.messages().send(data, function (err, body) {
       if(err){

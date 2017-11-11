@@ -64,7 +64,7 @@
     }
 
     function results(f){
-      if(f || vm.checked.length){
+      if(vm.checked.length){
         localStorage.setItem('checklist:checked',vm.checked.join(','));
         vm.checked.forEach(function(c){
           resources.byCategories().save({ categories: [c] }, function(d){

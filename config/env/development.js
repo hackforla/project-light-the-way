@@ -32,7 +32,7 @@ module.exports = {
     }
   },
   app: {
-    title: defaultEnvConfig.app.title + ' - Dev Mode'
+    title: defaultEnvConfig.app.title
   },
   facebook: {
     clientID: process.env.FACEBOOK_ID || 'APP_ID',
@@ -75,5 +75,5 @@ module.exports = {
       }
     }
   },
-  livereload: true
+  livereload: false
 };

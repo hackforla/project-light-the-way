@@ -14,7 +14,7 @@
     vm.fn = {};
     vm.fn.email = email;
 
-    vm.sent = true;
+    vm.sent = false;
     vm.email = '';
 
     vm.list = {};
