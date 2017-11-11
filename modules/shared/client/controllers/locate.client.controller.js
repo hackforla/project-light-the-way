@@ -12,11 +12,13 @@
     vm.fn = {};
     vm.fn.locate = locate;
 
+    vm.u = {};
+
     function locate(){
       if ('geolocation' in navigator){
         navigator.geolocation.getCurrentPosition(function(pos){
           location.latlng(pos.coords.latitude, pos.coords.longitude).then(function(d){
-            console.log(d);
+            vm.location = d.city;
           });
           console.log('Location found');
         });

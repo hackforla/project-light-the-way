@@ -19,11 +19,19 @@
     function latlng(lat,lng){
       return $http.get(api+'?latlng='+lat+','+lng+'&key='+key).then(
         function(d){
-          console.log(d);
-          return d;
+          var place = {};
+          d.data.results.forEach(function(p){
+            if(p.types[0] === 'postal_code'){
+              var area = p.address_components;
+              place.zip = area[0].short_name;
+              place.city = area[2].short_name;
+              place.state = area[4].short_name;
+            }
+          });
+          return place;
         },
         function(d){
-          console.log(d);
+          console.log(d.data);
           return d;
         }
       );
