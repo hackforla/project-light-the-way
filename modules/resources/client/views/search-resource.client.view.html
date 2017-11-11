@@ -1,6 +1,8 @@
 <ng-include src="'/modules/shared/client/views/nav.search.client.view.html'" ng-init="s.query=vm.query"></ng-include>
-<section has="has-footer">
-  <div class="resources">
+<section has="has-header has-footer">
+  <div class="resources col-sm-6 col-sm-offset-3 clearfix">
+    <br>
+    <br>
     <div ng-show="vm.search.error">
       {{vm.search.error + ' for ' + vm.search.query}}
     </div>
@@ -13,12 +15,14 @@
         <!-- <i class="fa fa-thumbs-o-up " aria-hidden="true"></i> <span>21</span> Vets -->
       </div><div class="view">View Resource</div>
     </a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
 </section>
 <ng-include src="'/modules/core/client/views/footer.nav.view.html'"></ng-include>
