@@ -1,0 +1,28 @@
+<div class="resource">
+  <div class="pull-right">
+    <i class="fa fa-times " aria-hidden="true" ng-click="$parent.vm.fn.modal()"></i>
+  </div>
+  <div class="id" ng-bind="vm.resource._id"></div>
+  <!-- <h1 class="title" >Resource Name</h1> -->
+  <div class="org" ng-bind="vm.resource.org"></div>
+  <a href="{{vm.resource.web}}"><div class="web">website</div></a>
+  <div class="addr">
+    <span ng-bind="vm.resource.addr"></span><br>
+    <!-- <span ng-bind="vm.resource.city"></span>,&nbsp;
+    <span ng-bind="vm.resource.state"></span>&nbsp;
+    <span ng-bind="vm.resource.zip"></span> -->
+  </div>
+  <div class="line" ng-bind="vm.resource.line"></div>
+  <p class="desc" ng-bind="vm.resource.desc"></p>
+  <!-- <span class="poc">Point of Contact</span>
+  <div class="name" ng-bind="vm.resource.poc_name"></div>
+  <div class="email" ng-bind="vm.resource.poc_email"></div>
+  <div class="line" ng-bind="vm.resource.poc_line"></div> -->
+
+  <div class="btn btn-blue btn-block" ng-click="$parent.vm.fn.modal()">View More Resources</div>
+  <div class="btn btn-blue btn-block" ng-click="s.fn.add(vm.resource._id); $parent.$parent.vm.fn.update()" ng-controller="AddChecklistItemController as s">
+    {{s.checklist.indexOf(vm.resource._id) === -1?'Add Resource':'Resource Added'}}
+  </div>
+  <!-- <a ng-show="vm.inChecklist" class="btn btn-blue btn-block" ng-controller="AddChecklistItemController as s" >
+  </a> -->
+</div>

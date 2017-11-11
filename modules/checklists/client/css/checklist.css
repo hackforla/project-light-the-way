@@ -1,0 +1,28 @@
+.checklist{
+  font-size:1.25em;
+}
+
+
+.modal-checklist{
+  background:#fff;
+  min-height: 300px;
+  height: auto;
+  width:400px;
+  position: fixed;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -60%);
+  border-radius: 5px;
+  padding:10px;
+  z-index: 2100;
+}
+
+.checklist.overlay{
+  position: fixed;
+  top:0;
+  left:0;
+}
+
+.modal-overlay{
+  z-index: 2000;
+}

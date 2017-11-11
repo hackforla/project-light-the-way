@@ -1,23 +1,26 @@
 
 
 <section class="has-header has-footer">
-  <div class="resource">
+  <div class="resource col-xs-6 col-xs-offset-3">
     <div class="id" ng-bind="vm.resource._id"></div>
     <h1 class="title" >Resource Name</h1>
     <div class="org" ng-bind="vm.resource.org"></div>
     <a href="{{vm.resource.web}}"><div class="web">website</div></a>
     <div class="addr">
       <span ng-bind="vm.resource.addr"></span><br>
-      <span ng-bind="vm.resource.city"></span>,&nbsp;
+      <!-- <span ng-bind="vm.resource.city"></span>,&nbsp;
       <span ng-bind="vm.resource.state"></span>&nbsp;
-      <span ng-bind="vm.resource.zip"></span>
+      <span ng-bind="vm.resource.zip"></span> -->
     </div>
     <div class="line" ng-bind="vm.resource.line"></div>
     <p class="desc" ng-bind="vm.resource.desc"></p>
-    <span class="poc">Point of Contact</span>
+    <!-- <span class="poc">Point of Contact</span>
     <div class="name" ng-bind="vm.resource.poc_name"></div>
     <div class="email" ng-bind="vm.resource.poc_email"></div>
-    <div class="line" ng-bind="vm.resource.poc_line"></div>
+    <div class="line" ng-bind="vm.resource.poc_line"></div> -->
+    <div ng-hide="vm.inChecklist" class="btn btn-blue pull-right" ng-click="s.fn.add(vm.resource._id)" ng-controller="AddChecklistItemController as s">Add to Checklist</div>
+    <a ng-show="vm.inChecklist" href="/checklist" class="btn btn-blue pull-right" ng-controller="AddChecklistItemController as s">View Checklist</a>
+
   </div>
 </section>
 <ng-include src="'/modules/core/client/views/footer.nav.view.html'"></ng-include>

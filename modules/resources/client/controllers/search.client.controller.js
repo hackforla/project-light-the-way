@@ -22,7 +22,7 @@
     vm.fn = {};
     vm.fn.get = get;
 
-    vm.query = $state.params.query;
+    vm.query = vm.search.query;
 
     function filterQuery(){
       return vm.search.query.split(' ').join('+');

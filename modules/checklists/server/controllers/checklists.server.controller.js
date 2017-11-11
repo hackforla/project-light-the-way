@@ -53,9 +53,7 @@ exports.sendChecklist = function(req, res){
       message: 'Checklist IDs Invalid.'
     });
   }
-
   function createList(list){
-
     var checklist = new Checklist({ items:list });
     checklist.save(function(err, list) {
       if (err) {
@@ -63,15 +61,32 @@ exports.sendChecklist = function(req, res){
           message: errorHandler.getErrorMessage(err)
         });
       } else {
-        console.log(list);
-        console.log(list._id);
-        sendChecklist(list._id);
+        return res.jsonp({
+          _id:list._id
+        });
       }
     });
   }
 
-  function sendChecklist(id){
-    var email = 'jag@helloimjag.com';// || req.body.email;
+
+};
+
+exports.send = function(req, res){
+  var to = req.body.to;
+
+  if(!to.email){
+    return res.status(400).send({
+      message: 'Email is required'
+    });
+  }else if (!to._id) {
+    return res.status(400).send({
+      message: 'Id is required'
+    });
+  }else{
+    sendChecklist(to._id, to.email);
+  }
+
+  function sendChecklist(id, email){
     var data = {
       // from: 'Light The Way <checklist@ltw.helloimjag.com>',
       from: 'Light The Way <me@samples.mailgun.org>',
@@ -80,7 +95,7 @@ exports.sendChecklist = function(req, res){
       html: 'Hello,<br>' +
       'This is the link for your resource checklist:<br>' +
       '<a href="http://www.helloimjag.com">View Resource Checklist</a> <br><br><br>' +
-      'If you can\'t view the link copy from here:'+
+      'If you can\'t view the link copy from here:<br>'+
       'http://www.helloimjag.com/id'+id
     };
     mailgun.messages().send(data, function (err, body) {

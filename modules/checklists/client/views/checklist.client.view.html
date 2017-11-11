@@ -1,20 +1,33 @@
 <section>
   <h1 class="title">Checklist {{vm.list._id}}</h1>
-  <div class="resources">
-    <a href="/resource/{{r._id}}" class="featured result" ng-repeat="r in vm.list.items">
-      <div class="org" ng-bind="r.org">TechHire</div><div class="type" ng-bind="r.type || 'type'">Los Angeles</div>
-      <div class="name" ng-bind="r.name || 'Resource Name'">Resource Name</div>
-      <div class="desc" ng-bind="r.desc">This will be a short description about this resources and it's context. This will be a short description about this resources and it's context.</div>
-      <div class="rec"><i class="fa fa-thumbs-o-up " aria-hidden="true"></i> <span>21</span> Vets</div><div class="view">View Resource</div>
-    </a>
+  <div class="col-sm-6 col-sm-offset-3">
+    <div class="resources">
+      <a href="/resource/{{r._id}}" class="featured result" ng-repeat="r in vm.list.items">
+        <div class="org" ng-bind="r.org">TechHire</div><div class="type" ng-bind="r.type || 'type'">Los Angeles</div>
+        <div class="name" ng-bind="r.name || 'Resource Name'">Resource Name</div>
+        <div class="desc" ng-bind="r.desc">This will be a short description about this resources and it's context. This will be a short description about this resources and it's context.</div>
+        <div class="rec">
+          <!-- <i class="fa fa-thumbs-o-up " aria-hidden="true"></i> <span>21</span> Vets -->
+        </div><div class="view">View Resource</div>
+      </a>
+    </div>
+  </div>
+  <div class="col-sm-6 col-sm-offset-3 has-footer">
+    <div ng-hide="vm.sent">
+      <div class="title">Send to email</div>
+      <div class="form-group">
+        <input class="form-control" type="email" ng-model="vm.email" placeholder="email@email.com">
+      </div>
+      <button class="btn btn-blue btn-block" ng-click="vm.fn.email()">Email Checklist</button>
+    </div>
+    <div ng-show="vm.sent">
+      <div class="btn btn-blue btn-block">
+        <small>Email Sent To</small>
+        <div>jag@helloimjag.com</div>
+      </div>
+      <div class="btn btn-link btn-block" ng-click="vm.sent=false">Change Email</div>
+    </div>
   </div>
 
-  <div class="title">Add your email</div>
-  <div class="form-group">
-    <input class="form-control" type="email" ng-model="vm.email">
-  </div>
-  <button class="btn btn-default" ng-click="vm.fn.add()">Add</button>
-  <br>
-
-  <button class="btn btn-primary" ng-click="vm.fn.emailList()">Email Checklist</button>
 </section>
+<ng-include src="'/modules/core/client/views/footer.nav.view.html'"></ng-include>

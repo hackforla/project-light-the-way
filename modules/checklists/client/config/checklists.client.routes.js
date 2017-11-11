@@ -37,6 +37,14 @@
         data: {
           pageTitle: 'Checklists List'
         }
+      })
+      .state('checklist.list.resource', {
+        url: '/resource-:resourceId',
+        templateUrl: 'modules/resources/client/views/clean-resource.client.view.html',
+        controller: 'ResourceReadController as vm',
+        data: {
+          pageTitle: 'Resource'
+        }
       });
   }
 

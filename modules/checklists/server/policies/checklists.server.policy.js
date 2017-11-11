@@ -20,6 +20,9 @@ exports.invokeRolesPolicies = function () {
     },{
       resources: '/api/checklists/mail',
       permissions: '*'
+    },{
+      resources: '/api/checklists/send',
+      permissions: '*'
     }, {
       resources: '/api/checklist/:checklistId',
       permissions: '*'
@@ -28,10 +31,13 @@ exports.invokeRolesPolicies = function () {
     roles: ['user'],
     allows: [{
       resources: '/api/checklists',
-      permissions: ['get']
+      permissions: ['get', 'post']
+    },{
+      resources: '/api/checklists/send',
+      permissions: ['post']
     },{
       resources: '/api/checklists/mail',
-      permissions: ['get']
+      permissions: ['post']
     }, {
       resources: '/api/checklist/:checklistId',
       permissions: ['get']
@@ -40,10 +46,13 @@ exports.invokeRolesPolicies = function () {
     roles: ['guest'],
     allows: [{
       resources: '/api/checklists',
-      permissions: ['get']
+      permissions: ['get', 'post']
+    },{
+      resources: '/api/checklists/send',
+      permissions: ['post']
     },{
       resources: '/api/checklists/mail',
-      permissions: ['get']
+      permissions: ['post']
     }, {
       resources: '/api/checklist/:checklistId',
       permissions: ['get']

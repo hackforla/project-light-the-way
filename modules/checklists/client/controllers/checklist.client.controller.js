@@ -11,13 +11,30 @@
   function ChecklistController ($state, checklist) {
     var vm = this;
 
-    vm.list = {};
+    vm.fn = {};
+    vm.fn.email = email;
 
-    checklist.list($state.params.checklistId).get(function(d){
+    vm.sent = true;
+    vm.email = '';
+
+    vm.list = {};
+    vm._id = $state.params.checklistId;
+
+    checklist.list(vm._id).get(function(d){
       vm.list = d;
-      console.log(vm.list);
     });
 
+    function email(){
+      if(vm.email){
 
+        var to = {
+          email:vm.email,
+          _id: vm._id
+        };
+        checklist.send().save({ to:to }, function(d){
+          vm.sent = true;
+        });
+      }
+    }
   }
 }());

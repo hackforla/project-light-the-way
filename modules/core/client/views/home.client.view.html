@@ -2,7 +2,7 @@
 <div class="home hero home-hero nomenu">
   <div class="overlay">
     <div class="home-banner">
-      <img class="home-logo" ng-src="/modules/core/client/img/brand/logo1.png" alt="Large background picture of soldiers raising the U.S flag.">
+      <img class="home-logo" ng-src="/modules/core/client/img/brand/logo_centered.png" alt="Large background picture of soldiers raising the U.S flag.">
       <h1 class="home-title">Ahead of you, to guide you</h1>
       <div class="home-slogan">los angeles' best veteranresources<br>prevetted by vets for vets </div>
       <a href="/checklist" class="btn btn-block btn-checklist">Create my checklist</a>
@@ -31,13 +31,14 @@
 </section>
 
 <section>
-  <a href="/r/search/new">
+  <a href="/checklist/list-5a06ef903cf2baf29cbbad7f">
     <h2 class="title">Recent <span class="more">View More</span></h2>
   </a>
   <div class="resources">
-    <a href="/resource/{{r._id}}" class="recent" ng-repeat="r in vm.recent">
-      <div class="org" ng-bind="r.org"></div>
-      <div class="name">Resource Name</div>
+    <!-- <a href="/checklist/resource-{{r._id}}" class="recent" ng-repeat="r in vm.recent"> -->
+    <a href="/checklist/resource-{{r._id}}" class="recent" ng-repeat="r in vm.recent">
+      <div class="org" ng-bind="r.desc"></div>
+      <div class="name txt-l" ng-bind="r.org">Resource Name</div>
     </a>
   </div>
 </section>
@@ -47,14 +48,14 @@
     <h2 class="title">Featured <span class="more">View More</span></h2>
   </a>
   <div class="resources clearfix">
-    <a href="/resource/{{r._id}}" class="featured" ng-repeat="r in vm.featured">
-      <div class="org" ng-bind="r.org"></div><div class="type">Type</div>
-      <div class="name">Resource Name</div>
-      <div class="desc">
+    <a href="/checklist/resource-5a06f0c43cf2baf29cbbad80" class="featured" ng-repeat="r in vm.featured">
+      <div class="org" ng-bind="r.org"></div><div class="type">CA</div>
+      <div class="name" ng-bind="r.org">Resource Name</div>
+      <div class="desc" ng-bind="r.desc">
         This will be a short description about this resources and it's context. This will be a short description about this resources and it's context.
       </div>
       <div class="rec">
-        <i class="fa fa-thumbs-o-up " aria-hidden="true"></i> <span>21</span> Vets
+        <!-- <i class="fa fa-thumbs-o-up " aria-hidden="true"></i> <span>21</span> Vets -->
       </div><div class="view">
         View
       </div>

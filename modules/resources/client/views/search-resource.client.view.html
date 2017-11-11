@@ -4,7 +4,8 @@
     <div ng-show="vm.search.error">
       {{vm.search.error + ' for ' + vm.search.query}}
     </div>
-    <a href="/resource/{{r._id}}" class="featured result" ng-repeat="r in vm.resources">
+    <!-- <a href="/resource/{{r._id}}" class="featured result" ng-repeat="r in vm.resources"> -->
+    <a href="/checklist/resource-{{r._id}}" class="featured result" ng-repeat="r in vm.resources">
       <div class="org" ng-bind="r.org">TechHire</div><div class="type" ng-bind="r.type || 'type'">Los Angeles</div>
       <div class="name" ng-bind="r.name || 'Resource Name'">Resource Name</div>
       <div class="desc" ng-bind="r.desc">This will be a short description about this resources and it's context. This will be a short description about this resources and it's context.</div>

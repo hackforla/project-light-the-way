@@ -2,11 +2,18 @@
   padding: 0;
 }
 
-
+.btn-disabled,
 .btn-blue{
   background:#34AEFF;
   border:none;
   color:#fff;
-  font-weight:500;
+  font-weight:600;
   margin:5px 0;
+  padding:10px 8px;
+  font-size:1.1em;
+}
+.btn-disabled:hover,
+.btn-disabled{
+  background:#bdc3c7;
+  color:rgba(0,0,0.5);
 }

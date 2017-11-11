@@ -13,11 +13,16 @@
     service.status = status;
     service.sendChecklist = sendChecklist;
     service.list = list;
+    service.send = send;
 
     return service;
 
     function status(){
       return $resource('/api/checklists/mail');
+    }
+
+    function send(){
+      return $resource('/api/checklists/send');
     }
 
     function sendChecklist(){

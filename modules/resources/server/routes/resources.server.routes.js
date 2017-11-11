@@ -24,8 +24,8 @@ module.exports = function(app) {
   // search
   app.route('/api/r/search/:query')
     .get(resources.search);
-  app.route('/api/r/search/:query/:page')
-    .get(resources.search);
+  // app.route('/api/r/search/:query/:page')
+  //   .get(resources.search);
 
   app.route('/api/resources/categories')
     .get(resources.categories)

@@ -116,7 +116,7 @@ exports.list = function(req, res) {
 };
 
 exports.new = function(req, res) {
-  Resource.find({ status:'public' }).select('-status -created').limit(6).sort('-created').exec(function(err, data) {
+  Resource.find({ status:'public' }).select('-status -created').limit(10).sort('-created').exec(function(err, data) {
     res.jsonp({ data: data });
   });
 };
@@ -126,30 +126,61 @@ exports.feat = function(req, res) {
   });
 };
 
+
 exports.categories = function(req, res){
-  var arr = [];
-  function Status(item){
-    return { catg:item, status:'public' };
-  }
-
-  if(req.body.categories){
-    req.body.categories.forEach(function(c){
-      arr.push(new Status(c));
-    });
-
-    Resource.find({ $or: arr }).exec(function(err, docs){
-      if(err){ res.status(404).send({ message: 'No resources found' });}
-      // console.log(docs);
-      console.log(req.body.categories[0] + ': ' + docs.length);
-    });
-
+  if(!req.body){
+    Resource
+      .find(
+        { $text: { $search: 'female veteran' } },
+        { score: { $meta: 'textScore' } }
+      )
+      .where('status').equals('public')
+      .sort({ score: { $meta:'textScore' } })
+      .exec(function(err, doc){
+        if(err){ res.status(404).send({ message: 'List required' });}
+        res.jsonp({ data:doc });
+      });
   }else{
-    res.status(404).send({
-      message: 'List required'
-    });
+    var c = req.body.categories[0];
+    Resource
+      .find(
+        { $text: { $search: c } },
+        { score: { $meta: 'textScore' } }
+      )
+      .where('status').equals('public')
+      .sort({ score: { $meta:'textScore' } })
+      .exec(function(err, doc){
+        if(err){ res.status(404).send({ message: 'List required' });}
+        res.jsonp({ data:doc });
+      });
   }
-  res.jsonp({ msg:'ok' });
 };
+
+// TEMP: SEARCH PIVOT
+// exports.categories = function(req, res){
+//   var arr = [];
+//   function Status(item){
+//     return { catg:item, status:'public' };
+//   }
+//
+//   if(req.body.categories){
+//     req.body.categories.forEach(function(c){
+//       arr.push(new Status(c));
+//     });
+//
+//     Resource.find({ $or: arr }).exec(function(err, docs){
+//       if(err){ res.status(404).send({ message: 'No resources found' });}
+//       // console.log(docs);
+//       console.log(req.body.categories[0] + ': ' + docs.length);
+//     });
+//
+//   }else{
+//     res.status(404).send({
+//       message: 'List required'
+//     });
+//   }
+//   res.jsonp({ msg:'ok' });
+// };
 
 exports.search = function(req, res) {
   var query = unwind(req.params.query);

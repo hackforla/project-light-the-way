@@ -5,14 +5,18 @@
     .module('resources')
     .controller('ResourceReadController', ResourceReadController);
 
-  ResourceReadController.$inject = ['$state', 'ResourcesService'];
+  ResourceReadController.$inject = ['$state', 'ResourcesService', 'ChecklistStorageService'];
 
-  function ResourceReadController($state, resources) {
+  function ResourceReadController($state, resources, checklistStorage) {
     var vm = this;
+    vm._id = $state.params.resourceId;
+
+    vm.checklist = checklistStorage.get();
 
 
-    resources.getResource($state.params.resourceId).get(function(d){
-      console.log(d.data);
+    vm.inChecklist = vm.checklist.indexOf(vm._id) !== -1;
+
+    resources.getResource(vm._id).get(function(d){
       vm.resource = d.data;
     });
   }
