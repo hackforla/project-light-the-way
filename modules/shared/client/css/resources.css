@@ -53,12 +53,14 @@
   opacity:.5;
   text-align: left;
   font-weight:500;
+  overflow: hidden;
 }
 .recent .org{
   position:absolute;
   left:10px;
   top:10px;
   text-transform: capitalize;
+  height: 50%;
 }
 
 .recent .name{
