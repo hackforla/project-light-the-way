@@ -10,7 +10,7 @@ var path = require('path'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   _ = require('lodash'),
   api_key = 'key-207d27c682fe9cee2664b99342ea85ee',
-  domain = 'sandbox1948954470fd432fa3fd8a5036602f10.mailgun.org',
+  domain = 'ltw.helloimjag.com',
   mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
 
 /**
@@ -85,11 +85,10 @@ exports.send = function(req, res){
   }else{
     sendChecklist(to._id, to.email);
   }
-
+  // from: 'Light The Way <me@samples.mailgun.org>', //sandbox only only 1 email sent to
   function sendChecklist(id, email){
     var data = {
       from: 'Light The Way <checklist@ltw.helloimjag.com>',
-      // from: 'Light The Way <me@samples.mailgun.org>', //sandbox only only 1 email sent to
       to: email,
       subject: 'Your Resource Checklist',
       html: 'Hello,<br>' +
