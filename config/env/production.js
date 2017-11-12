@@ -75,5 +75,9 @@ module.exports = {
         pass: process.env.MAILER_PASSWORD || 'MAILER_PASSWORD'
       }
     }
+  },
+  mailgun: {
+    domain: process.env.DOMAIN,
+    apiKey: process.env.MAIL_KEY
   }
 };
