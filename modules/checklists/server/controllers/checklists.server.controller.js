@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 var path = require('path'),
-  config = require('..../config'),
+  config = require('../config'),
   mongoose = require('mongoose'),
   sanitize = require('mongo-sanitize'),
   Checklist = mongoose.model('Checklist'),
