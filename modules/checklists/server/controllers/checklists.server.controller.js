@@ -4,13 +4,14 @@
  * Module dependencies.
  */
 var path = require('path'),
-  config = require('../../../../config'),
   mongoose = require('mongoose'),
   sanitize = require('mongo-sanitize'),
   Checklist = mongoose.model('Checklist'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   _ = require('lodash'),
-  mailgun = require('mailgun-js')(config.mailgun);
+  mailgun = require('mailgun-js')({ domain: process.env.MAIL_DOMAIN, apiKey: process.env.MAIL_KEY });
+
+
 
 /**
  * Create a Checklist
