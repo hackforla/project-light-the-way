@@ -36,5 +36,9 @@ module.exports = {
         fileSize: 1*1024*1024 // Max file size in bytes (1 MB)
       }
     }
+  },
+  mailgun: {
+    domain: process.env.DOMAIN,
+    apiKey: process.env.MAIL_KEY
   }
 };
