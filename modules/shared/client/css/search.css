@@ -68,6 +68,7 @@ search @header-nav-results
   line-height: 50px;
 }
 .search.header-nav-results{
+  margin:20px 0;
   max-width: 650px;
   width:100%;
 }

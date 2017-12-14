@@ -11,8 +11,6 @@ var path = require('path'),
   _ = require('lodash'),
   mailgun = require('mailgun-js')({ domain: process.env.MAIL_DOMAIN, apiKey: process.env.MAIL_KEY });
 
-
-
 /**
  * Create a Checklist
  */

@@ -22,7 +22,15 @@ module.exports.loadModels = function (callback) {
 module.exports.connect = function (cb) {
   var _this = this;
 
-  var db = mongoose.connect(config.db.uri, config.db.options, function (err) {
+  // console.log(config.db.options);
+  var db = mongoose
+    .connect(
+      config.db.uri,
+      config.db.options,
+      noConnect
+    );
+
+  function noConnect(err){
     // Log Error
     if (err) {
       console.error(chalk.red('Could not connect to MongoDB!'));
@@ -35,7 +43,7 @@ module.exports.connect = function (cb) {
       // Call callback FN
       if (cb) cb(db);
     }
-  });
+  }
 };
 
 module.exports.disconnect = function (cb) {
