@@ -86,6 +86,10 @@ exports.send = function(req, res){
   // from: 'Light The Way <me@samples.mailgun.org>', //sandbox only only 1 email sent to
   function sendChecklist(to){
     var name = to.name||'';
+
+    if(name){
+      name=' '+name;
+    }
     var data = {
       from: 'Light The Way <checklist@ltw.helloimjag.com>',
       to: to.email,
