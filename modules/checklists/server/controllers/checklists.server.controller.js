@@ -85,13 +85,13 @@ exports.send = function(req, res){
   }
   // from: 'Light The Way <me@samples.mailgun.org>', //sandbox only only 1 email sent to
   function sendChecklist(to){
-    var name = to.name||'',zip=to.zip;
+    var name = to.name||'',zip=to.zip||'';
 
     if(name){
       name=' '+name;
     }
     if(zip){
-      zip = '#'+to.zip;
+      to.zip= '#'+zip;
     }
     var data = {
       from: 'Light The Way <checklist@ltw.helloimjag.com>',
