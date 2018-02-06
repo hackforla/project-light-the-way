@@ -38,12 +38,12 @@
       </div>
       <button class="btn btn-blue btn-block" ng-click="vm.fn.email()">Email Checklist</button>
     </div>
-    <div ng-show="vm.sent">
-      <div class="btn btn-blue btn-block">
-        <small>Email Sent To</small>
+    <div ng-show="vm.sent" class="txt-c">
+      <h4 class="txt-c">Email Sent To</h4>
+      <div class="btn btn-white btn-block">
         <div ng-bind="vm.email"></div>
       </div>
-      <div class="btn btn-link btn-block" ng-click="vm.sent=false">Change Email</div>
+      <div class="btn btn-link btn-block" ng-click="vm.sent=false"><b>Change Email</b></div>
     </div>
   </div>
 

@@ -3,8 +3,8 @@
 }
 
 .btn-disabled,
+.btn-white,
 .btn-blue{
-  background:#34AEFF;
   border:none;
   color:#fff;
   font-weight:600;
@@ -16,4 +16,12 @@
 .btn-disabled{
   background:#bdc3c7;
   color:rgba(0,0,0.5);
+}
+
+.btn-blue{
+  background:#34AEFF;
+}
+.btn-white{
+  background:#fff;
+  color:#34495E
 }
