@@ -81,19 +81,20 @@ exports.send = function(req, res){
       message: 'Id is required'
     });
   }else{
-    sendChecklist(to._id, to.email);
+    sendChecklist(to);
   }
   // from: 'Light The Way <me@samples.mailgun.org>', //sandbox only only 1 email sent to
-  function sendChecklist(id, email){
+  function sendChecklist(to){
+    var name = to.name||'';
     var data = {
       from: 'Light The Way <checklist@ltw.helloimjag.com>',
-      to: email,
+      to: to.email,
       subject: 'Your Resource Checklist',
-      html: 'Hello,<br>' +
+      html: 'Hello'+name+',<br>' +
       'This is the link for your resource checklist:<br>' +
-      '<a href="https://lighttheway.herokuapp.com/checklist/list-'+id+'">View Resource Checklist</a> <br><br><br>' +
+      '<a href="https://lighttheway.herokuapp.com/checklist/list-'+to._id+'">View Resource Checklist</a> <br><br><br>' +
       'If you can\'t view the link copy from here:<br>'+
-      'https://lighttheway.herokuapp.com/checklist/list-'+id
+      'https://lighttheway.herokuapp.com/checklist/list-'+to._id
     };
     mailgun.messages().send(data, function (err, body) {
       if(err){

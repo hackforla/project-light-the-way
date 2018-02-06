@@ -33,7 +33,8 @@
 
         var to = {
           email:vm.email,
-          _id: vm._id
+          _id: vm._id,
+          name: vm.name
         };
         checklist.send().save({ to:to }, function(d){
           vm.sent = true;
