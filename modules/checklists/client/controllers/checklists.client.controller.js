@@ -27,6 +27,8 @@
     vm.checkedOld = '';
     function update(){
       vm.checklist = checklistStorage.get();
+
+
     }
     update();
 
@@ -43,6 +45,8 @@
 
     categories.categories().get(function(d){
       vm.categories = d.data;
+      // check if all selected;
+      selectAllCheck();
     });
 
     if($state.current.name === 'checklist.list.resource'){
@@ -59,6 +63,9 @@
     function list(item){
       var index = vm.checked.indexOf(item);
       if(index === -1){
+        if(!vm.checked){
+          vm.checked=[];
+        }
         vm.checked.push(item);
       }else{
         vm.checked.splice(index, 1);
@@ -99,10 +106,21 @@
       vm.selectAll = !vm.selectAll;
     }
 
+    function selectAllCheck(){
+      if(vm.checked.length === vm.categories.length){
+        vm.selectAll = true;
+      }
+    }
+
     vm.addItem = function() {
       var newItemNo = vm.items.length + 1;
       vm.items.push('Item ' + newItemNo);
     };
+
+    if($location.hash()){
+      update();
+    }
+
 
   }
 }());
