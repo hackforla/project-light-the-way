@@ -16,6 +16,7 @@
 
     vm.sent = false;
     vm.email = '';
+    vm.zip = '';
 
     vm.fn.getZip = getZip;
 

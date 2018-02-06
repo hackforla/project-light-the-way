@@ -6,7 +6,7 @@
       <a class="add">
         <b ng-show="vm.checklist.indexOf(r._id) !== -1" ng-bind="$index+1"></b>
       </a>
-      <a href="/checklist/resource-{{r._id}}" class="featured result"  ng-click="vm.fn.modal()">
+      <a class="featured result"  ng-click="vm.fn.modal()">
         <!-- <div class="org" ng-bind="r.org">TechHire</div><div class="type" ng-bind="r.type || 'CA'"></div> -->
         <div class="name" ng-bind="r.org || 'Resource Name'">Resource Name</div>
         <div class="desc" ng-bind="r.desc">
@@ -18,7 +18,6 @@
       </a>
     </div>
   </div>
-
 
   <div class="col-sm-6 col-sm-offset-3 has-footer">
     <div ng-hide="vm.sent">
@@ -32,9 +31,9 @@
       <div class="form-group form-group-half">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Zip" ng-model="vm.zip" maxlength="5">
-          <span class="input-group-addon input-group-action"
+          <!-- <span class="input-group-addon input-group-action"
             ng-click="vm.fn.getZip()"
-          ><i class="fa fa-location-arrow aria-hidden" aria-hidden="true"></i></span>
+          ><i class="fa fa-location-arrow aria-hidden" aria-hidden="true"></i></span> -->
         </div>
       </div>
       <button class="btn btn-blue btn-block" ng-click="vm.fn.email()">Email Checklist</button>
