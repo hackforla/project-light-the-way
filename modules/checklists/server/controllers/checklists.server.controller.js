@@ -85,10 +85,13 @@ exports.send = function(req, res){
   }
   // from: 'Light The Way <me@samples.mailgun.org>', //sandbox only only 1 email sent to
   function sendChecklist(to){
-    var name = to.name||'';
+    var name = to.name||'',zip;
 
     if(name){
       name=' '+name;
+    }
+    if(to.zip){
+      zip = '#'+to.zip;
     }
     var data = {
       from: 'Light The Way <checklist@ltw.helloimjag.com>',
@@ -98,7 +101,7 @@ exports.send = function(req, res){
       'This is the link for your resource checklist:<br>' +
       '<a href="https://lighttheway.herokuapp.com/checklist/list-'+to._id+'">View Resource Checklist</a> <br><br><br>' +
       'If you can\'t view the link copy from here:<br>'+
-      'https://lighttheway.herokuapp.com/checklist/list-'+to._id
+      'https://lighttheway.herokuapp.com/checklist/list-'+to._id+zip
     };
     mailgun.messages().send(data, function (err, body) {
       if(err){
