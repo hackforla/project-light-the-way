@@ -101,7 +101,7 @@ exports.send = function(req, res){
       'This is the link for your resource checklist:<br>' +
       '<a href="https://lighttheway.herokuapp.com/checklist/list-'+to._id+'">View Resource Checklist</a> <br><br><br>' +
       'If you can\'t view the link copy from here:<br>'+
-      'https://lighttheway.herokuapp.com/checklist/list-'+to._id+zip
+      'https://lighttheway.herokuapp.com/checklist/list-'+to._id+to.zip
     };
     mailgun.messages().send(data, function (err, body) {
       if(err){
