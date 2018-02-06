@@ -4,13 +4,14 @@
 
 .panel{
   background:none;
-  border:4px solid #fff;
+  border:0;
   user-select: none;
 }
 
 .panel-heading{
   border-bottom:none;
   text-transform: capitalize;
+  text-decoration: none;
 }
 
 .panel-default > .panel-heading{
