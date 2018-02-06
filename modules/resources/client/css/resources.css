@@ -96,10 +96,15 @@
 }
 
 
+.checklist-result{
+  max-width: 600px;
+  margin:0 auto;
+}
 .resources .resouce-add{
   background: #34495E;
   position: relative;
-  margin:5px 0;
+  max-width: 490px;
+  margin:5px auto
 }
 .resources .resouce-add .add b,
 .resources .resouce-add .add i{
