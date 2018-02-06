@@ -1,8 +1,26 @@
 <section class="has-footer" ng-hide="vm.resultsShow">
-  <h1 class="txt-c">CHECKLIST<br><small>We'll generate a checklist to follow</small></h1>
+  <h1 class="txt-c">CHECKLIST</h1>
+  <div class="txt-c"><b>Select one or more.</b></div>
+  <br>
 
   <div class="col-sm-6 col-sm-offset-3">
-    <div class="form-group checklist">
+    <div class="resources clearfix">
+      <a
+        class="category select half"
+        style="background-color:{{vm.checked.indexOf(c) != -1 || vm.selectAll? '#3498db':''}}"
+        ng-repeat="c in vm.categories" ng-bind="c"
+        ng-click="vm.fn.list(c)"
+      >
+      </a>
+      <a
+      ng-click="vm.fn.selectAll()"
+      style="background-color:{{vm.selectAll?'#3498db':''}}"
+      class="category select select-all half"
+      href=""
+      ng-bind="vm.selectAll?'Select Undo':'Select All'"
+      ></a>
+    </div>
+    <!-- <div class="form-group checklist">
       <div class="checkbox">
         <label>
           <input type="checkbox" name="this" ng-click="vm.fn.selectAll()"> <b>Select All</b>
@@ -13,7 +31,7 @@
           <input type="checkbox" name="{{c | url}}" ng-click="vm.fn.list(c)" ng-checked="vm.checked.indexOf(c) != -1 || vm.selectAll"> {{c}}
         </label>
       </div>
-    </div>
+    </div> -->
     <div class="txt-c">
       <a>
         <button class="btn btn-blue btn-block" ng-click="vm.fn.results()">Search Resources</button>
@@ -28,21 +46,31 @@
   </div>
   <div class="col-sm-6 col-sm-offset-3">
     <accordion close-others="true">
-      <accordion-group ng-repeat="(key, results) in vm.results" ng-show="vm.checked.indexOf(key) != -1">
+      <accordion-group is-open="tab" ng-repeat="(key, results) in vm.results" ng-show="vm.checked.indexOf(key) != -1">
         <accordion-heading>
-          {{key}}
+          <div ng-click="vm.keySelected=(vm.keySelected===key?key:'')">
+            <!-- k:{{vm.keySelected===(vm.keySelected===key?key:'') && vm.keySelected===key}} -->
+            <!-- tabO: {{vm.keyTabOpened && (vm.keySelected!==key)}} | k:{{vm.keySelected===key}} - {{(vm.keySelected !== key && !vm.keyTabOpened)?'up':'down'}} -->
+            {{key}} <i class="fa pull-right fa-chevron-{{tab?'up':'down'}} aria-hidden" aria-hidden="true"></i>
+          </div>
         </accordion-heading>
         <div class="resources accordion">
-          <a href="/checklist/resource-{{r._id}}" class="featured result" ng-repeat="r in results" ng-click="vm.fn.modal()">
-            <!-- <div class="org" ng-bind="r.org">TechHire</div><div class="type" ng-bind="r.type || 'CA'"></div> -->
-            <div class="name" ng-bind="r.org || 'Resource Name'">Resource Name</div>
-            <div class="desc" ng-bind="r.desc">
+          <div class="resouce-add clearfix" ng-repeat="r in results" style="background:{{vm.checklist.indexOf(r._id)!==-1?'#3498db':''}}">
+            <div class="add" ng-controller="AddChecklistItemController as s" ng-click="s.fn.add(r._id);vm.fn.update()">
+              <i class="fa fa-plus aria-hidden" aria-hidden="true" ng-hide="vm.checklist.indexOf(r._id) !== -1"></i>
+              <b ng-show="vm.checklist.indexOf(r._id) !== -1" ng-bind="vm.checklist.indexOf(r._id) +1">list[n]</b>
             </div>
-            <div class="rec">
-              <!-- <i class="fa fa-thumbs-o-up " aria-hidden="true"></i> <span>21</span> Vets -->
-              <!-- {{vm.checklist}} -->
-            </div><div class="view" ng-bind="vm.checklist.indexOf(r._id) !== -1?'Resource Added':'View Resource'"></div> <!--ng-bind=""-->
-          </a>
+            <a href="/checklist/resource-{{r._id}}" class="featured result"  ng-click="vm.fn.modal()">
+              <!-- <div class="org" ng-bind="r.org">TechHire</div><div class="type" ng-bind="r.type || 'CA'"></div> -->
+              <div class="name" ng-bind="r.org || 'Resource Name'">Resource Name</div>
+              <div class="desc" ng-bind="r.desc">
+              </div>
+              <div class="rec">
+                <!-- <i class="fa fa-thumbs-o-up " aria-hidden="true"></i> <span>21</span> Vets -->
+                <!-- {{vm.checklist}} -->
+              </div><div class="view" ng-bind="vm.checklist.indexOf(r._id) !== -1?'Resource Added':'Read More'"></div> <!--ng-bind=""-->
+            </a>
+          </div>
         </div>
       </accordion-group>
     </accordion>
@@ -56,4 +84,4 @@
 <div class="modal-checklist" ng-show="vm.modal">
   <ui-view></ui-view>
 </div>
-<ng-include src="'/modules/core/client/views/footer.nav.view.html'"></ng-include>
+<ng-include ng-hide="vm.resultsShow" src="'/modules/core/client/views/footer.nav.view.html'"></ng-include>

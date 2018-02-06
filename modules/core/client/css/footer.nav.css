@@ -3,13 +3,14 @@
 }
 
 .footer-nav{
-  background:#f3f3f5;
+  background:#fff;
   position: fixed;
   width:100%;
   height:auto;
   padding:5px 0;
   bottom:0;
   text-align: center;
+  z-index: 100
 }
 
 .footer-nav a{
@@ -20,7 +21,7 @@
 }
 
 .footer-nav i{
-  font-size:1.5em;
+  font-size:1.2em;
 }
 
 .footer-nav .name{
