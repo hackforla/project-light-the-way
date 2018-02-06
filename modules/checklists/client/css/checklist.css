@@ -26,3 +26,29 @@
 .modal-overlay{
   z-index: 2000;
 }
+
+.form-group-half{
+  width: calc(50% - 5px);
+  margin-right:10px;
+  float: left;
+}
+.form-group-half:nth-child(even){
+  margin-right:0;
+}
+
+.input-group-action{
+  color: #fff;
+  background:#3498db;
+  border:0;
+}
+
+.list-id{
+  font-weight: bold;
+  opacity: .5;
+  text-align: center;
+}
+
+.checklist-result{
+  max-height: 500px;
+  overflow: scroll;
+}
