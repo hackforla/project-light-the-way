@@ -17,8 +17,12 @@
     vm.sent = false;
     vm.email = '';
 
+    vm.fn.getZip = getZip;
+
     vm.list = {};
     vm._id = $state.params.checklistId;
+
+    console.log($state);
 
     checklist.list(vm._id).get(function(d){
       vm.list = d;
@@ -33,6 +37,16 @@
         };
         checklist.send().save({ to:to }, function(d){
           vm.sent = true;
+        });
+      }
+    }
+
+    function getZip(){
+      console.log('nav');
+      if (navigator.geolocation) {
+        console.log('on');
+        navigator.geolocation.getCurrentPosition(function(position){
+          console.log(position);
         });
       }
     }
