@@ -1,22 +1,41 @@
 <section>
-  <h1 class="title">Checklist {{vm.list._id}}</h1>
-  <div class="col-sm-6 col-sm-offset-3">
-    <div class="resources">
-      <a href="/resource/{{r._id}}" class="featured result" ng-repeat="r in vm.list.items">
+  <h1 class="txt-c">Checklist</h1>
+  <div class="list-id">{{vm.list._id}}</div>
+  <div class="resources checklist-result">
+    <div class="resouce-add clearfix" ng-repeat="r in vm.list.items" style="background:{{vm.checklist.indexOf(r._id)!==-1?'#3498db':''}}">
+      <a class="add">
+        <b ng-show="vm.checklist.indexOf(r._id) !== -1" ng-bind="$index+1"></b>
+      </a>
+      <a href="/checklist/resource-{{r._id}}" class="featured result"  ng-click="vm.fn.modal()">
         <!-- <div class="org" ng-bind="r.org">TechHire</div><div class="type" ng-bind="r.type || 'CA'"></div> -->
         <div class="name" ng-bind="r.org || 'Resource Name'">Resource Name</div>
-        <div class="desc" ng-bind="r.desc">This will be a short description about this resources and it's context. This will be a short description about this resources and it's context.</div>
+        <div class="desc" ng-bind="r.desc">
+        </div>
         <div class="rec">
           <!-- <i class="fa fa-thumbs-o-up " aria-hidden="true"></i> <span>21</span> Vets -->
-        </div><div class="view">View Resource</div>
+          <!-- {{vm.checklist}} -->
+        </div><div class="view" ng-bind="vm.checklist.indexOf(r._id) !== -1?'Resource Added':'Read More'"></div> <!--ng-bind=""-->
       </a>
     </div>
   </div>
+
+
   <div class="col-sm-6 col-sm-offset-3 has-footer">
     <div ng-hide="vm.sent">
       <div class="title">Send to email</div>
       <div class="form-group">
-        <input class="form-control" type="email" ng-model="vm.email" placeholder="email@email.com" required="true">
+        <input class="form-control" type="email" ng-model="vm.email" placeholder="Email*" required="true">
+      </div>
+      <div class="form-group form-group-half">
+        <input type="text" class="form-control" placeholder="First & Last Name">
+      </div>
+      <div class="form-group form-group-half">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Zip">
+          <span class="input-group-addon input-group-action"
+            ng-click="vm.fn.getZip()"
+          ><i class="fa fa-location-arrow aria-hidden" aria-hidden="true"></i></span>
+        </div>
       </div>
       <button class="btn btn-blue btn-block" ng-click="vm.fn.email()">Email Checklist</button>
     </div>
