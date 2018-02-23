@@ -41,7 +41,7 @@
     "grunt": "1.0.1",
     "grunt-cli": "~1.2.0",
     "helmet": "~3.8.1",
-    "jasmine-core": "^2.3.4",
+    "jasmine-core": "^3.0.0",
     "lodash": "^4.17.4",
     "method-override": "^2.3.3",
     "mocha": "~4.0.0",
@@ -63,7 +63,7 @@
     "serve-favicon": "^2.3.0",
     "socket.io": "^2.0.3",
     "swig": "^1.4.2",
-    "validator": "^8.0.0"
+    "validator": "^9.4.1"
   },
   "devDependencies": {
     "coveralls": "^2.11.4",
